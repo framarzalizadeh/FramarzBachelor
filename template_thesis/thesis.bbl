@@ -1,0 +1,63 @@
+\begin{thebibliography}{9}
+% this bibliography was produced with the style dinat.bst v2.5
+\makeatletter
+\newcommand{\dinatlabel}[1]%
+{\ifNAT@numbers\else\NAT@biblabelnum{#1}\hspace{2\labelsep}\fi}
+\makeatother
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax\def\url#1{\texttt{#1}}\fi
+
+\bibitem[Balzert(2011)]{balzert_softwaretechnik_2011}
+\dinatlabel{Balzert 2011} \textsc{Balzert}, Helmut:
+\newblock \emph{Lehrbuch der Softwaretechnik: Entwurf, Implementierung, Installation und Betrieb}.
+\newblock Spektrum, 2011
+
+\bibitem[Beck-IT(2022)]{beckit_rechnungsverarbeitung_2022}
+\dinatlabel{Beck-IT 2022} \textsc{Beck-IT}:
+\newblock \emph{Die manuelle und automatisierte Rechnungsverarbeitung im Vergleich}.
+\newblock 2022. --
+\newblock URL \url{https://beck-it.com/news/die-manuelle-und-automatisierte-rechnungsverarbeitung-im-vergleich/}. -- Zugriffsdatum: 2025-12-13
+
+\bibitem[dpunkt.verlag(2020{\natexlab{a}})]{grundlagen_modular_softwareentwurf_2020}
+\dinatlabel{dpunkt.verlag 2020{\natexlab{a}}} \textsc{dpunkt.verlag}:
+\newblock \emph{Grundlagen des modularen Softwareentwurfs}.
+\newblock 2020. --
+\newblock URL \url{https://www.assets.dpunkt.de/openbooks/Openbook_Spichale_API-Design_2A.pdf}. -- Zugriffsdatum: 2025-12-13
+
+\bibitem[dpunkt.verlag(2020{\natexlab{b}})]{langlebige_architekturen_2020}
+\dinatlabel{dpunkt.verlag 2020{\natexlab{b}}} \textsc{dpunkt.verlag}:
+\newblock \emph{Langlebige Softwarearchitekturen – Erweiterungen}.
+\newblock 2020. --
+\newblock URL \url{https://www.langlebige-softwarearchitekturen.de/media/wps/uploads/langlebige-softwarearchitekturen-erweiterungen.pdf}. -- Zugriffsdatum: 2025-12-13
+
+\bibitem[Flowwer(2025)]{flowwer_automatisierte_rechnungsverarbeitung_2025}
+\dinatlabel{Flowwer 2025} \textsc{Flowwer}:
+\newblock \emph{Automatisierte Rechnungsverarbeitung: Effizient \& fehlerfrei}.
+\newblock 2025. --
+\newblock URL \url{https://www.flowwer.de/automatisierte-rechnungsverarbeitung-der-beste-weg-zum-erfolg/}. -- Zugriffsdatum: 2025-12-13
+
+\bibitem[Johann(2025)]{johann_nfa_2025}
+\dinatlabel{Johann 2025} \textsc{Johann}, Peter:
+\newblock \emph{Nicht-funktionale Anforderungen}.
+\newblock 2025. --
+\newblock URL \url{https://www.peterjohann-consulting.de/nicht-funktionale-anforderungen/}. -- Zugriffsdatum: 2025-12-13
+
+\bibitem[Media(2018)]{seibert_nfa_2018}
+\dinatlabel{Media 2018} \textsc{Media}, Seibert:
+\newblock \emph{Qualität, funktionale und nichtfunktionale Anforderungen in der Softwareentwicklung}.
+\newblock 2018. --
+\newblock URL \url{https://seibert.group/blog/2018/05/14/qualitaet-funktionale-und-nichtfunktionale-anforderungen-in-der-software-entwicklung/}. -- Zugriffsdatum: 2025-12-13
+
+\bibitem[Pleo(2024)]{pleo_automatisierte_rechnungsverarbeitung_2024}
+\dinatlabel{Pleo 2024} \textsc{Pleo}:
+\newblock \emph{Automatisierte Rechnungsverarbeitung: Warum sie durch die E-Rechnung immer wichtiger wird}.
+\newblock 2024. --
+\newblock URL \url{https://blog.pleo.io/de/automatisierte-rechnungsverarbeitung}. -- Zugriffsdatum: 2025-12-13
+
+\bibitem[Spichale(2020)]{spichale_apidesign_2020}
+\dinatlabel{Spichale 2020} \textsc{Spichale}, Kai:
+\newblock \emph{API-Design: Grundlagen und Best Practices für moderne Schnittstellen}.
+\newblock 2020. --
+\newblock URL \url{https://www.assets.dpunkt.de/openbooks/Openbook_Spichale_API-Design_2A.pdf}. -- Zugriffsdatum: 2025-12-13
+
+\end{thebibliography}

@@ -1,0 +1,54 @@
+\babel@toc {ngerman}{}\relax 
+\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{ix}{chapter*.2}%
+\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{xi}{chapter*.3}%
+\contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Problemstellung}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Motivation und Zielsetzung}{1}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Forschungsfragen}{1}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Vorgehensweise und Aufbau der Arbeit}{1}{section.1.4}%
+\contentsline {chapter}{\numberline {2}Theoretische Grundlagen}{2}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Digitalisierung administrativer Prozesse und Rechnungswesen}{2}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Chatbots und dialogbasierte Systeme}{2}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Cloudbasierte Datenhaltung und Integrationen}{2}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Dokumentengenerierung in der Cloud}{2}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Grundlagen moderner Webanwendungen}{2}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Technologischer Hintergrund}{3}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Make.com als Integrations- und Automatisierungsplattform}{3}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Airtable als Datenhaltung}{3}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Google Docs und Google Drive}{3}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Lovable Cloud / Supabase Edge Functions}{3}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Frontend-Stack (React, TypeScript, Tailwind, shadcn/ui)}{3}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Konzeption des Systems}{4}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Anforderungen und Use Cases}{4}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Zielarchitektur und Systemübersicht}{7}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Datenmodell und Datenflüsse}{9}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Prozessablauf vom Chatbot bis zur Ablage}{12}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Ablauf „Rechnung neu erstellen“}{12}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Ablauf „Dokument ablegen“}{15}{subsection.4.4.2}%
+\contentsline {section}{\numberline {4.5}Sicherheits- und Datenschutzkonzept}{16}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Implementierung}{17}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Implementierung des Chatbots (make.com‑Szenarien)}{17}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Datenhaltung und Strukturen in Airtable}{17}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Automatische Dokumentenerstellung in Google Docs}{17}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Ablagestrategie in Google Drive (Jahr/Quartal/Monat)}{17}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Implementierung der ClientHub WebApp}{17}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Frontend (React, UI‑Konzept)}{17}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Edge Functions in Lovable Cloud}{17}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.3}API‑Anbindung an Airtable und Google Drive}{17}{subsection.5.5.3}%
+\contentsline {chapter}{\numberline {6}Evaluation}{18}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Testkonzept und Testumgebung}{18}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Funktionale Tests}{18}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Performance-Analyse}{18}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Vergleich: manueller vs. automatisierter Prozess}{18}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Usability-Bewertung}{18}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Grenzen des Systems und Risiken}{18}{section.6.6}%
+\contentsline {chapter}{\numberline {7}Fazit und Ausblick}{19}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Zusammenfassung der Ergebnisse}{19}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Beantwortung der Forschungsfragen}{19}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Beitrag der Arbeit und praktische Implikationen}{19}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Ausblick und Weiterentwicklung}{19}{section.7.4}%
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{20}{chapter*.4}%
+\contentsline {chapter}{\numberline {A}Anhang}{22}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Verwendete Hilfsmittel}{22}{section.A.1}%
+\contentsline {chapter}{Selbstständigkeitserklärung}{23}{section*.6}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

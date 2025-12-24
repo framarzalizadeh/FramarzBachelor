@@ -1,0 +1,68 @@
+This is BibTeX, Version 0.99d (TeX Live 2025)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: thesis.aux
+The style file: dinat.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: literature.bib
+Warning--entry type for "beckit_rechnungsverarbeitung_2022" isn't style-file defined
+--line 11 of file literature.bib
+Warning--entry type for "pleo_automatisierte_rechnungsverarbeitung_2024" isn't style-file defined
+--line 19 of file literature.bib
+Warning--entry type for "flowwer_automatisierte_rechnungsverarbeitung_2025" isn't style-file defined
+--line 27 of file literature.bib
+Warning--entry type for "seibert_nfa_2018" isn't style-file defined
+--line 35 of file literature.bib
+Warning--entry type for "johann_nfa_2025" isn't style-file defined
+--line 43 of file literature.bib
+Warning--entry type for "grundlagen_modular_softwareentwurf_2020" isn't style-file defined
+--line 58 of file literature.bib
+Warning--entry type for "langlebige_architekturen_2020" isn't style-file defined
+--line 66 of file literature.bib
+Warning--entry type for "spichale_apidesign_2020" isn't style-file defined
+--line 74 of file literature.bib
+You've used 9 entries,
+            3552 wiz_defined-function locations,
+            836 strings with 7569 characters,
+and the built_in function-call counts, 4403 in all, are:
+= -- 520
+> -- 63
+< -- 43
++ -- 63
+- -- 27
+* -- 414
+:= -- 753
+add.period$ -- 9
+call.type$ -- 9
+change.case$ -- 36
+chr.to.int$ -- 8
+cite$ -- 9
+duplicate$ -- 120
+empty$ -- 370
+format.name$ -- 54
+if$ -- 910
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 2
+newline$ -- 63
+num.names$ -- 36
+pop$ -- 41
+preamble$ -- 1
+purify$ -- 36
+quote$ -- 0
+skip$ -- 129
+stack$ -- 0
+substring$ -- 413
+swap$ -- 18
+text.length$ -- 9
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 94
+warning$ -- 0
+while$ -- 54
+width$ -- 0
+write$ -- 97
+(There were 8 warnings)
