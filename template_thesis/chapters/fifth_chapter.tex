@@ -3,7 +3,6 @@
 %
 \chapter{Implementierung}
 \section{Implementierung des Chatbots (make.com‑Szenarien)}
-\subsection{Implementierung des Chatbots (Make.com-Szenarien)}
 
 Das in Kapitel~4 konzipierte Chatbot-System wurde auf der Automatisierungsplattform \textbf{Make.com} umgesetzt. Die Dialoglogik besteht aus mehreren Szenarien, die über Webhooks Ereignisse auslösen, Nachrichten verarbeiten und Daten zwischen WhatsApp, Airtable, Google Docs und Google Drive austauschen. Die Grundlage der Kommunikation bildet die \textbf{WhatsApp Business Cloud API}, deren eingehende Nachrichten ein \emph{Watch Events}-Modul in Make als Trigger empfängt \citep{make_whatsapp_watch_events}. Jedes eingehende Ereignis löst genau einen Ablauf aus, sodass Nachrichten synchron verarbeitet werden.
 
