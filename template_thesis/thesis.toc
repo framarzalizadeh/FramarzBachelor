@@ -28,27 +28,32 @@
 \contentsline {section}{\numberline {4.5}Sicherheits- und Datenschutzkonzept}{16}{section.4.5}%
 \contentsline {chapter}{\numberline {5}Implementierung}{17}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Implementierung des Chatbots (make.com‑Szenarien)}{17}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Datenhaltung und Strukturen in Airtable}{17}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Automatische Dokumentenerstellung in Google Docs}{17}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Ablagestrategie in Google Drive (Jahr/Quartal/Monat)}{17}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Implementierung der ClientHub WebApp}{17}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}Frontend (React, UI‑Konzept)}{17}{subsection.5.5.1}%
-\contentsline {subsection}{\numberline {5.5.2}Edge Functions in Lovable Cloud}{17}{subsection.5.5.2}%
-\contentsline {subsection}{\numberline {5.5.3}API‑Anbindung an Airtable und Google Drive}{17}{subsection.5.5.3}%
-\contentsline {chapter}{\numberline {6}Evaluation}{18}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Testkonzept und Testumgebung}{18}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Funktionale Tests}{18}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Performance-Analyse}{18}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Vergleich: manueller vs. automatisierter Prozess}{18}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Usability-Bewertung}{18}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Grenzen des Systems und Risiken}{18}{section.6.6}%
-\contentsline {chapter}{\numberline {7}Fazit und Ausblick}{19}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Zusammenfassung der Ergebnisse}{19}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Beantwortung der Forschungsfragen}{19}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Beitrag der Arbeit und praktische Implikationen}{19}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Ausblick und Weiterentwicklung}{19}{section.7.4}%
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{20}{chapter*.4}%
-\contentsline {chapter}{\numberline {A}Anhang}{22}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Verwendete Hilfsmittel}{22}{section.A.1}%
-\contentsline {chapter}{Selbstständigkeitserklärung}{23}{section*.6}%
+\contentsline {subsection}{\numberline {5.1.1}Implementierung des Chatbots (Make.com-Szenarien)}{17}{subsection.5.1.1}%
+\contentsline {subsubsection}{\nonumberline Szenario-Start und Nutzerregistrierung}{17}{subsubsection*.5}%
+\contentsline {subsubsection}{\nonumberline Dialogsteuerung und Routing}{18}{subsubsection*.7}%
+\contentsline {subsubsection}{\nonumberline Ablauf ``Rechnung erstellen''}{18}{subsubsection*.9}%
+\contentsline {subsubsection}{\nonumberline Ablauf ``Dokument speichern''}{19}{subsubsection*.11}%
+\contentsline {section}{\numberline {5.2}Datenhaltung und Strukturen in Airtable}{20}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Automatische Dokumentenerstellung in Google Docs}{20}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Ablagestrategie in Google Drive (Jahr/Quartal/Monat)}{20}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Implementierung der ClientHub WebApp}{20}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Frontend (React, UI‑Konzept)}{20}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Edge Functions in Lovable Cloud}{20}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.3}API‑Anbindung an Airtable und Google Drive}{20}{subsection.5.5.3}%
+\contentsline {chapter}{\numberline {6}Evaluation}{21}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Testkonzept und Testumgebung}{21}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Funktionale Tests}{21}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Performance-Analyse}{21}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Vergleich: manueller vs. automatisierter Prozess}{21}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Usability-Bewertung}{21}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Grenzen des Systems und Risiken}{21}{section.6.6}%
+\contentsline {chapter}{\numberline {7}Fazit und Ausblick}{22}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Zusammenfassung der Ergebnisse}{22}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Beantwortung der Forschungsfragen}{22}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Beitrag der Arbeit und praktische Implikationen}{22}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Ausblick und Weiterentwicklung}{22}{section.7.4}%
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{23}{chapter*.12}%
+\contentsline {chapter}{\numberline {A}Anhang}{25}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Verwendete Hilfsmittel}{25}{section.A.1}%
+\contentsline {chapter}{Selbstständigkeitserklärung}{26}{section*.14}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

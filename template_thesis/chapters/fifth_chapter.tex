@@ -3,6 +3,36 @@
 %
 \chapter{Implementierung}
 \section{Implementierung des Chatbots (make.com‑Szenarien)}
+\subsection{Implementierung des Chatbots (Make.com-Szenarien)}
+
+Das in Kapitel~4 konzipierte Chatbot-System wurde auf der Automatisierungsplattform \textbf{Make.com} umgesetzt. Die Dialoglogik besteht aus mehreren Szenarien, die über Webhooks Ereignisse auslösen, Nachrichten verarbeiten und Daten zwischen WhatsApp, Airtable, Google Docs und Google Drive austauschen. Die Grundlage der Kommunikation bildet die \textbf{WhatsApp Business Cloud API}, deren eingehende Nachrichten ein \emph{Watch Events}-Modul in Make als Trigger empfängt \citep{make_whatsapp_watch_events}. Jedes eingehende Ereignis löst genau einen Ablauf aus, sodass Nachrichten synchron verarbeitet werden.
+
+\subsubsection{Szenario-Start und Nutzerregistrierung}
+Nach Aktivierung durch ein eingehendes WhatsApp-Ereignis ruft das Szenario die zugehörige Telefonnummer ab und sucht in Airtable nach bestehendem Nutzerstatus. Über das Modul \emph{Search records} der Airtable-App werden Datensätze in der Tabelle \texttt{User\_Sessions} abgefragt \citep{make_airtable_search_records}. Wird kein Eintrag gefunden, legt das Szenario automatisch eine neue Sitzung an, speichert die Telefonnummer im Feld \texttt{phone\_number} und setzt \texttt{current\_step} auf \emph{menu}. Anschließend erhält der Nutzer eine automatisierte Willkommensnachricht mit dem Hinweis, die Eingabe ``Start'' zu senden, um den Prozess zu beginnen. Dieses Messaging erfolgt über das Modul \emph{Send a message} der WhatsApp-Integration \citep{make_whatsapp_watch_events}.
+
+\subsubsection{Dialogsteuerung und Routing}
+Die gesamte Interaktionslogik wird durch einen zentralen Router gesteuert, der anhand des Felds \texttt{current\_step} in \texttt{User\_Sessions} entscheidet, welcher Teilablauf aktiviert wird. Sobald ein Nutzer beispielsweise ``Start'' sendet, reagiert der Pfad \emph{menu}: Es wird eine Nachricht mit zwei interaktiven Buttons gesendet -- ``Rechnung erstellen'' und ``Dokument speichern''. Drückt der Nutzer einen dieser Buttons, aktualisiert das Szenario das Statusfeld \texttt{current\_step} in Airtable und verzweigt in den passenden Ablauf. Zur Verarbeitung mehrerer möglicher Folgeschritte kommen in Make Router-Module und Filterbedingungen zum Einsatz, die unterschiedliche Ausgänge abhängig von Zustands- und Eingabewerten aktivieren \citep{make_array_aggregator}.
+
+\subsubsection{Ablauf ``Rechnung erstellen''}
+Im Pfad \textbf{``Rechnung erstellen''} beginnt die Datenerfassung mit der Kundenauswahl. Der Benutzer kann wählen, ob ein neuer Kunde angelegt oder ein bestehender gesucht werden soll. Bei Auswahl \emph{Kunde suchen} fordert der Chatbot einen Suchbegriff an, speichert diesen in \texttt{User\_Sessions} und durchsucht die Airtable-Tabelle \texttt{Customer} nach passenden Einträgen. Die Suchabfrage nutzt eine OR-Kombination mehrerer Felder (Name, Firmenname, Adresse u.\,a.) sowie die Funktion \texttt{LOWER()} zur case-insensitiven Suche \citep{make_airtable_search_records}. Ein \emph{Array aggregator} fasst die Ergebnisse zu einem Array zusammen, dessen Länge über nachgelagerte Filtermodule bestimmt, ob kein, ein oder mehrere Treffer vorliegen \citep{make_array_aggregator}.
+
+\begin{itemize}
+  \item \textbf{Kein Treffer:} Der Nutzer kann abbrechen, neu suchen oder einen neuen Kunden erstellen.
+  \item \textbf{Ein Treffer:} Der Kunde kann bestätigt oder eine erneute Suche ausgelöst werden.
+  \item \textbf{Mehrere Treffer:} Der Nutzer wählt per nummeriertem Emoji den gewünschten Datensatz aus.
+\end{itemize}
+
+Nach Auswahl oder Neuanlage eines Kunden werden die zugehörigen Stammdaten in \texttt{Customer} gespeichert und zugleich als Relation in \texttt{Rechnung} übernommen. Der folgende Dialog sammelt schrittweise rechnungsbezogene Informationen (Datum, Rechnungsnummer, Leistungsbeschreibung, Menge, Einzelpreis, Zahlungsfrist, Zahlart). Die Dialogschritte sind durch \texttt{current\_step}-Werte (z.\,B. \emph{Datum ausgewählt}, \emph{Position erstellt}) klar strukturiert. Eingaben werden jeweils kurz bestätigt, bevor das Szenario in den nächsten Schritt wechselt.
+
+Für Freitexte wie Leistungsbeschreibungen können sowohl Texteingaben als auch Sprachnachrichten genutzt werden. Audiodaten werden mit einem \emph{Download media}-Modul der WhatsApp-Integration heruntergeladen und anschließend durch einen KI-Dienst (z.\,B. ChatGPT) transkribiert. Auf Basis des transkribierten Textes erzeugt ein weiteres KI-Modul eine kurze, formal geeignete Rechnungsposition. Ein restriktiv formuliertes Prompt begrenzt dabei Satzlänge, Wortanzahl und untersagt das Hinzufügen nicht genannter Inhalte, um eine präzise und sachliche Beschreibung sicherzustellen. Das Ergebnis wird dem Nutzer im Chat zur Bestätigung angezeigt; bei Ablehnung kann eine neue Eingabe oder Aufnahme gestartet werden.
+
+Nach der Positionsbestätigung fragt der Bot nach Menge und Einzelpreis. Beide Werte werden verifiziert, in temporären Feldern von \texttt{User\_Sessions} zwischengespeichert und anschließend in den Tabellen \texttt{Rechnung} und \texttt{Rechnungsposition} persistiert. Abschließend erstellt das Szenario mit der Google-Docs-Integration ein Rechnungsdokument auf Basis eines Templates, fügt alle dynamischen Felder ein, exportiert das Dokument als PDF und sendet es dem Nutzer direkt über WhatsApp zurück \citep{make_google_docs}. Damit ist der End-to-End-Prozess der Rechnungserstellung abgeschlossen.
+
+\subsubsection{Ablauf ``Dokument speichern''}
+Wenn im Hauptmenü stattdessen \emph{Dokument speichern} gewählt wird, läuft der zweite zentrale Pfad: die strukturierte \textbf{Dokumentenablage}. Der Chatbot fragt Jahr, Quartal und Monat nacheinander ab, speichert die Antworten in \texttt{User\_Sessions} und fordert anschließend zum Hochladen des Dokuments auf. Auf diese Weise wird der zeitliche Kontext der Ablage eindeutig bestimmt und nutzerseitig validiert.
+
+Das Szenario prüft anschließend mit einem \emph{Search files/folders}-Modul, ob im Google Drive bereits passende Ordner bestehen. Falls nicht, werden diese in der Reihenfolge Telefonnummer $\rightarrow$ Jahr $\rightarrow$ Quartal $\rightarrow$ Monat automatisch erstellt. Nach erfolgreicher Prüfung oder Anlage lädt das Modul \emph{Upload a file} die Datei in den entsprechenden Ordner und schreibt den resultierenden Drive-Link zurück nach Airtable, sodass das Dokument später über die Web-Anwendung konsistent gefunden und abgerufen werden kann \citep{make_google_drive}.
+
 \section{Datenhaltung und Strukturen in Airtable}
 \section{Automatische Dokumentenerstellung in Google Docs}
 \section{Ablagestrategie in Google Drive (Jahr/Quartal/Monat)}

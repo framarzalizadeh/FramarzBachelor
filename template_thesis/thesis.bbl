@@ -1,4 +1,4 @@
-\begin{thebibliography}{9}
+\begin{thebibliography}{14}
 % this bibliography was produced with the style dinat.bst v2.5
 \makeatletter
 \newcommand{\dinatlabel}[1]%
@@ -17,6 +17,12 @@
 \newblock \emph{Die manuelle und automatisierte Rechnungsverarbeitung im Vergleich}.
 \newblock 2022. --
 \newblock URL \url{https://beck-it.com/news/die-manuelle-und-automatisierte-rechnungsverarbeitung-im-vergleich/}. -- Zugriffsdatum: 2025-12-13
+
+\bibitem[ConsultEvo(2025)]{make_array_aggregator}
+\dinatlabel{ConsultEvo 2025} \textsc{ConsultEvo}:
+\newblock \emph{Mastering Make.com Array Aggregator}.
+\newblock 2025. --
+\newblock URL \url{https://consultevo.com/make-com-array-aggregator-guide/}. -- Zugriffsdatum: 2025-12-26
 
 \bibitem[dpunkt.verlag(2020{\natexlab{a}})]{grundlagen_modular_softwareentwurf_2020}
 \dinatlabel{dpunkt.verlag 2020{\natexlab{a}}} \textsc{dpunkt.verlag}:
@@ -41,6 +47,33 @@
 \newblock \emph{Nicht-funktionale Anforderungen}.
 \newblock 2025. --
 \newblock URL \url{https://www.peterjohann-consulting.de/nicht-funktionale-anforderungen/}. -- Zugriffsdatum: 2025-12-13
+
+\bibitem[{Make.com}(2024)]{make_google_docs}
+\dinatlabel{{Make.com} 2024} \textsc{{Make.com}}:
+\newblock \emph{Google Docs Integration --- Workflow Automation}.
+\newblock 2024. --
+\newblock URL \url{https://www.make.com/en/integrations/auto-content-api/google-docs}. -- Zugriffsdatum: 2025-12-26
+
+\bibitem[{Make.com}(2025{\natexlab{a}})]{make_airtable_search_records}
+\dinatlabel{{Make.com} 2025{\natexlab{a}}} \textsc{{Make.com}}:
+\newblock \emph{Airtable Modules --- Search records}.
+\newblock 2025. --
+\newblock URL \url{https://apps.make.com/airtable-modules}. -- Zugriffsdatum: 2025-12-24. --
+\newblock Abruf am 24.12.2025
+
+\bibitem[{Make.com}(2025{\natexlab{b}})]{make_whatsapp_watch_events}
+\dinatlabel{{Make.com} 2025{\natexlab{b}}} \textsc{{Make.com}}:
+\newblock \emph{WhatsApp Business Cloud --- Modules Documentation}.
+\newblock 2025. --
+\newblock URL \url{https://apps.make.com/whatsapp-business-cloud-modules}. -- Zugriffsdatum: 2025-12-24. --
+\newblock Abruf am 24.12.2025
+
+\bibitem[{Make.com Community}(2025)]{make_google_drive}
+\dinatlabel{{Make.com Community} 2025} \textsc{{Make.com Community}}:
+\newblock \emph{How To Connect Make.com to Google Drive (2025 Tutorial)}.
+\newblock 2025. --
+\newblock URL \url{https://www.youtube.com/watch?v=AiUT9cOCmVU}. -- Zugriffsdatum: 2025-12-26. --
+\newblock YouTube-Tutorial zu Google-Drive-Anbindung
 
 \bibitem[Media(2018)]{seibert_nfa_2018}
 \dinatlabel{Media 2018} \textsc{Media}, Seibert:
