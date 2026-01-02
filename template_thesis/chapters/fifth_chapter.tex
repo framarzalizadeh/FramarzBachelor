@@ -4,16 +4,71 @@
 \chapter{Implementierung}
 \section{Implementierung des Chatbots (make.com‑Szenarien)}
 
-Das in Kapitel~4 konzipierte Chatbot-System wurde auf der Automatisierungsplattform \textbf{Make.com} umgesetzt. Die Dialoglogik besteht aus mehreren Szenarien, die über Webhooks Ereignisse auslösen, Nachrichten verarbeiten und Daten zwischen WhatsApp, Airtable, Google Docs und Google Drive austauschen. Die Grundlage der Kommunikation bildet die \textbf{WhatsApp Business Cloud API}, deren eingehende Nachrichten ein \emph{Watch Events}-Modul in Make als Trigger empfängt \citep{make_whatsapp_watch_events}. Jedes eingehende Ereignis löst genau einen Ablauf aus, sodass Nachrichten synchron verarbeitet werden.
+Das in Kapitel~4 konzipierte Chatbot-System wurde mithilfe der 
+Automatisierungsplattform \textbf{Make.com} umgesetzt. Die Dialoglogik 
+basiert auf mehreren Szenarien, die über Webhooks Ereignisse auslösen, 
+Nachrichten verarbeiten und Daten zwischen WhatsApp, Airtable, Google Docs 
+und Google Drive austauschen.
+
+Die Grundlage der Kommunikation bildet die \textbf{WhatsApp Business Cloud API}. 
+Eingehende Nachrichten werden über ein \emph{Watch Events}-Modul in Make als 
+Trigger erfasst \citep{make_whatsapp_watch_events}. Jedes empfangene Ereignis 
+initiiert einen eindeutigen Ablauf, wodurch eine synchrone Verarbeitung der 
+Nachrichten sichergestellt wird.
+
 
 \subsubsection{Szenario-Start und Nutzerregistrierung}
-Nach Aktivierung durch ein eingehendes WhatsApp-Ereignis ruft das Szenario die zugehörige Telefonnummer ab und sucht in Airtable nach bestehendem Nutzerstatus. Über das Modul \emph{Search records} der Airtable-App werden Datensätze in der Tabelle \texttt{User\_Sessions} abgefragt \citep{make_airtable_search_records}. Wird kein Eintrag gefunden, legt das Szenario automatisch eine neue Sitzung an, speichert die Telefonnummer im Feld \texttt{phone\_number} und setzt \texttt{current\_step} auf \emph{menu}. Anschließend erhält der Nutzer eine automatisierte Willkommensnachricht mit dem Hinweis, die Eingabe ``Start'' zu senden, um den Prozess zu beginnen. Dieses Messaging erfolgt über das Modul \emph{Send a message} der WhatsApp-Integration \citep{make_whatsapp_watch_events}.
+Nach der Aktivierung durch ein eingehendes WhatsApp-Ereignis ruft das Szenario 
+die zugehörige Telefonnummer ab und prüft in Airtable, ob bereits ein 
+Nutzerstatus existiert. Hierzu werden über das Modul \emph{Search records} 
+der Airtable-App Datensätze in der Tabelle \texttt{User\_Sessions} abgefragt 
+\citep{make_airtable_search_records}.
+
+Wird kein entsprechender Eintrag gefunden, legt das System automatisch eine 
+neue Sitzung an, speichert die Telefonnummer im Feld \texttt{phone\_number} 
+und setzt den Wert von \texttt{current\_step} auf \emph{menu}. Im Anschluss 
+wird dem Nutzer eine automatisierte Willkommensnachricht übermittelt, die 
+dazu auffordert, durch die Eingabe von ``Start'' den Prozess zu beginnen. 
+Der Versand der Nachricht erfolgt über das Modul \emph{Send a message} der 
+WhatsApp-Integration \citep{make_whatsapp_watch_events}.
+
 
 \subsubsection{Dialogsteuerung und Routing}
-Die gesamte Interaktionslogik wird durch einen zentralen Router gesteuert, der anhand des Felds \texttt{current\_step} in \texttt{User\_Sessions} entscheidet, welcher Teilablauf aktiviert wird. Sobald ein Nutzer beispielsweise ``Start'' sendet, reagiert der Pfad \emph{menu}: Es wird eine Nachricht mit zwei interaktiven Buttons gesendet -- ``Rechnung erstellen'' und ``Dokument speichern''. Drückt der Nutzer einen dieser Buttons, aktualisiert das Szenario das Statusfeld \texttt{current\_step} in Airtable und verzweigt in den passenden Ablauf. Zur Verarbeitung mehrerer möglicher Folgeschritte kommen in Make Router-Module und Filterbedingungen zum Einsatz, die unterschiedliche Ausgänge abhängig von Zustands- und Eingabewerten aktivieren \citep{make_array_aggregator}.
+Die gesamte Interaktionslogik wird durch einen zentralen Router gesteuert, 
+der anhand des Felds \texttt{current\_step} in der Tabelle \texttt{User\_Sessions} 
+entscheidet, welcher Teilablauf aktiviert wird. Dieses Vorgehen ermöglicht 
+eine zustandsbasierte Steuerung des Dialogs.
+
+Sendet ein Nutzer beispielsweise den Befehl ``Start'', wird der Menü-Zustand 
+(\emph{menu}) aktiviert. In diesem Schritt erhält der Nutzer eine Nachricht 
+mit zwei interaktiven Buttons: ``Rechnung erstellen'' und ``Dokument speichern''. 
+Bei Auswahl eines Buttons aktualisiert das Szenario das Statusfeld 
+\texttt{current\_step} in Airtable und verzweigt anschließend in den 
+entsprechenden Ablauf.
+
+Zur Verarbeitung mehrerer möglicher Folgeschritte kommen in Make Router-Module 
+in Kombination mit Filterbedingungen zum Einsatz. Diese aktivieren abhängig 
+von Zustands- und Eingabewerten unterschiedliche Ausgänge und steuern so den 
+weiteren Ablauf des Szenarios \citep{make_array_aggregator}.
 
 \subsubsection{Ablauf ``Rechnung erstellen''}
-Im Pfad \textbf{``Rechnung erstellen''} beginnt die Datenerfassung mit der Kundenauswahl. Der Benutzer kann wählen, ob ein neuer Kunde angelegt oder ein bestehender gesucht werden soll. Bei Auswahl \emph{Kunde suchen} fordert der Chatbot einen Suchbegriff an, speichert diesen in \texttt{User\_Sessions} und durchsucht die Airtable-Tabelle \texttt{Customer} nach passenden Einträgen. Die Suchabfrage nutzt eine OR-Kombination mehrerer Felder (Name, Firmenname, Adresse u.\,a.) sowie die Funktion \texttt{LOWER()} zur case-insensitiven Suche \citep{make_airtable_search_records}. Ein \emph{Array aggregator} fasst die Ergebnisse zu einem Array zusammen, dessen Länge über nachgelagerte Filtermodule bestimmt, ob kein, ein oder mehrere Treffer vorliegen \citep{make_array_aggregator}.
+Im Pfad \textbf{``Rechnung erstellen''} beginnt die Datenerfassung mit der 
+Kundenauswahl. Der Nutzer kann entscheiden, ob ein neuer Kunde angelegt oder 
+ein bestehender Kunde gesucht werden soll.
+
+Bei Auswahl der Option \emph{Kunde suchen} fordert der Chatbot einen 
+Suchbegriff an, speichert diesen in der Tabelle \texttt{User\_Sessions} 
+und durchsucht anschließend die Airtable-Tabelle \texttt{Customers} nach 
+passenden Einträgen. Die Suchabfrage basiert auf einer OR-Kombination 
+mehrerer Felder, darunter Name, Firmenname und Adresse, und verwendet 
+zusätzlich die Funktion \texttt{LOWER()} zur case-insensitiven Suche 
+\citep{make_airtable_search_records}.
+
+Die ermittelten Ergebnisse werden mithilfe eines \emph{Array aggregators} 
+zu einem Array zusammengeführt. Dessen Länge wird in nachgelagerten 
+Filtermodulen ausgewertet, um zu unterscheiden, ob kein, ein oder mehrere 
+Treffer vorliegen \citep{make_array_aggregator}.
+
 
 \begin{itemize}
   \item \textbf{Kein Treffer:} Der Nutzer kann abbrechen, neu suchen oder einen neuen Kunden erstellen.
@@ -28,13 +83,295 @@ Für Freitexte wie Leistungsbeschreibungen können sowohl Texteingaben als auch 
 Nach der Positionsbestätigung fragt der Bot nach Menge und Einzelpreis. Beide Werte werden verifiziert, in temporären Feldern von \texttt{User\_Sessions} zwischengespeichert und anschließend in den Tabellen \texttt{Rechnung} und \texttt{Rechnungsposition} persistiert. Abschließend erstellt das Szenario mit der Google-Docs-Integration ein Rechnungsdokument auf Basis eines Templates, fügt alle dynamischen Felder ein, exportiert das Dokument als PDF und sendet es dem Nutzer direkt über WhatsApp zurück \citep{make_google_docs}. Damit ist der End-to-End-Prozess der Rechnungserstellung abgeschlossen.
 
 \subsubsection{Ablauf ``Dokument speichern''}
-Wenn im Hauptmenü stattdessen \emph{Dokument speichern} gewählt wird, läuft der zweite zentrale Pfad: die strukturierte \textbf{Dokumentenablage}. Der Chatbot fragt Jahr, Quartal und Monat nacheinander ab, speichert die Antworten in \texttt{User\_Sessions} und fordert anschließend zum Hochladen des Dokuments auf. Auf diese Weise wird der zeitliche Kontext der Ablage eindeutig bestimmt und nutzerseitig validiert.
+Wird im Hauptmenü statt der Rechnungsfunktion die Option 
+\emph{Dokument speichern} gewählt, wird der zweite zentrale Pfad zur 
+strukturierten \textbf{Dokumentenablage} aktiviert. Der Chatbot fragt 
+Jahr, Quartal und Monat sequenziell ab, speichert die jeweiligen Angaben 
+in der Tabelle \texttt{User\_Sessions} und fordert den Nutzer anschließend 
+zum Hochladen des Dokuments auf. Auf diese Weise wird der zeitliche Kontext 
+der Ablage eindeutig definiert und durch den Nutzer bestätigt.
 
-Das Szenario prüft anschließend mit einem \emph{Search files/folders}-Modul, ob im Google Drive bereits passende Ordner bestehen. Falls nicht, werden diese in der Reihenfolge Telefonnummer $\rightarrow$ Jahr $\rightarrow$ Quartal $\rightarrow$ Monat automatisch erstellt. Nach erfolgreicher Prüfung oder Anlage lädt das Modul \emph{Upload a file} die Datei in den entsprechenden Ordner und schreibt den resultierenden Drive-Link zurück nach Airtable, sodass das Dokument später über die Web-Anwendung konsistent gefunden und abgerufen werden kann \citep{make_google_drive}.
+Im nächsten Schritt prüft das Szenario mithilfe des Moduls 
+\emph{Search files/folders}, ob im Google Drive bereits entsprechende 
+Ordnerstrukturen existieren. Falls dies nicht der Fall ist, werden die 
+erforderlichen Verzeichnisse automatisch in der Reihenfolge 
+Telefonnummer $\rightarrow$ Jahr $\rightarrow$ Quartal $\rightarrow$ Monat 
+angelegt. Nach erfolgreicher Prüfung oder Erstellung lädt das Modul 
+\emph{Upload a file} das Dokument in den vorgesehenen Ordner hoch und 
+speichert den erzeugten Drive-Link in Airtable. Dadurch kann das Dokument 
+später über die Web-Anwendung konsistent identifiziert und abgerufen werden 
+\citep{make_google_drive}.
 
-\section{Datenhaltung und Strukturen in Airtable}
+
+\section{Datenhaltung und Web-Anwendung (Airtable und ClientHub)}
+\label{sec:datenhaltung-webapp}
+
+Die im Chatbot erfassten Informationen werden in einer zentralen 
+Airtable-Base gespeichert, die als \glqq Single Source of Truth\grqq{} 
+für alle kunden- und rechnungsbezogenen Daten fungiert \citep{make_airtable_app}. 
+Auf diese Weise greifen sowohl das Chatbot-Szenario in Make als auch die 
+Web-Anwendung (ClientHub) auf denselben konsistenten Datenbestand zu.
+
+Beide Systeme können dadurch fachliche Objekte wie Kunden oder Rechnungen 
+unabhängig voneinander lesen und bearbeiten, ohne dass redundante 
+Datenhaltungen entstehen \citep{airtable_overview}.
+
+
+\subsection{Tabellenstruktur und Datenmodell in Airtable}
+
+Das operative Datenmodell gliedert sich in vier zentrale Tabellen: 
+\texttt{User\_Sessions}, \texttt{Customers}, \texttt{Rechnung} und 
+\texttt{Rechnungsposition}. Die Tabelle \texttt{User\_Sessions} dient als 
+technischer Sitzungs- und Zwischenspeicher für den Chatbot.
+
+Sie enthält unter anderem die Felder \texttt{phone\_number}, 
+\texttt{current\_step}, \texttt{temp\_customer\_data} und \texttt{nextStep} 
+sowie weitere Attribute zur Speicherung temporärer Eingaben, etwa 
+Suchbegriffe, Zeitangaben (Jahr, Quartal, Monat) und positionsbezogene Daten 
+wie Rechnungsposition, Menge und Einzelbetrag. Dadurch wird eine 
+zustandsbasierte Dialogführung ermöglicht, ohne dass Nutzer ihre Angaben 
+mehrfach wiederholen müssen \citep{make_airtable_app}.
+
+Im Rahmen der Kundenerstellung werden vorläufige Stammdaten wie Vorname, 
+Nachname, Firmenname, Adresse, Postleitzahl, Ort, Land, E-Mail-Adresse, 
+Telefonnummer und USt-ID zunächst in \texttt{User\_Sessions} gespeichert. 
+Erst nach einer expliziten Bestätigung werden diese Daten in die Tabelle 
+\texttt{Customers} überführt.
+
+Die Tabelle \texttt{Customers} bildet die fachliche Kundenstammdatenbasis und 
+enthält Felder wie \texttt{customer\_no}, Firmenname, Name, Adresse sowie 
+Kontakt- und Identifikationsdaten. Diese Struktur ermöglicht sowohl eine 
+eindeutige Identifikation über die Kundennummer als auch eine flexible, 
+textbasierte Suche über mehrere Attribute, wie sie im Chatbot mithilfe von 
+\texttt{filterByFormula}-Ausdrücken sowie Funktionen wie \texttt{LOWER} und 
+\texttt{FIND} realisiert wird \citep{airtable_formula_guide}.
+
+Die Tabelle \texttt{Rechnung} speichert kopfbezogene Rechnungsdaten wie 
+Kundendaten, Rechnungsdatum, Rechnungsnummer, Fälligkeit, Zahlvariante sowie 
+Gesamt- und Steuerbeträge. Die zugehörigen Einzelpositionen werden in der 
+Tabelle \texttt{Rechnungsposition} abgelegt. Diese enthalten neben den zur 
+Referenzierung notwendigen Kopffeldern positionsspezifische Informationen 
+wie Leistungsbeschreibung, Menge, Einzelpreis und Steueranteile. Die 
+Kopplung über die Rechnungsnummer erlaubt es dem Web-Frontend, sowohl 
+aggregierte Summen als auch einzelne Rechnungspositionen gezielt abzufragen.
+
+\subsection{Interaktion zwischen Chatbot und Datenhaltung}
+
+Das Chatbot-Szenario in Make greift über die Airtable-Module 
+\glqq Search records\grqq{}, \glqq Create a record\grqq{} und 
+\glqq Update a record\grqq{} auf die beschriebenen Tabellen zu 
+\citep{make_airtable_app,make_airtable_search_records}. Bei jeder 
+eingehenden Nachricht wird zunächst der aktuelle Sitzungsdatensatz in 
+\texttt{User\_Sessions} gesucht oder neu angelegt. Dabei werden die Felder 
+\texttt{phone\_number} und \texttt{current\_step} gesetzt, um den Nutzer 
+eindeutig zu identifizieren und den aktuellen Dialogstatus zu speichern.
+
+Im Verlauf der Interaktion speichert der Chatbot Zwischenstände wie 
+Suchbegriffe, ausgewählte Kunden, Rechnungsdatum, Rechnungsnummer, 
+Rechnungspositionen, Mengen und Einzelbeträge in der Tabelle 
+\texttt{User\_Sessions}. Nach finaler Bestätigung durch den Nutzer werden 
+diese Daten in die fachlichen Tabellen \texttt{Customers}, 
+\texttt{Rechnung} und \texttt{Rechnungsposition} überführt. Auf diese Weise 
+bleibt die in Abschnitt~5.1 beschriebene zustandsbasierte Logik eng mit der 
+Datenhaltung verknüpft, ohne dass zusätzliche serverseitige Komponenten 
+erforderlich sind.
+
+Die Datenstruktur unterstützt sowohl lesende als auch schreibende Zugriffe 
+aus verschiedenen Kanälen. Während der Chatbot primär auf die Erstellung und 
+Aktualisierung von Sitzungsdaten, Kunden, Rechnungen und 
+Rechnungspositionen fokussiert ist, nutzt die Web-Anwendung denselben 
+Datenbestand hauptsächlich zur Anzeige, Filterung und Auswertung.
+
+Airtable stellt hierfür eine HTTP-basierte REST-API bereit, die sowohl in 
+Make als auch in serverseitigen Komponenten über API-Keys und 
+\texttt{filterByFormula}-Parameter verwendet wird, um gezielt Teilmengen der 
+Daten abzurufen \citep{airtable_overview}. Dadurch wird eine klare Trennung 
+zwischen Dialoglogik und fachlicher Persistenz erreicht, da sämtliche 
+Fachdaten ausschließlich in Airtable verwaltet werden.
+
+\subsection{Architektur der Web-Anwendung (ClientHub)}
+
+Die Web-Anwendung \glqq ClientHub\grqq{} ist als React-Frontend realisiert und 
+greift nicht direkt auf Airtable oder Google Drive zu. Stattdessen werden 
+Supabase Edge Functions als serverseitige Mittelschicht eingesetzt. Das 
+Frontend ruft diese Funktionen über 
+\verb|supabase.functions.invoke()| auf und übergibt die jeweils benötigten 
+Parameter, beispielsweise zur Kundensuche, zur Abfrage von Rechnungslisten 
+oder zur Auflistung von Dokumenten in einem bestimmten Drive-Ordner 
+\citep{supabase_edge_functions}.
+
+Die Business-Logik zur Kommunikation mit der Airtable-API und der 
+Google-Drive-API ist dabei in zwei Edge Functions gekapselt. Die Funktion 
+\texttt{airtable-customers} übernimmt kundenbezogene Datenzugriffe, während 
+\texttt{google-drive} für Datei- und Ordneroperationen zuständig ist.
+
+Supabase Edge Functions werden in einer serverlosen, global verteilten 
+Infrastruktur ausgeführt und eignen sich insbesondere für HTTP-basierte 
+Integrationen mit Drittsystemen 
+\citep{supabase_edge_functions,logrocket_supabase_edge}. Innerhalb der 
+Funktionen werden notwendige API-Schlüssel und Zugriffstoken als Secrets 
+verwaltet, sodass sie weder im Browser noch im Frontend-Code sichtbar sind.
+
+Die Edge Functions nehmen HTTP-Anfragen des Frontends entgegen, führen 
+Authentifizierungs- und Autorisierungsprüfungen durch und rufen anschließend 
+die entsprechenden Airtable- oder Google-Drive-Endpunkte auf. Die Ergebnisse 
+werden in einem für das Frontend geeigneten JSON-Format zurückgegeben 
+\citep{supabase_edge_functions}. Dadurch wird die Angriffsfläche reduziert 
+und die Einhaltung von Sicherheitsanforderungen, etwa der Schutz von 
+API-Schlüsseln und der Zugriff ausschließlich durch authentifizierte Nutzer, 
+erleichtert.
+
+
+\subsection{Funktionale Abgrenzung zwischen Web-App und Chatbot}
+
+Web-Anwendung und Chatbot adressieren unterschiedliche Nutzungsszenarien, 
+greifen jedoch auf denselben Datenbestand in Airtable zu. Über den Chatbot 
+können Nutzer insbesondere Rechnungen dialogbasiert erstellen und Dokumente 
+hochladen, während die Web-Anwendung eine übersichtliche, tabellarische und 
+navigierbare Darstellung der Daten bereitstellt.
+
+In der Web-App stehen unter anderem Funktionen wie eine Kundenübersicht in 
+Tabellenform, die Anlage neuer Kunden über Formular-Dialoge, Direktlinks für 
+E-Mail- und Telefonkontakt sowie ein interaktiver Ordnerbaum zur Navigation 
+in Google Drive zur Verfügung. Ergänzt wird dies durch Ein-Klick-Downloads 
+von Dateien und Dashboard-Ansichten mit aggregierten Kennzahlen 
+\citep{google_drive_api_guide}. Diese Funktionen unterstützen insbesondere 
+Recherche-, Verwaltungs- und Analyseaufgaben im Büro- und Desktop-Kontext 
+und ergänzen damit die dialogbasierte Interaktion des Chatbots.
+
+Der Chatbot eignet sich hingegen besonders für mobile Nutzungsszenarien oder 
+Situationen, in denen Informationen unmittelbar im Gesprächsfluss erfasst 
+werden sollen, etwa direkt nach einer erbrachten Dienstleistung. Da beide 
+Kanäle auf die gemeinsamen Tabellen \texttt{Customers}, \texttt{Rechnung} 
+und \texttt{Rechnungsposition} zugreifen, bleiben Stamm- und Belegdaten 
+konsistent, unabhängig davon, ob sie über den WhatsApp-Dialog oder die 
+Web-Anwendung angelegt oder verändert werden \citep{airtable_overview}. Die 
+Kombination aus dialogbasierter Erfassung und webbasierter Verwaltung erhöht 
+dadurch sowohl die Datenqualität als auch die Flexibilität der Nutzung.
+
 \section{Automatische Dokumentenerstellung in Google Docs}
+\label{sec:dokumentenerstellung-google-docs}
+
+Nach Abschluss des Chat-Dialogs, in dem sämtliche für die Rechnungserstellung
+erforderlichen Informationen erfasst wurden, erzeugt das System automatisiert
+ein formatiertes Rechnungsdokument auf Grundlage einer Google-Docs-Vorlage
+\citep{make_google_docs_integration}. Anschließend wird das Dokument
+programmgesteuert als PDF exportiert und dem Nutzer unmittelbar im
+WhatsApp-Chat bereitgestellt, sodass keine manuelle Nachbearbeitung in einem
+Textverarbeitungsprogramm erforderlich ist \citep{google_docs_api}.
+
+
+\subsection{Rechnungsvorlage und Platzhalter}
+
+Die Grundlage der automatisierten Dokumentenerstellung bildet ein
+vordefiniertes Google-Docs-Dokument, das das Layout der Rechnung festlegt,
+einschließlich Briefkopf, Absenderinformationen, Tabellenstruktur für die
+Rechnungspositionen sowie der Zusammenfassung der Beträge
+\citep{google_docs_mailmerge}. In dieses Template sind Platzhalter in
+geschweiften Klammern integriert, beispielsweise
+\texttt{\{\{company\_name\}\}}, \texttt{\{\{company\_companyName\}\}},
+\texttt{\{\{company\_address\}\}}, \texttt{\{\{company\_date\}\}} und
+\texttt{\{\{company\_invoiceNr\}\}}, die zur Laufzeit durch konkrete Werte
+aus den Airtable-Tabellen \texttt{Customers} und \texttt{Rechnung} ersetzt
+werden.
+
+Für die Abbildung der Rechnungspositionen werden analoge Platzhalter wie
+\texttt{\{\{items\_beschreibung\}\}}, \texttt{\{\{items\_menge\}\}},
+\texttt{\{\{items\_preis\}\}} und \texttt{\{\{items\_total\}\}} verwendet.
+Zusätzlich kommen Felder für Zwischensummen und Gesamtbeträge
+(\texttt{\{\{company\_subtotal\}\}}, \texttt{\{\{company\_total\}\}})
+zum Einsatz, sodass sowohl Einzelpositionen als auch aggregierte Werte
+dynamisch befüllt werden können \citep{google_docs_merge}.
+
+Das zugrunde liegende Platzhalterkonzept entspricht dem in der
+Google-Docs-API beschriebenen Mail-Merge-Ansatz, bei dem Textmarken in einem
+Dokument automatisiert durch Daten aus externen Systemen ersetzt werden.
+Auf diese Weise lassen sich aus einem einheitlichen Template eine Vielzahl
+individueller Rechnungsdokumente erzeugen \citep{google_docs_mailmerge}.
+
+
+\subsection{Generierung und Versand der PDF-Rechnung}
+
+Sobald der Nutzer im Chatbot alle Angaben zu Kunde, Rechnungsdatum,
+Rechnungsnummer, Rechnungspositionen, Zahlungsfrist und Zahlungsart
+bestätigt hat, wird der automatische Generierungsprozess ausgelöst.
+Zunächst werden die relevanten Datensätze aus den Airtable-Tabellen
+\texttt{Customers}, \texttt{Rechnung} und \texttt{Rechnungsposition}
+ausgelesen und so aufbereitet, dass für jeden im Dokument definierten
+Platzhalter ein eindeutiger Wert vorliegt \citep{make_airtable_app}.
+Anschließend wird über die Google-Docs-Integration ein neues Dokument
+als Kopie der Rechnungsvorlage erzeugt, wobei die im Template enthaltenen
+Platzhalter mit den übergebenen Daten ersetzt werden. Auf diese Weise
+entsteht ein vollständig ausgefülltes Rechnungsdokument
+\citep{make_google_docs_integration}.
+
+Im nächsten Schritt wird das erzeugte Dokument über die
+Google-Docs- beziehungsweise Google-Drive-Schnittstelle serverseitig in
+das PDF-Format konvertiert und als Datei bereitgestellt
+\citep{google_docs_api,google_docs_pdf_automation}. Die resultierende
+PDF-Rechnung wird in der aktuellen Implementierung nicht automatisch in
+einer strukturierten Ordnerhierarchie in Google Drive abgelegt, sondern
+primär für den unmittelbaren Versand über den WhatsApp-Chat verwendet.
+Hierzu wird die PDF-Datei über das WhatsApp-Sendemodul an den Nutzer
+übertragen, der das Dokument lokal speichern oder weiterleiten kann.
+Eine optionale, langfristige Ablage in Google Drive erfolgt erst in einem
+separaten Prozessschritt über den Menüpunkt \glqq Dokument speichern\grqq{}
+im Chatbot \citep{make_whatsapp_docs,google_drive_api_guide}.
+
+
 \section{Ablagestrategie in Google Drive (Jahr/Quartal/Monat)}
+
+Die Ablage von Dokumenten in Google Drive erfolgt nach einer klaren,
+zeitbasierten Ordnerstruktur, um Belege auch bei wachsendem Datenvolumen
+schnell auffindbar und revisionssicher verwalten zu können
+\citep{document_mgmt_best_practices}. Alle vom Nutzer hochgeladenen
+Dokumente werden im Pfad \glqq Dokument speichern\grqq{} des Chatbots
+systematisch nach Jahr, Quartal und Monat einsortiert.
+
+Wählt der Nutzer im Hauptmenü den Pfad \glqq Dokument speichern\grqq{},
+fragt der Chatbot nacheinander Jahr, Quartal und Monat ab und speichert die
+Antworten in der Tabelle \texttt{User\_Sessions} (\texttt{Jahr},
+\texttt{Quartal}, \texttt{Monat}). Dadurch ist zum Zeitpunkt des Datei-Uploads
+bereits festgelegt, in welchem Zeitraum das Dokument archiviert werden soll,
+was insbesondere für buchhalterische Auswertungen und steuerliche Nachweise
+vorteilhaft ist \citep{docparse_best_practices}. Erst danach wird der Nutzer
+aufgefordert, das betreffende Dokument (z.\,B. eine Rechnung im PDF-Format)
+zu übermitteln.
+
+Nach Eingang der Datei prüft das Szenario in Google Drive schrittweise, ob
+die benötigte Ordnerhierarchie bereits existiert, und legt fehlende Ebenen
+automatisch an. Zunächst wird ein kundenbezogener Stammordner identifiziert,
+der in der Regel die Telefonnummer des Nutzers als Ordnungsmerkmal verwendet;
+existiert dieser Ordner nicht, wird er erstellt und als Wurzel für alle
+weiteren Unterordner verwendet \citep{google_drive_org_guide}. Anschließend
+wird innerhalb dieses Stammordners geprüft, ob ein Unterordner für das
+gewählte Jahr vorhanden ist; falls nicht, wird der entsprechende
+Jahresordner angelegt, bevor die Verarbeitung mit den nächsten Ebenen
+fortgesetzt wird. Nach demselben Muster werden nacheinander die Unterordner
+für Quartal und Monat geprüft und bei Bedarf erstellt
+\citep{google_drive_org_guide}.
+
+Auf diese Weise entsteht eine konsistente Pfadstruktur der Form
+\texttt{/Kunden/\textless Telefonnummer\textgreater/\textless Jahr\textgreater/
+\textless Quartal\textgreater/\textless Monat\textgreater}, ohne dass
+bereits bestehende Ordner dupliziert werden \citep{document_mgmt_best_practices}.
+Ist der Zielordner vollständig bestimmt, wird die vom Nutzer gesendete Datei
+in genau diesen Ordner hochgeladen und der resultierende Drive-Link in
+Airtable gespeichert, sodass die Web-Anwendung die Dokumente später
+kontextbezogen anzeigen und beispielsweise nach Jahr oder Quartal filtern
+kann \citep{google_drive_org_guide}.
+
+Die Ablagestrategie ist bewusst vom Prozess der automatischen
+Rechnungserzeugung getrennt. Wie in Abschnitt~\ref{sec:dokumentenerstellung-google-docs}
+beschrieben, wird die Rechnung zunächst als PDF generiert und direkt im
+WhatsApp-Chat bereitgestellt, ohne automatisch in einem Drive-Ordner
+archiviert zu werden \citep{google_docs_pdf_automation}. Möchte der Nutzer die
+Rechnung zusätzlich in der Jahres-/Quartals-/Monatsstruktur ablegen, ruft
+er erneut den Pfad \glqq Dokument speichern\grqq{} auf und lädt die PDF-Datei
+hoch; das System ordnet sie dann anhand der gewählten Zeitparameter dem
+passenden Ordner zu \citep{docparse_best_practices}.
+
+
 \section{Implementierung der ClientHub WebApp}
 \subsection{Frontend (React, UI‑Konzept)}
 \subsection{Edge Functions in Lovable Cloud}

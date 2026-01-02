@@ -34,45 +34,70 @@ Warning--entry type for "make_google_docs" isn't style-file defined
 --line 109 of file literature.bib
 Warning--entry type for "make_google_drive" isn't style-file defined
 --line 117 of file literature.bib
-You've used 14 entries,
+Warning--entry type for "airtable_overview" isn't style-file defined
+--line 126 of file literature.bib
+Warning--entry type for "airtable_formula_guide" isn't style-file defined
+--line 135 of file literature.bib
+Warning--entry type for "supabase_edge_functions" isn't style-file defined
+--line 144 of file literature.bib
+Warning--entry type for "logrocket_supabase_edge" isn't style-file defined
+--line 153 of file literature.bib
+Warning--entry type for "google_drive_api_guide" isn't style-file defined
+--line 162 of file literature.bib
+Warning--entry type for "google_docs_api" isn't style-file defined
+--line 171 of file literature.bib
+Warning--entry type for "google_docs_merge" isn't style-file defined
+--line 180 of file literature.bib
+Warning--entry type for "google_docs_mailmerge" isn't style-file defined
+--line 189 of file literature.bib
+Warning--entry type for "make_google_docs_integration" isn't style-file defined
+--line 198 of file literature.bib
+Warning--entry type for "google_docs_pdf_automation" isn't style-file defined
+--line 207 of file literature.bib
+Warning--I didn't find a database entry for "make_airtable_app"
+Warning--I didn't find a database entry for "make_whatsapp_docs"
+Warning--I didn't find a database entry for "document_mgmt_best_practices"
+Warning--I didn't find a database entry for "docparse_best_practices"
+Warning--I didn't find a database entry for "google_drive_org_guide"
+You've used 24 entries,
             3552 wiz_defined-function locations,
-            858 strings with 8273 characters,
-and the built_in function-call counts, 6827 in all, are:
-= -- 821
-> -- 98
-< -- 53
-+ -- 84
-- -- 42
-* -- 651
-:= -- 1165
-add.period$ -- 14
-call.type$ -- 14
-change.case$ -- 59
-chr.to.int$ -- 12
-cite$ -- 14
-duplicate$ -- 191
-empty$ -- 577
-format.name$ -- 84
-if$ -- 1428
-int.to.chr$ -- 2
+            909 strings with 10264 characters,
+and the built_in function-call counts, 11823 in all, are:
+= -- 1451
+> -- 168
+< -- 73
++ -- 129
+- -- 72
+* -- 1137
+:= -- 2003
+add.period$ -- 24
+call.type$ -- 24
+change.case$ -- 109
+chr.to.int$ -- 17
+cite$ -- 24
+duplicate$ -- 341
+empty$ -- 1007
+format.name$ -- 144
+if$ -- 2508
+int.to.chr$ -- 7
 int.to.str$ -- 1
 missing$ -- 2
-newline$ -- 96
-num.names$ -- 56
-pop$ -- 64
+newline$ -- 166
+num.names$ -- 96
+pop$ -- 114
 preamble$ -- 1
-purify$ -- 56
+purify$ -- 96
 quote$ -- 0
-skip$ -- 183
+skip$ -- 290
 stack$ -- 0
-substring$ -- 631
-swap$ -- 28
-text.length$ -- 14
+substring$ -- 1071
+swap$ -- 48
+text.length$ -- 24
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 149
+type$ -- 259
 warning$ -- 0
-while$ -- 84
+while$ -- 144
 width$ -- 0
-write$ -- 153
-(There were 13 warnings)
+write$ -- 273
+(There were 28 warnings)

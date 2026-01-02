@@ -1,4 +1,4 @@
-\begin{thebibliography}{14}
+\begin{thebibliography}{24}
 % this bibliography was produced with the style dinat.bst v2.5
 \makeatletter
 \newcommand{\dinatlabel}[1]%
@@ -6,6 +6,20 @@
 \makeatother
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax\def\url#1{\texttt{#1}}\fi
+
+\bibitem[{Airtable}(2025{\natexlab{a}})]{airtable_overview}
+\dinatlabel{{Airtable} 2025{\natexlab{a}}} \textsc{{Airtable}}:
+\newblock \emph{Formula Field Overview}.
+\newblock 2025. --
+\newblock URL \url{https://support.airtable.com/docs/formula-field-overview}. -- Zugriffsdatum: 2025-12-26. --
+\newblock Überblick über Formelfelder und API-Nutzung in Airtable
+
+\bibitem[{Airtable}(2025{\natexlab{b}})]{airtable_formula_guide}
+\dinatlabel{{Airtable} 2025{\natexlab{b}}} \textsc{{Airtable}}:
+\newblock \emph{Formula Field Reference}.
+\newblock 2025. --
+\newblock URL \url{https://support.airtable.com/docs/formula-field-reference}. -- Zugriffsdatum: 2025-12-26. --
+\newblock Referenz zu Funktionen wie LOWER und FIND für Textsuche
 
 \bibitem[Balzert(2011)]{balzert_softwaretechnik_2011}
 \dinatlabel{Balzert 2011} \textsc{Balzert}, Helmut:
@@ -17,6 +31,13 @@
 \newblock \emph{Die manuelle und automatisierte Rechnungsverarbeitung im Vergleich}.
 \newblock 2022. --
 \newblock URL \url{https://beck-it.com/news/die-manuelle-und-automatisierte-rechnungsverarbeitung-im-vergleich/}. -- Zugriffsdatum: 2025-12-13
+
+\bibitem[Consultevo(2025)]{google_docs_pdf_automation}
+\dinatlabel{Consultevo 2025} \textsc{Consultevo}:
+\newblock \emph{Automate Google Docs to PDF with Make.com}.
+\newblock 2025. --
+\newblock URL \url{https://consultevo.com/make-com-google-doc-to-pdf-automation/}. -- Zugriffsdatum: 2025-12-27. --
+\newblock Praxisbeispiel für die automatische Konvertierung von Google Docs in PDF
 
 \bibitem[ConsultEvo(2025)]{make_array_aggregator}
 \dinatlabel{ConsultEvo 2025} \textsc{ConsultEvo}:
@@ -42,17 +63,59 @@
 \newblock 2025. --
 \newblock URL \url{https://www.flowwer.de/automatisierte-rechnungsverarbeitung-der-beste-weg-zum-erfolg/}. -- Zugriffsdatum: 2025-12-13
 
+\bibitem[{Google}(2025{\natexlab{a}})]{google_docs_api}
+\dinatlabel{{Google} 2025{\natexlab{a}}} \textsc{{Google}}:
+\newblock \emph{Google Docs API overview}.
+\newblock 2025. --
+\newblock URL \url{https://developers.google.com/workspace/docs/api/how-tos/overview}. -- Zugriffsdatum: 2025-12-27. --
+\newblock Überblick über Funktionen zur programmgesteuerten Bearbeitung von Google-Dokumenten
+
+\bibitem[{Google}(2025{\natexlab{b}})]{google_drive_api_guide}
+\dinatlabel{{Google} 2025{\natexlab{b}}} \textsc{{Google}}:
+\newblock \emph{Google Drive API overview}.
+\newblock 2025. --
+\newblock URL \url{https://developers.google.com/workspace/drive/api/guides/about-sdk}. -- Zugriffsdatum: 2025-12-26. --
+\newblock Überblick über Funktionen zum Suchen, Hoch- und Herunterladen von Dateien in Google Drive
+
+\bibitem[{Google}(2025{\natexlab{c}})]{google_docs_mailmerge}
+\dinatlabel{{Google} 2025{\natexlab{c}}} \textsc{{Google}}:
+\newblock \emph{Mail merge with Docs API}.
+\newblock 2025. --
+\newblock URL \url{https://developers.google.com/workspace/docs/api/samples/mail-merge}. -- Zugriffsdatum: 2025-12-27. --
+\newblock Beispiel für die Erzeugung personalisierter Dokumente aus einer Vorlage
+
+\bibitem[{Google}(2025{\natexlab{d}})]{google_docs_merge}
+\dinatlabel{{Google} 2025{\natexlab{d}}} \textsc{{Google}}:
+\newblock \emph{Merge text into a document}.
+\newblock 2025. --
+\newblock URL \url{https://developers.google.com/workspace/docs/api/how-tos/merge}. -- Zugriffsdatum: 2025-12-27. --
+\newblock Beschreibung des Ersetzens von Platzhaltern (Mail-Merge) in Google Docs
+
 \bibitem[Johann(2025)]{johann_nfa_2025}
 \dinatlabel{Johann 2025} \textsc{Johann}, Peter:
 \newblock \emph{Nicht-funktionale Anforderungen}.
 \newblock 2025. --
 \newblock URL \url{https://www.peterjohann-consulting.de/nicht-funktionale-anforderungen/}. -- Zugriffsdatum: 2025-12-13
 
-\bibitem[{Make.com}(2024)]{make_google_docs}
-\dinatlabel{{Make.com} 2024} \textsc{{Make.com}}:
+\bibitem[LogRocket(2024)]{logrocket_supabase_edge}
+\dinatlabel{LogRocket 2024} \textsc{LogRocket}:
+\newblock \emph{Using Edge Functions in Supabase: A Complete Guide}.
+\newblock 2024. --
+\newblock URL \url{https://blog.logrocket.com/using-edge-functions-supabase-complete-guide/}. -- Zugriffsdatum: 2025-12-26. --
+\newblock Praxisleitfaden zu Architektur und Einsatzszenarien von Supabase Edge Functions
+
+\bibitem[{Make.com}(2024{\natexlab{a}})]{make_google_docs}
+\dinatlabel{{Make.com} 2024{\natexlab{a}}} \textsc{{Make.com}}:
 \newblock \emph{Google Docs Integration --- Workflow Automation}.
 \newblock 2024. --
 \newblock URL \url{https://www.make.com/en/integrations/auto-content-api/google-docs}. -- Zugriffsdatum: 2025-12-26
+
+\bibitem[{Make.com}(2024{\natexlab{b}})]{make_google_docs_integration}
+\dinatlabel{{Make.com} 2024{\natexlab{b}}} \textsc{{Make.com}}:
+\newblock \emph{Google Docs Integration | Workflow Automation}.
+\newblock 2024. --
+\newblock URL \url{https://www.make.com/en/integrations/google-docs}. -- Zugriffsdatum: 2025-12-27. --
+\newblock Dokumentation der Module zur Template-Erstellung, -Befüllung und zum Export
 
 \bibitem[{Make.com}(2025{\natexlab{a}})]{make_airtable_search_records}
 \dinatlabel{{Make.com} 2025{\natexlab{a}}} \textsc{{Make.com}}:
@@ -92,5 +155,12 @@
 \newblock \emph{API-Design: Grundlagen und Best Practices für moderne Schnittstellen}.
 \newblock 2020. --
 \newblock URL \url{https://www.assets.dpunkt.de/openbooks/Openbook_Spichale_API-Design_2A.pdf}. -- Zugriffsdatum: 2025-12-13
+
+\bibitem[{Supabase}(2025)]{supabase_edge_functions}
+\dinatlabel{{Supabase} 2025} \textsc{{Supabase}}:
+\newblock \emph{Edge Functions}.
+\newblock 2025. --
+\newblock URL \url{https://supabase.com/docs/guides/functions}. -- Zugriffsdatum: 2025-12-26. --
+\newblock Dokumentation zu serverlosen, global verteilten Edge Functions
 
 \end{thebibliography}

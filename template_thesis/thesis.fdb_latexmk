@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex thesis"] 1766750312.50969 "thesis.aux" "thesis.bbl" "thesis" 1766750312.61851 0
-  "./literature.bib" 1766750312.3066 4216 61dd82cd92707d4af2b2dd85e92ecb55 ""
+["bibtex thesis"] 1767366005.53142 "thesis.aux" "thesis.bbl" "thesis" 1767366008.23452 0
+  "./literature.bib" 1766845027.11411 7658 630c223e747bb644d07bbd57ae30fc83 ""
   "/usr/local/texlive/2025/texmf-dist/bibtex/bst/dinat/dinat.bst" 1136766823 44478 8171722d387d8657f0397923511dcd08 ""
-  "thesis.aux" 1766750305.27503 32745 d726de78d48d84370615e151130ecb48 "pdflatex"
+  "thesis.aux" 1767366007.89268 38208 3c81148805caa68ffc4dd9f3bb938625 "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1766750302.16129 "/Users/framarzalizadehPrivat/Downloads/FramarzBachelor/template_thesis/thesis.tex" "thesis.pdf" "thesis" 1766750312.61855 0
+["pdflatex"] 1767366005.64538 "/Users/framarzalizadehPrivat/Downloads/FramarzBachelor/template_thesis/thesis.tex" "thesis.pdf" "thesis" 1767366008.23469 0
   "../style/HAW_Marke_schwarz.pdf" 1762365558 12382 84f01ea10b2d64b1c3a31409fc4277aa ""
   "../style/abstractpage.tex" 1762365558 664 c52a0141fea0e8423d49a8c29b76db5a ""
   "../style/configurationcommands.sty" 1764337969.95334 15895 1f610d05a98db804b807d5a0a92adefc ""
@@ -279,24 +279,24 @@
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1762952623 3345741 55fc24114674c1900701d63f0cb46d64 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "appendix/example_appendix.tex" 1762365558 580 9dd986a92b9fe464849ef34902b5ad37 ""
-  "chapters/fifth_chapter.tex" 1766750292.27207 6977 0fa5753f398f856370d900bf7b33fc6a ""
+  "chapters/fifth_chapter.tex" 1766853249.2894 22924 fc134f63569ac75edad3d3967415ccd2 ""
   "chapters/first_chapter.tex" 1764345376.05135 208 fe945fd852174a6d196303ef6208efa2 ""
   "chapters/fourth_chapter.tex" 1766232801.18694 33196 d75ed7af3b0c53fc128f56d519207c66 ""
-  "chapters/second_chapter.tex" 1765371853.92669 345 6e84f5a61fd5b057af4398ecd0c8f579 ""
+  "chapters/second_chapter.tex" 1767366002.64103 7122 1d2062058d65071cad4f7f9facbad7cc ""
   "chapters/seventh_chapter.tex" 1765372333.80144 264 f95ed142c6a55fb494fee2f15bd1ff28 ""
   "chapters/sixth_chapter.tex" 1765372264.36917 299 871db4b4b0ece5e493f3470e18cee9cc ""
   "chapters/third_chapter.tex" 1765371970.23195 346 44e2a9afe28a10b058cccbbe10759d32 ""
   "configuration/configuration.tex" 1765960623.73722 6254 f4e0d0105b6197ac85be88eed88d3f4b ""
   "thesis.acr" 0 -1 0 ""
-  "thesis.aux" 1766750305.27503 32745 d726de78d48d84370615e151130ecb48 "pdflatex"
-  "thesis.bbl" 1766750312.61347 5058 52d277b18729b98ad64564e840fbb3a6 "bibtex thesis"
+  "thesis.aux" 1767366007.89268 38208 3c81148805caa68ffc4dd9f3bb938625 "pdflatex"
+  "thesis.bbl" 1767366005.64117 8921 b847f9b7946b54da8f8c707c105f6457 "bibtex thesis"
   "thesis.gls" 0 -1 0 ""
-  "thesis.lof" 1766750305.28701 275 66516b7ab6445f3c9075a6f45ad561dd "pdflatex"
-  "thesis.lot" 1766750305.28708 391 f82a7ad98cb208a321b200be1e3ff066 "pdflatex"
-  "thesis.out" 1766750304.27301 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "thesis.lof" 1767366007.9005 275 66516b7ab6445f3c9075a6f45ad561dd "pdflatex"
+  "thesis.lot" 1767366007.90053 391 08446cdea756cfa824aa2498321d141b "pdflatex"
+  "thesis.out" 1767366007.14484 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   "thesis.sls" 0 -1 0 ""
   "thesis.tex" 1764345132.69176 2326 0e0c94bbbd37b1c8847cd0aede2835af ""
-  "thesis.toc" 1766750305.28686 5364 34ce2e40ab01d2c0336e03a5acfe834c "pdflatex"
+  "thesis.toc" 1767366007.90042 5942 afba6303a17404094ada8fe118b5dad3 "pdflatex"
   "thesisglossaries.tex" 1765622536.11469 552 ad153ebfcc8e58378025986d87818530 ""
   (generated)
   "thesis.acn"
