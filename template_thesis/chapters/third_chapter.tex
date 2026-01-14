@@ -3,7 +3,137 @@
 %
 \chapter{Technologischer Hintergrund}
 \section{Make.com als Integrations- und Automatisierungsplattform}
+\label{sec:make}
+
+Make.com ist eine cloudbasierte Integrations- und Automatisierungsplattform,
+die es ermöglicht, unterschiedliche Anwendungen, Dienste und Systeme
+miteinander zu verbinden. Die Umsetzung erfolgt ohne klassische
+Programmierung und basiert auf einem No-Code- beziehungsweise
+Low-Code-Ansatz. Workflows werden in einer grafischen Benutzeroberfläche modelliert, indem vordefinierte Funktionsbausteine konfiguriert und zu logischen Abläufen
+verknüpft werden. Dadurch können auch komplexe Integrationsprozesse ohne
+umfangreiche Programmierkenntnisse umgesetzt werden.Aus technischer Sicht handelt es sich bei Make.com um eine Integrationsplattform, die externe Systeme über deren Web-APIs anbindet. Ereignisse und Datenflüsse werden dabei in einem zentralen
+Orchestrierungslayer zusammengeführt und automatisiert verarbeitet.
+
+Das zentrale Konstrukt in Make sind sogenannte Szenarien. Ein Szenario
+beschreibt einen vollständigen Automatisierungsablauf, der aus einem
+auslösenden Ereignis (Trigger), einer Abfolge von Verarbeitungsschritten
+sowie einer oder mehreren Aktionen besteht.Die einzelnen Bausteine eines Szenarios werden als Module bezeichnet.
+Diese repräsentieren entweder konkrete Anwendungsintegrationen, etwa zu
+WhatsApp, Airtable oder Google Docs, oder generische Funktionen wie Filter,
+Iteratoren, Aggregatoren oder Router. Trigger-Module starten ein Szenario
+beispielsweise bei einer eingehenden Nachricht über einen Webhook. Aktionsmodule übernehmen anschließend die Verarbeitung der Daten, indem
+sie Informationen lesen, schreiben oder an andere Systeme übertragen.
+Mithilfe visueller Router und Filter können alternative Verarbeitungswege
+modelliert werden, die abhängig von Dateninhalten oder Zuständen
+unterschiedliche Pfade innerhalb des Szenarios durchlaufen.
+
+Die Plattform stellt darüber hinaus erweiterte Funktionen zur
+Ablaufsteuerung bereit. Mithilfe von Filtern können nur jene Datensätze
+weiterverarbeitet werden, die definierte Bedingungen erfüllen, etwa das
+Vorhandensein bestimmter Pflichtfelder. Iteratoren und Aggregatoren ermöglichen die Verarbeitung von Listenstrukturen. Dabei können Datensätze entweder einzeln durchlaufen
+oder zu zusammengefassten Ergebnissen aggregiert werden. Router-Module
+erlauben es, Workflows in mehrere Pfade zu verzweigen, die jeweils eigene
+Bedingungen und nachgelagerte Verarbeitungsschritte besitzen. Auf diese Weise lassen sich auch komplexe und verzweigte Prozesse
+modellieren, ohne dass eigener Kontrollfluss-Code implementiert werden
+muss. Eine besondere Rolle nehmen Webhook-Trigger ein, da sie die nahezu
+Echtzeit-Verarbeitung von Ereignissen aus externen Systemen ermöglichen,
+sobald diese eine definierte URL aufrufen.
+
+Im betrachteten Anwendungskontext fungiert Make.com als zentrale
+Vermittlungsschicht zwischen Chatbot, Datenhaltung sowie Dokumenten- und
+Speicherdiensten. Ereignisse aus der Kommunikationsschnittstelle werden
+über Trigger-Module empfangen, innerhalb von Szenarien verarbeitet und
+anschließend über Anwendungs-Module an Systeme wie Airtable, Google Docs
+oder Google Drive weitergeleitet.Die Plattform übernimmt dabei die Steuerung der Datenflüsse, führt Validierungen aus und stößt nachgelagerte Aktionen an, etwa das Erzeugen
+von Dokumenten oder das Aktualisieren von Datensätzen. Make.com erfüllt
+damit die Rolle einer zentralen Orchestrierungsebene innerhalb der
+Systemarchitektur. Insbesondere für kleinere Projekte und prototypische Anwendungen ergeben
+sich daraus mehrere Vorteile. Die initiale Implementierung kann ohne
+eigene Serverinfrastruktur erfolgen, vorgefertigte Konnektoren reduzieren
+den Integrationsaufwand, und die Prozesslogik lässt sich durch die visuelle
+Modellierung nachvollziehbar dokumentieren.
+
+Gleichzeitig sind mit dem Einsatz einer Integrationsplattform wie Make.com
+auch Einschränkungen verbunden. Sehr umfangreiche Szenarien können an
+Übersichtlichkeit verlieren, da sämtliche Verarbeitungswege innerhalb
+eines visuellen Diagramms abgebildet werden müssen. Zudem ist die
+Abbildung komplexer Geschäftslogik nur eingeschränkt möglich. Darüber hinaus entsteht eine Abhängigkeit vom jeweiligen Anbieter, etwa
+hinsichtlich Verfügbarkeit, Preisgestaltung und Funktionsumfang der
+Plattform. Für hochskalierende oder besonders sicherheitskritische
+Anwendungen kann daher eine klassisch implementierte, individuell
+entwickelte Integrationsschicht sinnvoller sein. Make.com stellt hingegen insbesondere für klein- bis mittelkomplexe
+Automatisierungsvorhaben mit begrenzten Ressourcen eine pragmatische und
+gut nachvollziehbare Lösung dar.
+
+
 \section{Airtable als Datenhaltung}
+Airtable ist eine cloudbasierte Plattform, die tabellenorientierte
+Benutzeroberflächen mit den Eigenschaften einer datenbankgestützten
+Anwendung kombiniert. Aus Anwendersicht ähnelt Airtable einer klassischen
+Tabellenkalkulation, erweitert diese jedoch um strukturierte Feldtypen,
+Relationen zwischen Tabellen sowie eine standardisierte
+Programmierschnittstelle. Dadurch eignet sich die Plattform insbesondere für Anwendungsszenarien, in denen Daten sowohl über eine webbasierte Oberfläche gepflegt als auch automatisiert von externen Systemen gelesen und geschrieben werden sollen.
+
+Zentrale Konzepte in Airtable sind sogenannte Bases, die jeweils eine
+in sich geschlossene Datenbankinstanz mit mehreren Tabellen
+repräsentieren. Eine Tabelle besteht aus Datensätzen und Feldern, wobei
+die Felder unterschiedliche Typen annehmen können, etwa Text, Zahl,
+Datum, Auswahlfelder oder Verknüpfungen zu anderen Tabellen. Über verknüpfte Felder lassen sich einfache Relationen zwischen Tabellen modellieren, beispielsweise zwischen Kunden und zugehörigen Rechnungen. Darüber hinaus stehen verschiedene Sichten und Filter zur Verfügung, mit denen Teilmengen der Daten anhand frei definierbarer Kriterien angezeigt werden können. Formelfelder ermöglichen zudem die Berechnung dynamischer Werte. Sie können unter anderem zur Aggregation von Beträgen oder zur Erzeugung
+formatierter Anzeigeinhalte eingesetzt werden.
+
+Für den Einsatz als zentrale Datenhaltung in einem verteilten System ist
+insbesondere die von Airtable bereitgestellte REST-API von Bedeutung. Sie
+ermöglicht es, Datensätze programmatisch anzulegen, zu aktualisieren, zu
+löschen oder anhand definierter Filterkriterien abzufragen. Auf diese Weise kann Airtable als zentrale „Single Source of Truth“ für fachliche Informationen fungieren. Unterschiedliche Frontends und Automatisierungsprozesse greifen dabei über die API auf denselben
+konsistenten Datenbestand zu. Durch die Kombination aus grafischer Benutzeroberfläche und Programmierschnittstelle eignet sich Airtable sowohl für die manuelle
+Pflege und Kontrolle von Daten als auch für die Integration in
+automatisierte Workflows.
+
+Im Kontext kleiner, cloudbasierter Anwendungen bietet Airtable mehrere
+Vorteile gegenüber klassischen Datenbanksystemen. Die Tabellenstruktur
+kann ohne aufwendige Deployment- oder Migrationsprozesse angepasst
+werden, was insbesondere iteratives Arbeiten und prototypische
+Entwicklungen erleichtert. Darüber hinaus unterstützt die grafische Benutzeroberfläche die manuelle Datenpflege sowie die Fehlersuche. Datensätze sind unmittelbar einsehbar
+und bearbeitbar, wodurch einfache Auswertungen und Kontrollen direkt in
+der Anwendung durchgeführt werden können. Demgegenüber stehen typische Einschränkungen gehosteter Plattformen. Dazu zählen unter anderem Begrenzungen hinsichtlich des maximalen Datenvolumens, der Anzahl zulässiger API-Aufrufe sowie die fehlende Unterstützung komplexer Transaktionen. Für klein- bis mittelkomplexe Anwendungen mit moderatem Datenumfang stellt Airtable dennoch eine pragmatische Lösung dar. Es ermöglicht die Realisierung einer zentralen, cloudbasierten Datenhaltung, ohne dass eine eigene Datenbankinfrastruktur betrieben werden muss.
+
 \section{Google Docs und Google Drive}
+Google Docs und Google Drive sind zentrale Bestandteile der
+Google-Workspace-Plattform und bilden gemeinsam eine cloudbasierte
+Umgebung zur Erstellung, Bearbeitung und Ablage von Dokumenten. Google
+Docs stellt einen webbasierten Texteditor bereit, der die gleichzeitige
+Bearbeitung eines Dokuments durch mehrere Personen ermöglicht.
+Google Drive fungiert als zentraler Dateispeicher und bietet strukturierte
+Ordner, Freigabefunktionen sowie Versionsverwaltung. Beide Dienste sind
+vollständig browserbasiert und erlauben einen orts- und
+geräteunabhängigen Zugriff auf Dokumente, ohne dass eine lokale
+Office-Software installiert werden muss.
+
+
+
+
+Für automatisierte Systeme ist insbesondere die Programmierschnittstelle
+von Google Docs von Bedeutung. Sie ermöglicht es, Dokumente nicht nur
+manuell, sondern auch programmatisch zu erzeugen und zu verändern. In der Praxis werden hierzu häufig Dokumentvorlagen verwendet, die das
+Layout sowie feste Textbestandteile definieren. Variable Inhalte werden
+über Platzhalter integriert, die bei der Dokumentenerstellung durch
+konkrete Werte aus einem Datensystem ersetzt werden.
+Auf diese Weise können aus einer einzelnen Vorlage eine Vielzahl
+individueller Dokumente generiert werden. Typische Anwendungsfälle sind
+unter anderem die standardisierte Erstellung von Rechnungen, Angeboten
+oder Serienbriefen, ohne dass jedes Dokument manuell angepasst werden
+muss.
+
+
+
+Google Drive ergänzt diese Funktionalität durch eine strukturierte,
+cloudbasierte Ablage der erzeugten Dokumente. Dateien können in
+hierarchischen Ordnerstrukturen organisiert, mit Metadaten versehen und
+über differenzierte Freigabemechanismen geteilt werden. Über die Google-Drive-API lassen sich Ordner und Dateien zudem programmgesteuert anlegen, verschieben, umbenennen dder herunterladen. Dadurch können Dokumentenerzeugung und Archivierung in einen
+durchgängigen digitalen Prozess integriert werden. Insbesondere für kleinere Organisationen stellt Google Drive damit eine leichtgewichtige Alternative zu klassischen Dokumentenmanagementsystemen dar. Sowohl die manuelle Nutzung über die Weboberfläche als auch automatisierte Workflows auf Basis standardisierter Schnittstellen werden dabei unterstützt.
+
+
+
+
 \section{Lovable Cloud / Supabase Edge Functions}
 \section{Frontend-Stack (React, TypeScript, Tailwind, shadcn/ui)}
