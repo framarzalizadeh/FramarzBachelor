@@ -1,4 +1,4 @@
-\begin{thebibliography}{24}
+\begin{thebibliography}{25}
 % this bibliography was produced with the style dinat.bst v2.5
 \makeatletter
 \newcommand{\dinatlabel}[1]%
@@ -12,84 +12,82 @@
 \newblock \emph{Formula Field Overview}.
 \newblock 2025. --
 \newblock URL \url{https://support.airtable.com/docs/formula-field-overview}. -- Zugriffsdatum: 2025-12-26. --
-\newblock Überblick über Formelfelder und API-Nutzung in Airtable
+\newblock Offizielle Dokumentation zu Feldern, Formeln und Datenstrukturen in Airtable, inkl. Nutzung in Automatisierungen
 
-\bibitem[{Airtable}(2025{\natexlab{b}})]{airtable_formula_guide}
+\bibitem[{Airtable}(2025{\natexlab{b}})]{airtable_web_api_guide}
 \dinatlabel{{Airtable} 2025{\natexlab{b}}} \textsc{{Airtable}}:
-\newblock \emph{Formula Field Reference}.
+\newblock \emph{Getting started with Airtable's Web API}.
 \newblock 2025. --
-\newblock URL \url{https://support.airtable.com/docs/formula-field-reference}. -- Zugriffsdatum: 2025-12-26. --
-\newblock Referenz zu Funktionen wie LOWER und FIND für Textsuche
+\newblock URL \url{https://support.airtable.com/docs/getting-started-with-airtables-web-api}. -- Zugriffsdatum: 2025-12-27. --
+\newblock Dokumentation zur Web-API von Airtable, inklusive Erstellen, Lesen, Aktualisieren und Löschen von Datensätzen
 
 \bibitem[Balzert(2011)]{balzert_softwaretechnik_2011}
 \dinatlabel{Balzert 2011} \textsc{Balzert}, Helmut:
 \newblock \emph{Lehrbuch der Softwaretechnik: Entwurf, Implementierung, Installation und Betrieb}.
 \newblock Spektrum, 2011
 
-\bibitem[Beck-IT(2022)]{beckit_rechnungsverarbeitung_2022}
-\dinatlabel{Beck-IT 2022} \textsc{Beck-IT}:
+\bibitem[Bavaresco u.\,a.(2021)Bavaresco, Silveira, Reis, Prates u.\,a.]{chatbots_grundlagen}
+\dinatlabel{Bavaresco u.\,a. 2021} \textsc{Bavaresco}, Renan~; \textsc{Silveira}, Diego~; \textsc{Reis}, Jorge~; \textsc{Prates}, Ruy u.\,a.:
+\newblock Service Chatbots: A Systematic Review.
+\newblock In: \emph{Expert Systems with Applications}
+\newblock 165 (2021), S.~113806. --
+\newblock URL \url{https://www.sciencedirect.com/science/article/pii/S0957417421008745}. --
+\newblock Systematische Übersicht zu Service-Chatbots, inkl. Definition, Typen, technischen Ansätzen und typischen Architekturen
+
+\bibitem[{Beck IT GmbH}(2022)]{beckit_rechnungsverarbeitung_2022}
+\dinatlabel{{Beck IT GmbH} 2022} \textsc{{Beck IT GmbH}}:
 \newblock \emph{Die manuelle und automatisierte Rechnungsverarbeitung im Vergleich}.
 \newblock 2022. --
-\newblock URL \url{https://beck-it.com/news/die-manuelle-und-automatisierte-rechnungsverarbeitung-im-vergleich/}. -- Zugriffsdatum: 2025-12-13
+\newblock URL \url{https://beck-it.com/news/die-manuelle-und-automatisierte-rechnungsverarbeitung-im-vergleich/}. -- Zugriffsdatum: 2025-12-27
 
-\bibitem[Consultevo(2025)]{google_docs_pdf_automation}
-\dinatlabel{Consultevo 2025} \textsc{Consultevo}:
-\newblock \emph{Automate Google Docs to PDF with Make.com}.
-\newblock 2025. --
-\newblock URL \url{https://consultevo.com/make-com-google-doc-to-pdf-automation/}. -- Zugriffsdatum: 2025-12-27. --
-\newblock Praxisbeispiel für die automatische Konvertierung von Google Docs in PDF
+\bibitem[{Bitkom e.V.} und {Forum elektronische Rechnung Deutschland (FeRD)}(2022)]{bitkom_elektronische_rechnungsdaten_2022}
+\dinatlabel{{Bitkom e.V.} und {Forum elektronische Rechnung Deutschland (FeRD)} 2022} \textsc{{Bitkom e.V.}}~; \textsc{{Forum elektronische Rechnung Deutschland (FeRD)}}:
+\newblock \emph{Elektronische Beleg- und Rechnungsdaten im Jahr 2022}.
+\newblock 2022. --
+\newblock URL \url{https://www.bitkom.org/sites/main/files/2022-08/220808_Elektronische%20Beleg-%20und%20Rechnungsdaten_final.pdf}. -- Zugriffsdatum: 2025-12-27
 
-\bibitem[ConsultEvo(2025)]{make_array_aggregator}
-\dinatlabel{ConsultEvo 2025} \textsc{ConsultEvo}:
-\newblock \emph{Mastering Make.com Array Aggregator}.
-\newblock 2025. --
-\newblock URL \url{https://consultevo.com/make-com-array-aggregator-guide/}. -- Zugriffsdatum: 2025-12-26
+\bibitem[{Business Solutions GmbH}(2021)]{dokumentengenerierung_cloud}
+\dinatlabel{{Business Solutions GmbH} 2021} \textsc{{Business Solutions GmbH}}:
+\newblock \emph{Digitale Rechnungsverarbeitung: Ein Überblick}.
+\newblock 2021. --
+\newblock URL \url{https://www.business-solutions.gmbh/digitalisierung-wissen/digitale-rechnungsverarbeitung}. -- Zugriffsdatum: 2026-01-14. --
+\newblock Überblicksartikel zur digitalen Rechnungsverarbeitung, der Vorteile wie automatisierte Datenerfassung, Workflows, digitale Archivierung und geringere Fehleranfälligkeit beschreibt
 
-\bibitem[dpunkt.verlag(2020{\natexlab{a}})]{grundlagen_modular_softwareentwurf_2020}
-\dinatlabel{dpunkt.verlag 2020{\natexlab{a}}} \textsc{dpunkt.verlag}:
-\newblock \emph{Grundlagen des modularen Softwareentwurfs}.
-\newblock 2020. --
-\newblock URL \url{https://www.assets.dpunkt.de/openbooks/Openbook_Spichale_API-Design_2A.pdf}. -- Zugriffsdatum: 2025-12-13
-
-\bibitem[dpunkt.verlag(2020{\natexlab{b}})]{langlebige_architekturen_2020}
-\dinatlabel{dpunkt.verlag 2020{\natexlab{b}}} \textsc{dpunkt.verlag}:
-\newblock \emph{Langlebige Softwarearchitekturen – Erweiterungen}.
-\newblock 2020. --
-\newblock URL \url{https://www.langlebige-softwarearchitekturen.de/media/wps/uploads/langlebige-softwarearchitekturen-erweiterungen.pdf}. -- Zugriffsdatum: 2025-12-13
-
-\bibitem[Flowwer(2025)]{flowwer_automatisierte_rechnungsverarbeitung_2025}
-\dinatlabel{Flowwer 2025} \textsc{Flowwer}:
-\newblock \emph{Automatisierte Rechnungsverarbeitung: Effizient \& fehlerfrei}.
-\newblock 2025. --
-\newblock URL \url{https://www.flowwer.de/automatisierte-rechnungsverarbeitung-der-beste-weg-zum-erfolg/}. -- Zugriffsdatum: 2025-12-13
+\bibitem[{Ebner Stolz}(2023)]{chatbots_finanzprozesse}
+\dinatlabel{{Ebner Stolz} 2023} \textsc{{Ebner Stolz}}:
+\newblock \emph{Künstliche Intelligenz im Rechnungswesen: Potenziale und Grenzen}.
+\newblock 2023. --
+\newblock URL \url{https://www.ebnerstolz.de/pdfs/03/6/1/6/0/5/STUDIE_KI_RECHNUNGSWESEN_JAHRESABSCHLUSS.pdf}. -- Zugriffsdatum: 2026-01-14. --
+\newblock Studie zu Einsatz und Effekten von KI-Lösungen im Rechnungswesen, inkl. Effizienzgewinnen und Fehlerreduktion
 
 \bibitem[{Google}(2025{\natexlab{a}})]{google_docs_api}
 \dinatlabel{{Google} 2025{\natexlab{a}}} \textsc{{Google}}:
 \newblock \emph{Google Docs API overview}.
 \newblock 2025. --
 \newblock URL \url{https://developers.google.com/workspace/docs/api/how-tos/overview}. -- Zugriffsdatum: 2025-12-27. --
-\newblock Überblick über Funktionen zur programmgesteuerten Bearbeitung von Google-Dokumenten
+\newblock Überblick über Funktionen zur programmgesteuerten Erstellung und Bearbeitung von Google-Dokumenten, inkl. Nutzung von Vorlagen und Platzhaltern
 
 \bibitem[{Google}(2025{\natexlab{b}})]{google_drive_api_guide}
 \dinatlabel{{Google} 2025{\natexlab{b}}} \textsc{{Google}}:
 \newblock \emph{Google Drive API overview}.
 \newblock 2025. --
-\newblock URL \url{https://developers.google.com/workspace/drive/api/guides/about-sdk}. -- Zugriffsdatum: 2025-12-26. --
-\newblock Überblick über Funktionen zum Suchen, Hoch- und Herunterladen von Dateien in Google Drive
+\newblock URL \url{https://developers.google.com/workspace/drive/api/guides/about-sdk}. -- Zugriffsdatum: 2025-12-27. --
+\newblock Überblick über Funktionen zum Anlegen, Organisieren und Abrufen von Dateien und Ordnern in Google Drive per API
 
-\bibitem[{Google}(2025{\natexlab{c}})]{google_docs_mailmerge}
-\dinatlabel{{Google} 2025{\natexlab{c}}} \textsc{{Google}}:
-\newblock \emph{Mail merge with Docs API}.
+\bibitem[{Google LLC}(2025)]{google_drive_files_export_2025}
+\dinatlabel{{Google LLC} 2025} \textsc{{Google LLC}}:
+\newblock \emph{Method: files.export — Google Drive API}.
 \newblock 2025. --
-\newblock URL \url{https://developers.google.com/workspace/docs/api/samples/mail-merge}. -- Zugriffsdatum: 2025-12-27. --
-\newblock Beispiel für die Erzeugung personalisierter Dokumente aus einer Vorlage
+\newblock URL \url{https://developers.google.com/workspace/drive/api/reference/rest/v3/files/export}. -- Zugriffsdatum: 2025-12-27. --
+\newblock Beschreibung der Methode \texttt{files.export} der Google Drive API, mit der Google-Docs-Dokumente unter anderem als PDF exportiert werden k{\"o}nnen
 
-\bibitem[{Google}(2025{\natexlab{d}})]{google_docs_merge}
-\dinatlabel{{Google} 2025{\natexlab{d}}} \textsc{{Google}}:
-\newblock \emph{Merge text into a document}.
-\newblock 2025. --
-\newblock URL \url{https://developers.google.com/workspace/docs/api/how-tos/merge}. -- Zugriffsdatum: 2025-12-27. --
-\newblock Beschreibung des Ersetzens von Platzhaltern (Mail-Merge) in Google Docs
+\bibitem[{ISO/IEC}(2023)]{iso_25010_2023}
+\dinatlabel{{ISO/IEC} 2023} \textsc{{ISO/IEC}}:
+\newblock \emph{ISO/IEC 25010:2023 — Systems and software engineering — Systems and software Quality Requirements and Evaluation (SQuaRE) — Product quality model}.
+\newblock \textsc{International Standard}.
+\newblock 2023. --
+\newblock URL \url{https://www.iso.org/standard/78176.html}. -- Zugriffsdatum: 2025-12-27. --
+\newblock Product quality model mit Qualitätsmerkmalen wie Functional Suitability, Performance Efficiency, Compatibility, Reliability, Security, Maintainability, etc.
 
 \bibitem[Johann(2025)]{johann_nfa_2025}
 \dinatlabel{Johann 2025} \textsc{Johann}, Peter:
@@ -97,58 +95,72 @@
 \newblock 2025. --
 \newblock URL \url{https://www.peterjohann-consulting.de/nicht-funktionale-anforderungen/}. -- Zugriffsdatum: 2025-12-13
 
-\bibitem[LogRocket(2024)]{logrocket_supabase_edge}
-\dinatlabel{LogRocket 2024} \textsc{LogRocket}:
-\newblock \emph{Using Edge Functions in Supabase: A Complete Guide}.
-\newblock 2024. --
-\newblock URL \url{https://blog.logrocket.com/using-edge-functions-supabase-complete-guide/}. -- Zugriffsdatum: 2025-12-26. --
-\newblock Praxisleitfaden zu Architektur und Einsatzszenarien von Supabase Edge Functions
-
-\bibitem[{Make.com}(2024{\natexlab{a}})]{make_google_docs}
-\dinatlabel{{Make.com} 2024{\natexlab{a}}} \textsc{{Make.com}}:
-\newblock \emph{Google Docs Integration --- Workflow Automation}.
-\newblock 2024. --
-\newblock URL \url{https://www.make.com/en/integrations/auto-content-api/google-docs}. -- Zugriffsdatum: 2025-12-26
-
-\bibitem[{Make.com}(2024{\natexlab{b}})]{make_google_docs_integration}
-\dinatlabel{{Make.com} 2024{\natexlab{b}}} \textsc{{Make.com}}:
-\newblock \emph{Google Docs Integration | Workflow Automation}.
-\newblock 2024. --
-\newblock URL \url{https://www.make.com/en/integrations/google-docs}. -- Zugriffsdatum: 2025-12-27. --
-\newblock Dokumentation der Module zur Template-Erstellung, -Befüllung und zum Export
-
-\bibitem[{Make.com}(2025{\natexlab{a}})]{make_airtable_search_records}
-\dinatlabel{{Make.com} 2025{\natexlab{a}}} \textsc{{Make.com}}:
-\newblock \emph{Airtable Modules --- Search records}.
+\bibitem[{Make}(2025{\natexlab{a}})]{make_airtable_app}
+\dinatlabel{{Make} 2025{\natexlab{a}}} \textsc{{Make}}:
+\newblock \emph{Airtable - Apps Documentation}.
 \newblock 2025. --
-\newblock URL \url{https://apps.make.com/airtable-modules}. -- Zugriffsdatum: 2025-12-24. --
-\newblock Abruf am 24.12.2025
+\newblock URL \url{https://apps.make.com/airtable}. -- Zugriffsdatum: 2025-12-27. --
+\newblock Dokumentation der Airtable-App in Make, inklusive Einrichtung der Verbindung und Verwendung der Module zur Verwaltung von Datensätzen
 
-\bibitem[{Make.com}(2025{\natexlab{b}})]{make_whatsapp_watch_events}
-\dinatlabel{{Make.com} 2025{\natexlab{b}}} \textsc{{Make.com}}:
+\bibitem[{Make}(2025{\natexlab{b}})]{make_array_aggregator}
+\dinatlabel{{Make} 2025{\natexlab{b}}} \textsc{{Make}}:
+\newblock \emph{Flow control (Aggregator modules)}.
+\newblock 2025. --
+\newblock URL \url{https://help.make.com/flow-control}. -- Zugriffsdatum: 2026-01-20
+
+\bibitem[{Make.com}(2025)]{make_whatsapp_watch_events}
+\dinatlabel{{Make.com} 2025} \textsc{{Make.com}}:
 \newblock \emph{WhatsApp Business Cloud --- Modules Documentation}.
 \newblock 2025. --
-\newblock URL \url{https://apps.make.com/whatsapp-business-cloud-modules}. -- Zugriffsdatum: 2025-12-24. --
-\newblock Abruf am 24.12.2025
+\newblock URL \url{https://apps.make.com/whatsapp-business-cloud-modules}. -- Zugriffsdatum: 2026-01-16. --
+\newblock Dokumentation der Make-Plattform am Beispiel der WhatsApp-Business-Cloud-Module, inkl. Triggern, Aktionen und Szenariokonzept
 
-\bibitem[{Make.com Community}(2025)]{make_google_drive}
-\dinatlabel{{Make.com Community} 2025} \textsc{{Make.com Community}}:
-\newblock \emph{How To Connect Make.com to Google Drive (2025 Tutorial)}.
+\bibitem[Mell und Grance(2011)]{cloud_grundlagen}
+\dinatlabel{Mell und Grance 2011} \textsc{Mell}, Peter~; \textsc{Grance}, Timothy:
+\newblock The NIST Definition of Cloud Computing
+\newblock / National Institute of Standards and Technology.
+\newblock NIST, 2011
+\newblock (Special Publication 800-145). -- Forschungsbericht. --
+\newblock URL \url{https://csrc.nist.gov/pubs/sp/800/145/final}. -- Zugriffsdatum: 2026-01-14.
+\newblock Standarddefinition von Cloud Computing mit zentralen Merkmalen wie On-Demand-Self-Service, Broad Network Access und Resource Pooling
+
+\bibitem[{Meta Platforms, Inc.}(2025)]{whatsapp_cloud_api_media_2025}
+\dinatlabel{{Meta Platforms, Inc.} 2025} \textsc{{Meta Platforms, Inc.}}:
+\newblock \emph{Media — WhatsApp Business Platform Cloud API}.
 \newblock 2025. --
-\newblock URL \url{https://www.youtube.com/watch?v=AiUT9cOCmVU}. -- Zugriffsdatum: 2025-12-26. --
-\newblock YouTube-Tutorial zu Google-Drive-Anbindung
+\newblock URL \url{https://developers.facebook.com/docs/whatsapp/cloud-api/}. -- Zugriffsdatum: 2025-12-27. --
+\newblock Dokumentation der WhatsApp Business Platform Cloud API, inklusive Senden und Empfangen von Nachrichten sowie Upload und Abruf von Mediendateien
 
-\bibitem[Media(2018)]{seibert_nfa_2018}
-\dinatlabel{Media 2018} \textsc{Media}, Seibert:
-\newblock \emph{Qualität, funktionale und nichtfunktionale Anforderungen in der Softwareentwicklung}.
-\newblock 2018. --
-\newblock URL \url{https://seibert.group/blog/2018/05/14/qualitaet-funktionale-und-nichtfunktionale-anforderungen-in-der-software-entwicklung/}. -- Zugriffsdatum: 2025-12-13
+\bibitem[{microtech GmbH}(2016)]{word_excel_kmu_rechnungen}
+\dinatlabel{{microtech GmbH} 2016} \textsc{{microtech GmbH}}:
+\newblock \emph{Rechnungsprogramm oder Word und Excel?}
+\newblock 2016. --
+\newblock URL \url{https://www.microtech.de/blog/rechnungsprogramm-oder-word-excel/}. -- Zugriffsdatum: 2026-01-14
 
-\bibitem[Pleo(2024)]{pleo_automatisierte_rechnungsverarbeitung_2024}
-\dinatlabel{Pleo 2024} \textsc{Pleo}:
+\bibitem[{My eOffice}(2024)]{manual_vs_automated_dms_2025}
+\dinatlabel{{My eOffice} 2024} \textsc{{My eOffice}}:
+\newblock \emph{Document Management System vs Traditional Filing}.
+\newblock 2024. --
+\newblock URL \url{https://myeoffice.in/2024/07/04/document-management-system-vs-traditional-filing/}. -- Zugriffsdatum: 2026-01-20
+
+\bibitem[Newman(2014)]{webanwendungen_spa}
+\dinatlabel{Newman 2014} \textsc{Newman}, Michael~S.:
+\newblock \emph{Single Page Web Applications: JavaScript End to End}.
+\newblock Manning Publications, 2014. --
+\newblock URL \url{https://www.manning.com/books/single-page-web-applications}. --
+\newblock Praxisorientiertes Buch zu Architektur, Design und Implementierung moderner Single-Page-Webanwendungen mit JavaScript, inkl. Client--Server-Modell, REST-APIs und Sicherheitsaspekten
+
+\bibitem[{Pleo Technologies ApS}(2024)]{pleo_automatisierte_rechnungsverarbeitung_2024}
+\dinatlabel{{Pleo Technologies ApS} 2024} \textsc{{Pleo Technologies ApS}}:
 \newblock \emph{Automatisierte Rechnungsverarbeitung: Warum sie durch die E-Rechnung immer wichtiger wird}.
 \newblock 2024. --
-\newblock URL \url{https://blog.pleo.io/de/automatisierte-rechnungsverarbeitung}. -- Zugriffsdatum: 2025-12-13
+\newblock URL \url{https://blog.pleo.io/de/automatisierte-rechnungsverarbeitung}. -- Zugriffsdatum: 2025-12-27
+
+\bibitem[{Seibert Media GmbH}(2018)]{seibert_nfa_2018}
+\dinatlabel{{Seibert Media GmbH} 2018} \textsc{{Seibert Media GmbH}}:
+\newblock \emph{Qualität, funktionale und nichtfunktionale Anforderungen in der Software-Entwicklung}.
+\newblock 2018. --
+\newblock URL \url{https://seibert.group/blog/2018/05/14/qualitaet-funktionale-und-nichtfunktionale-anforderungen-in-der-software-entwicklung/}. -- Zugriffsdatum: 2025-12-27
 
 \bibitem[Spichale(2020)]{spichale_apidesign_2020}
 \dinatlabel{Spichale 2020} \textsc{Spichale}, Kai:
@@ -156,11 +168,10 @@
 \newblock 2020. --
 \newblock URL \url{https://www.assets.dpunkt.de/openbooks/Openbook_Spichale_API-Design_2A.pdf}. -- Zugriffsdatum: 2025-12-13
 
-\bibitem[{Supabase}(2025)]{supabase_edge_functions}
-\dinatlabel{{Supabase} 2025} \textsc{{Supabase}}:
-\newblock \emph{Edge Functions}.
+\bibitem[{Zenwork}(2025)]{manual_invoice_time_2025}
+\dinatlabel{{Zenwork} 2025} \textsc{{Zenwork}}:
+\newblock \emph{The Benefits of Automated Invoicing for Small Business Growth}.
 \newblock 2025. --
-\newblock URL \url{https://supabase.com/docs/guides/functions}. -- Zugriffsdatum: 2025-12-26. --
-\newblock Dokumentation zu serverlosen, global verteilten Edge Functions
+\newblock URL \url{https://www.zenwork.com/payments/blog/benefits-of-invoice-automation/}. -- Zugriffsdatum: 2026-01-20
 
 \end{thebibliography}

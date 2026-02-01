@@ -2,6 +2,13 @@
 % @author Thomas Lehmann
 %
 \chapter{Technologischer Hintergrund}
+Dieses Kapitel stellt die konkreten Technologien vor, die für die Umsetzung 
+des Prototyps verwendet wurden. Zunächst wird Make.com als zentrale 
+Integrations- und Automatisierungsplattform erläutert. Anschließend folgt 
+Airtable als Datenhaltung, gefolgt von Google Docs und Drive für 
+Dokumentenerstellung und Ablage. Abschließend werden Lovable Cloud 
+(Supabase Edge Functions) sowie der Frontend-Stack beschrieben.
+
 \section{Make.com als Integrations- und Automatisierungsplattform}
 \label{sec:make}
 
@@ -11,8 +18,8 @@ miteinander zu verbinden. Die Umsetzung erfolgt ohne klassische
 Programmierung und basiert auf einem No-Code- beziehungsweise
 Low-Code-Ansatz. Workflows werden in einer grafischen Benutzeroberfläche modelliert, indem vordefinierte Funktionsbausteine konfiguriert und zu logischen Abläufen
 verknüpft werden. Dadurch können auch komplexe Integrationsprozesse ohne
-umfangreiche Programmierkenntnisse umgesetzt werden.Aus technischer Sicht handelt es sich bei Make.com um eine Integrationsplattform, die externe Systeme über deren Web-APIs anbindet. Ereignisse und Datenflüsse werden dabei in einem zentralen
-Orchestrierungslayer zusammengeführt und automatisiert verarbeitet.
+umfangreiche Programmierkenntnisse umgesetzt werden.Aus technischer Sicht handelt es sich bei Make.com um eine Integrationsplattform, die externe Systeme über deren Web-\glspl{ac:api} anbindet. Ereignisse und Datenflüsse werden dabei in einem zentralen
+Orchestrierungslayer zusammengeführt und automatisiert verarbeitet.\cite{make_whatsapp_watch_events}
 
 Das zentrale Konstrukt in Make sind sogenannte Szenarien. Ein Szenario
 beschreibt einen vollständigen Automatisierungsablauf, der aus einem
@@ -23,6 +30,14 @@ WhatsApp, Airtable oder Google Docs, oder generische Funktionen wie Filter,
 Iteratoren, Aggregatoren oder Router. Trigger-Module starten ein Szenario
 beispielsweise bei einer eingehenden Nachricht über einen Webhook. Aktionsmodule übernehmen anschließend die Verarbeitung der Daten, indem
 sie Informationen lesen, schreiben oder an andere Systeme übertragen.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{make_whatsapp_airtable.png}
+\caption{Make.com-Szenario: WhatsApp-Trigger → Airtable → Google Docs → Drive.}
+\label{fig:make_scenario}
+\end{figure}
+
 Mithilfe visueller Router und Filter können alternative Verarbeitungswege
 modelliert werden, die abhängig von Dateninhalten oder Zuständen
 unterschiedliche Pfade innerhalb des Szenarios durchlaufen.
@@ -72,19 +87,26 @@ Benutzeroberflächen mit den Eigenschaften einer datenbankgestützten
 Anwendung kombiniert. Aus Anwendersicht ähnelt Airtable einer klassischen
 Tabellenkalkulation, erweitert diese jedoch um strukturierte Feldtypen,
 Relationen zwischen Tabellen sowie eine standardisierte
-Programmierschnittstelle. Dadurch eignet sich die Plattform insbesondere für Anwendungsszenarien, in denen Daten sowohl über eine webbasierte Oberfläche gepflegt als auch automatisiert von externen Systemen gelesen und geschrieben werden sollen.
+Programmierschnittstelle. Dadurch eignet sich die Plattform insbesondere für Anwendungsszenarien, in denen Daten sowohl über eine webbasierte Oberfläche gepflegt als auch automatisiert von externen Systemen gelesen und geschrieben werden sollen.\cite{airtable_overview}
 
 Zentrale Konzepte in Airtable sind sogenannte Bases, die jeweils eine
 in sich geschlossene Datenbankinstanz mit mehreren Tabellen
 repräsentieren. Eine Tabelle besteht aus Datensätzen und Feldern, wobei
 die Felder unterschiedliche Typen annehmen können, etwa Text, Zahl,
-Datum, Auswahlfelder oder Verknüpfungen zu anderen Tabellen. Über verknüpfte Felder lassen sich einfache Relationen zwischen Tabellen modellieren, beispielsweise zwischen Kunden und zugehörigen Rechnungen. Darüber hinaus stehen verschiedene Sichten und Filter zur Verfügung, mit denen Teilmengen der Daten anhand frei definierbarer Kriterien angezeigt werden können. Formelfelder ermöglichen zudem die Berechnung dynamischer Werte. Sie können unter anderem zur Aggregation von Beträgen oder zur Erzeugung
+Datum, Auswahlfelder oder Verknüpfungen zu anderen Tabellen. Über verknüpfte Felder lassen sich einfache Relationen zwischen Tabellen modellieren, beispielsweise zwischen Kunden und zugehörigen Rechnungen. 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{airtable_kunden_rechnungen.png}
+\caption{Airtable Base mit Tabellen „Kunden" und „Rechnungen" (mit Filteransicht).}
+\label{fig:airtable_base}
+\end{figure}
+Darüber hinaus stehen verschiedene Sichten und Filter zur Verfügung, mit denen Teilmengen der Daten anhand frei definierbarer Kriterien angezeigt werden können. Formelfelder ermöglichen zudem die Berechnung dynamischer Werte. Sie können unter anderem zur Aggregation von Beträgen oder zur Erzeugung
 formatierter Anzeigeinhalte eingesetzt werden.
 
 Für den Einsatz als zentrale Datenhaltung in einem verteilten System ist
-insbesondere die von Airtable bereitgestellte REST-API von Bedeutung. Sie
+insbesondere die von Airtable bereitgestellte \gls{ac:rest}-\gls{ac:api} von Bedeutung. Sie
 ermöglicht es, Datensätze programmatisch anzulegen, zu aktualisieren, zu
-löschen oder anhand definierter Filterkriterien abzufragen. Auf diese Weise kann Airtable als zentrale „Single Source of Truth“ für fachliche Informationen fungieren. Unterschiedliche Frontends und Automatisierungsprozesse greifen dabei über die API auf denselben
+löschen oder anhand definierter Filterkriterien abzufragen. Auf diese Weise kann Airtable als zentrale „Single Source of Truth“ für fachliche Informationen fungieren. Unterschiedliche Frontends und Automatisierungsprozesse greifen dabei über die \gls{ac:api} auf denselben
 konsistenten Datenbestand zu. Durch die Kombination aus grafischer Benutzeroberfläche und Programmierschnittstelle eignet sich Airtable sowohl für die manuelle
 Pflege und Kontrolle von Daten als auch für die Integration in
 automatisierte Workflows.
@@ -95,7 +117,7 @@ kann ohne aufwendige Deployment- oder Migrationsprozesse angepasst
 werden, was insbesondere iteratives Arbeiten und prototypische
 Entwicklungen erleichtert. Darüber hinaus unterstützt die grafische Benutzeroberfläche die manuelle Datenpflege sowie die Fehlersuche. Datensätze sind unmittelbar einsehbar
 und bearbeitbar, wodurch einfache Auswertungen und Kontrollen direkt in
-der Anwendung durchgeführt werden können. Demgegenüber stehen typische Einschränkungen gehosteter Plattformen. Dazu zählen unter anderem Begrenzungen hinsichtlich des maximalen Datenvolumens, der Anzahl zulässiger API-Aufrufe sowie die fehlende Unterstützung komplexer Transaktionen. Für klein- bis mittelkomplexe Anwendungen mit moderatem Datenumfang stellt Airtable dennoch eine pragmatische Lösung dar. Es ermöglicht die Realisierung einer zentralen, cloudbasierten Datenhaltung, ohne dass eine eigene Datenbankinfrastruktur betrieben werden muss.
+der Anwendung durchgeführt werden können. Demgegenüber stehen typische Einschränkungen gehosteter Plattformen. Dazu zählen unter anderem Begrenzungen hinsichtlich des maximalen Datenvolumens, der Anzahl zulässiger \gls{ac:api}-Aufrufe sowie die fehlende Unterstützung komplexer Transaktionen. Für klein- bis mittelkomplexe Anwendungen mit moderatem Datenumfang stellt Airtable dennoch eine pragmatische Lösung dar. Es ermöglicht die Realisierung einer zentralen, cloudbasierten Datenhaltung, ohne dass eine eigene Datenbankinfrastruktur betrieben werden muss.
 
 \section{Google Docs und Google Drive}
 Google Docs und Google Drive sind zentrale Bestandteile der
@@ -109,9 +131,6 @@ vollständig browserbasiert und erlauben einen orts- und
 geräteunabhängigen Zugriff auf Dokumente, ohne dass eine lokale
 Office-Software installiert werden muss.
 
-
-
-
 Für automatisierte Systeme ist insbesondere die Programmierschnittstelle
 von Google Docs von Bedeutung. Sie ermöglicht es, Dokumente nicht nur
 manuell, sondern auch programmatisch zu erzeugen und zu verändern. In der Praxis werden hierzu häufig Dokumentvorlagen verwendet, die das
@@ -122,18 +141,208 @@ Auf diese Weise können aus einer einzelnen Vorlage eine Vielzahl
 individueller Dokumente generiert werden. Typische Anwendungsfälle sind
 unter anderem die standardisierte Erstellung von Rechnungen, Angeboten
 oder Serienbriefen, ohne dass jedes Dokument manuell angepasst werden
-muss.
-
-
+muss.\cite{google_docs_api}
 
 Google Drive ergänzt diese Funktionalität durch eine strukturierte,
 cloudbasierte Ablage der erzeugten Dokumente. Dateien können in
 hierarchischen Ordnerstrukturen organisiert, mit Metadaten versehen und
-über differenzierte Freigabemechanismen geteilt werden. Über die Google-Drive-API lassen sich Ordner und Dateien zudem programmgesteuert anlegen, verschieben, umbenennen dder herunterladen. Dadurch können Dokumentenerzeugung und Archivierung in einen
-durchgängigen digitalen Prozess integriert werden. Insbesondere für kleinere Organisationen stellt Google Drive damit eine leichtgewichtige Alternative zu klassischen Dokumentenmanagementsystemen dar. Sowohl die manuelle Nutzung über die Weboberfläche als auch automatisierte Workflows auf Basis standardisierter Schnittstellen werden dabei unterstützt.
+über differenzierte Freigabemechanismen geteilt werden. Über die Google-Drive-\gls{ac:api} lassen sich Ordner und Dateien zudem programmgesteuert anlegen, verschieben, umbenennen dder herunterladen. Dadurch können Dokumentenerzeugung und Archivierung in einen
+durchgängigen digitalen Prozess integriert werden. Insbesondere für kleinere Organisationen stellt Google Drive damit eine leichtgewichtige Alternative zu klassischen Dokumentenmanagementsystemen dar. Sowohl die manuelle Nutzung über die Weboberfläche als auch automatisierte Workflows auf Basis standardisierter Schnittstellen werden dabei unterstützt.\cite{google_drive_api_guide}
 
 
 
 
 \section{Lovable Cloud / Supabase Edge Functions}
+\label{sec:edge-functions}
+
+Für die Webanwendung \glqq ClientHub\grqq{} wurde Lovable Cloud als Hosting- und Deployment-Umgebung verwendet. 
+Serverseitige Logik wird dabei nicht über ein klassisches Backend mit dauerhaft laufendem Server umgesetzt, 
+sondern über \emph{Supabase Edge Functions}. Diese Functions sind serverlose \gls{ac:http}-Endpunkte, die bei Bedarf 
+ausgeführt werden und sich besonders für leichte Integrations- und Proxy-Aufgaben eignen. Im Prototyp dienen 
+sie insbesondere dazu, externe \glspl{ac:api} sicher anzubinden, ohne dass \gls{ac:api}-Schlüssel oder \gls{ac:oauth}-Geheimnisse im 
+Frontend offengelegt werden müssen.
+
+\subsection{Eingesetzte Edge Functions und Zweck}
+Im Rahmen des Prototyps wurden zwei Edge Functions umgesetzt, die als Vermittlungsschicht zwischen Frontend 
+und externen Diensten fungieren:
+
+\begin{itemize}
+  \item \texttt{airtable-customers}: Bereitstellung von \gls{ac:crud}-Operationen zur Abfrage und Verwaltung von Kundendaten in Airtable.
+  \item \texttt{google-drive}: Umsetzung des \gls{ac:oauth}-2.0-Flows sowie Zugriff auf Ordner- und Dateiinformationen in Google Drive.
+\end{itemize}
+
+\subsection{Aufgerufene \glspl{ac:api}}
+Die Edge Functions kapseln den Zugriff auf mehrere externe Schnittstellen. Für die Datenhaltung wird die 
+Airtable \gls{ac:rest}-\gls{ac:api} genutzt (z.\,B.\ \texttt{api.airtable.com/v0/}). Für die Authentifizierung und den Zugriff 
+auf Google Drive wird ein \gls{ac:oauth}-2.0-Flow verwendet, der u.\,a.\ Google-Endpoints wie 
+\texttt{accounts.google.com} bzw.\ \texttt{oauth2.googleapis.com} einbindet. Der eigentliche Zugriff auf 
+Ordner- und Dateistrukturen erfolgt anschließend über die Google-Drive-\gls{ac:api} v3 (z.\,B.\ 
+\texttt{googleapis.com/drive/v3/files}).
+
+\subsection{Zentrale Logik in den Functions}
+Die Implementierung der Functions ist bewusst schlank gehalten und konzentriert sich auf das sichere 
+Weiterreichen von Requests sowie die Normalisierung von Response-Daten.
+
+\paragraph{Airtable: Kunden abrufen (Mapping)}
+Die Function \texttt{airtable-customers} ruft Datensätze über die Airtable-\gls{ac:api} ab und transformiert die 
+Antwort in eine frontendfreundliche Struktur, indem \texttt{record.id} und \texttt{record.fields} zusammengeführt werden:
+
+\begin{verbatim}
+const response = await fetch(airtableUrl, {
+  headers: { 'Authorization': `Bearer ${AIRTABLE_API_KEY}` },
+});
+const customers = data.records.map((record) => ({
+  id: record.id,
+  ...record.fields,
+}));
+\end{verbatim}
+
+\paragraph{Google Drive: \gls{ac:oauth} Token Exchange}
+Die Function \texttt{google-drive} führt den Token-Austausch im \gls{ac:oauth}-2.0-Prozess serverseitig aus, um 
+Client Secret und weitere vertrauliche Parameter zu schützen:
+
+\begin{verbatim}
+const tokenResponse = await fetch('https://oauth2.googleapis.com/token', {
+  method: 'POST',
+  body: new URLSearchParams({
+    code, client_id, client_secret, redirect_uri,
+    grant_type: 'authorization_code',
+  }),
+});
+\end{verbatim}
+
+\subsection{Begründung für Edge Functions}
+Der Einsatz von Edge Functions bietet im Prototyp mehrere praktische Vorteile:
+
+\begin{itemize}
+  \item \textbf{Sicherheit:} \gls{ac:api}-Keys und \gls{ac:oauth}-Geheimnisse verbleiben serverseitig und sind nicht im Browser sichtbar.
+  \item \textbf{\gls{ac:cors}-Entkopplung:} Direkte \gls{ac:api}-Calls aus dem Browser sind häufig durch \gls{ac:cors}-Restriktionen limitiert; die Function fungiert als kontrollierter Proxy.
+  \item \textbf{Serverless-Betrieb:} Es ist kein eigener Server und kein klassisches Deployment/Scaling notwendig, da die Functions on-demand ausgeführt werden.
+  \item \textbf{Geringe Latenz:} Ausführung am Edge kann zu geringeren Antwortzeiten führen, da Requests geographisch näher am Nutzer verarbeitet werden.
+\end{itemize}
+
+\subsection{Deployment und Konfiguration}
+Die Edge Functions werden über die Supabase-Konfiguration aktiviert. Im Prototyp wurde die \gls{ac:jwt}-Verifikation 
+deaktiviert, da die Endpunkte ausschließlich prototypisch und in einer kontrollierten Testumgebung genutzt 
+wurden:
+
+\begin{verbatim}
+[functions.airtable-customers]
+verify_jwt = false
+
+[functions.google-drive]
+verify_jwt = false
+\end{verbatim}
+
+Das Deployment erfolgt in Lovable Cloud automatisch durch Code-Änderungen, sodass kein manuelles Rollout 
+erforderlich ist. Dadurch eignet sich der Ansatz besonders für iterative Prototypenentwicklung.
+
+\subsection{Sicherheitsaspekte}
+Ein zentraler Grund für die serverseitige Umsetzung ist die sichere Handhabung vertraulicher Zugangsdaten. 
+\gls{ac:api}-Keys (z.\,B.\ Airtable) sowie \gls{ac:oauth}-Parameter (Client ID/Client Secret) werden als Secrets hinterlegt und 
+nur innerhalb der Edge Functions verwendet. Zusätzlich können kontrollierte \gls{ac:cors}-Header gesetzt werden, um 
+Zugriffe auf definierte Origins zu begrenzen. Im \gls{ac:oauth}-Kontext unterstützt der Ansatz außerdem eine saubere 
+Token-Verwaltung (inkl.\ Refresh-Token-Mechanismus), ohne dass sensitive Daten im Frontend gespeichert werden müssen.
+
+\subsection{Einordnung: Performance im Vergleich zu klassischem Backend}
+Im Vergleich zu einem traditionellen Backend (dauerhaft laufender Server) sind Edge Functions typischerweise 
+schnell verfügbar und skalieren automatisch pro Request. Während klassische Serverstarts bei Deployment oder 
+Kaltstart-Situationen spürbare Verzögerungen verursachen können, sind serverlose Funktionen in der Regel für 
+kurze, sporadische Integrationsaufgaben geeignet. Gleichzeitig bleiben Grenzen bestehen, z.\,B.\ durch 
+Provider-Limits, Laufzeitbeschränkungen oder die Komplexität umfangreicher Geschäftslogik.
+
+
+
+
+
+
 \section{Frontend-Stack (React, TypeScript, Tailwind, shadcn/ui)}
+\label{sec:frontend-stack}
+
+Das Frontend der Webanwendung \glqq ClientHub\grqq{} wurde als moderne Single-Page-Application umgesetzt. 
+Ziel war es, eine interaktive und übersichtliche Benutzeroberfläche bereitzustellen, die den Zugriff auf 
+Kunden-, Rechnungs- und Dokumentendaten ermöglicht und dabei eng mit den serverseitigen Edge Functions 
+zusammenarbeitet. Die technische Umsetzung basiert auf React in Kombination mit TypeScript sowie einem 
+komponentenbasierten UI- und Styling-Ansatz.
+
+\subsection{Grundlegende Technologien}
+Als zentrales Framework kommt React in der Version 18.3.1 in Verbindung mit React DOM 18.3.1 zum Einsatz. 
+React ermöglicht die deklarative Beschreibung von Benutzeroberflächen auf Basis wiederverwendbarer Komponenten 
+und eignet sich insbesondere für datengetriebene Anwendungen mit häufigen Zustandsänderungen. 
+Die Entwicklung erfolgt vollständig in TypeScript, wodurch eine statische Typisierung der Komponenten, 
+Datenmodelle und Schnittstellen erreicht wird. Dies trägt zur besseren Wartbarkeit und zur frühzeitigen 
+Erkennung typischer Fehler bei, etwa bei der Verarbeitung externer \gls{ac:api}-Daten.
+
+\subsection{Routing und Zustandsverwaltung}
+Die Navigation innerhalb der Anwendung wird über clientseitiges Routing realisiert. Hierfür wird 
+\texttt{react-router-dom} (Version 6.30.1) eingesetzt, wodurch unterschiedliche Ansichten wie Dashboard, 
+Kundenübersicht oder Dokumentenbrowser als Routen modelliert werden können, ohne dass ein vollständiger 
+Seitenreload erforderlich ist.
+
+Für den Umgang mit serverseitigen Daten wird TanStack Query (\texttt{@tanstack/react-query}, Version 5.83.0) 
+verwendet. Diese Bibliothek abstrahiert wiederkehrende Aufgaben wie das Laden, Zwischenspeichern und 
+Aktualisieren von Daten aus externen Quellen. Im Prototyp werden darüber unter anderem Kundendaten geladen, 
+indem das Frontend eine Supabase Edge Function aufruft und die zurückgegebenen Datensätze als gecachten 
+Server State innerhalb der Anwendung bereitstellt. Fehlerzustände und Ladeindikatoren werden dabei zentral 
+verwaltet und konsistent in der Benutzeroberfläche dargestellt.
+
+\subsection{Formularverarbeitung und Validierung}
+Zur Umsetzung von Formularen, etwa bei der Anlage neuer Kunden, wird \texttt{react-hook-form} 
+(Version 7.61.1) eingesetzt. Die Bibliothek ermöglicht eine performante Verwaltung von Formzuständen und 
+reduziert unnötige Re-Renders. Ergänzend dazu wird \texttt{zod} (Version 3.25.76) zur schema-basierten 
+Validierung genutzt. Eingabedaten können dadurch bereits im Frontend auf Vollständigkeit und Plausibilität 
+geprüft werden, bevor sie an die serverseitigen Schnittstellen übermittelt werden.
+
+Die zugrunde liegenden Datenstrukturen werden über TypeScript-Interfaces definiert, wodurch eine klare 
+Trennung zwischen Anzeige-, Formular- und Transportdaten erreicht wird. Ein vereinfachtes Beispiel für ein 
+Kundendatenmodell ist in folgendem Listing dargestellt:
+
+\begin{verbatim}
+export interface Customer {
+  id: string;
+  Firmenname?: string;
+  name?: string;
+  first_name?: string;
+  "E-Mail"?: string;
+  phone?: string;
+  address?: string;
+  city?: string;
+  postal_code?: string;
+  country?: string;
+  ust_id?: string;
+}
+\end{verbatim}
+
+\subsection{UI-Komponenten und Styling}
+Für das visuelle Erscheinungsbild der Anwendung wird Tailwind CSS verwendet. Das Styling basiert auf einer 
+stark angepassten Konfiguration mit eigenen Design-Tokens, die über CSS-Variablen definiert sind. 
+Hierzu zählen unter anderem semantische Farbdefinitionen wie \glqq surface\grqq{}, \glqq success\grqq{} oder 
+\glqq warning\grqq{} sowie Animationen für Übergänge und Interaktionen. Dieser Ansatz ermöglicht ein 
+konsistentes Erscheinungsbild und erleichtert spätere Anpassungen des Designs.
+
+Als Komponentenbibliothek wird \texttt{shadcn/ui} eingesetzt. Diese stellt vorgefertigte, barrierearme 
+UI-Komponenten bereit, die direkt im Projektcode integriert und bei Bedarf angepasst werden können. 
+Im Prototyp kommen unter anderem Layout-Komponenten wie Cards und Tabs, Formularelemente wie Buttons, Inputs 
+und Selects sowie Feedback-Elemente wie Dialoge, Alerts und Toasts zum Einsatz. Die Kombination aus Tailwind 
+CSS und shadcn/ui erlaubt eine flexible Gestaltung bei gleichzeitig hoher Konsistenz der Benutzeroberfläche.
+
+\subsection{Struktur und Datenfluss im Frontend}
+Die Codebasis des Frontends ist modular aufgebaut und nach fachlichen sowie technischen Aspekten strukturiert. 
+Neben allgemeinen Layout- und UI-Komponenten existieren eigenständige Module für Kundenverwaltung, Dashboard 
+und Dokumentenbrowser. Wiederkehrende Logik, etwa für das Laden von Kundendaten, ist in dedizierten Hooks 
+gekapselt. Der Zugriff auf serverseitige Funktionen erfolgt ausschließlich über den Supabase-Client, der 
+\gls{ac:http}-Aufrufe an die entsprechenden Edge Functions kapselt und deren Antworten an das Frontend zurückliefert.
+
+\subsection{Responsives Design und Einschränkungen}
+Das Layout der Anwendung ist teilweise responsiv umgesetzt. Grid-Strukturen und Breakpoints werden genutzt, 
+um Inhalte auf unterschiedlichen Bildschirmgrößen sinnvoll anzuordnen. Der Fokus der aktuellen Umsetzung 
+liegt jedoch auf der Desktop-Nutzung; insbesondere die Sidebar-Navigation ist nicht vollständig für mobile 
+Endgeräte optimiert. Diese Einschränkung wurde bewusst in Kauf genommen, da der Prototyp primär für den 
+Einsatz in einer Desktop-orientierten Arbeitsumgebung konzipiert ist.
+
+\subsection{Deployment des Frontends}
+Das Frontend wird über Lovable Cloud bereitgestellt. Der Build erfolgt als Vite-Produktionsbuild, der 
+anschließend automatisch veröffentlicht wird. Änderungen am Code führen ohne manuelle Eingriffe zu einem 
+neuen Deployment. Die Webanwendung ist sowohl über eine Preview- als auch über eine veröffentlichte URL 
+erreichbar. Die enge Verzahnung mit den serverseitigen Edge Functions ermöglicht dabei einen durchgängigen 
+End-to-End-Betrieb der Anwendung.

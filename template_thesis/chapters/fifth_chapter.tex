@@ -2,6 +2,13 @@
 % @author Thomas Lehmann
 %
 \chapter{Implementierung}
+Dieses Kapitel beschreibt die technische Umsetzung des in Kapitel~4 konzipierten 
+Systems. Zunächst wird die Implementierung des Chatbots über Make.com-Szenarien 
+erläutert. Anschließend folgt die Datenhaltung mit Airtable und die Web-Anwendung 
+ClientHub. Darauf aufbauend werden automatische Dokumentenerstellung in Google 
+Docs, Ablagestrategie in Google Drive sowie die ClientHub WebApp mit Frontend, 
+Edge Functions und \gls{ac:api}-Anbindungen detailliert beschrieben.
+
 \section{Implementierung des Chatbots (make.com‑Szenarien)}
 
 Das in Kapitel~4 konzipierte Chatbot-System wurde mithilfe der 
@@ -10,11 +17,18 @@ basiert auf mehreren Szenarien, die über Webhooks Ereignisse auslösen,
 Nachrichten verarbeiten und Daten zwischen WhatsApp, Airtable, Google Docs 
 und Google Drive austauschen.
 
-Die Grundlage der Kommunikation bildet die \textbf{WhatsApp Business Cloud API}. 
+Die Grundlage der Kommunikation bildet die \textbf{WhatsApp Business Cloud \gls{ac:api}}. 
 Eingehende Nachrichten werden über ein \emph{Watch Events}-Modul in Make als 
 Trigger erfasst \citep{make_whatsapp_watch_events}. Jedes empfangene Ereignis 
 initiiert einen eindeutigen Ablauf, wodurch eine synchrone Verarbeitung der 
 Nachrichten sichergestellt wird.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.0\textwidth]{make_chatbot_szenario.png}
+\caption{Hauptszenario des Chatbots in Make.com: WhatsApp-Trigger $\rightarrow$ Router $\rightarrow$ Airtable/Google-Integration $\rightarrow$ Antwort.}
+\label{fig:make_chatbot}
+\end{figure}
 
 
 \subsubsection{Szenario-Start und Nutzerregistrierung}
@@ -51,6 +65,13 @@ in Kombination mit Filterbedingungen zum Einsatz. Diese aktivieren abhängig
 von Zustands- und Eingabewerten unterschiedliche Ausgänge und steuern so den 
 weiteren Ablauf des Szenarios \citep{make_array_aggregator}.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{make_router_current_step.png}
+\caption{Router-Modul mit current\_step-Steuerung: Verzweigung nach Dialogzustand.}
+\label{fig:make_router}
+\end{figure}
+
 \subsubsection{Ablauf ``Rechnung erstellen''}
 Im Pfad \textbf{``Rechnung erstellen''} beginnt die Datenerfassung mit der 
 Kundenauswahl. Der Nutzer kann entscheiden, ob ein neuer Kunde angelegt oder 
@@ -80,7 +101,7 @@ Nach Auswahl oder Neuanlage eines Kunden werden die zugehörigen Stammdaten in \
 
 Für Freitexte wie Leistungsbeschreibungen können sowohl Texteingaben als auch Sprachnachrichten genutzt werden. Audiodaten werden mit einem \emph{Download media}-Modul der WhatsApp-Integration heruntergeladen und anschließend durch einen KI-Dienst (z.\,B. ChatGPT) transkribiert. Auf Basis des transkribierten Textes erzeugt ein weiteres KI-Modul eine kurze, formal geeignete Rechnungsposition. Ein restriktiv formuliertes Prompt begrenzt dabei Satzlänge, Wortanzahl und untersagt das Hinzufügen nicht genannter Inhalte, um eine präzise und sachliche Beschreibung sicherzustellen. Das Ergebnis wird dem Nutzer im Chat zur Bestätigung angezeigt; bei Ablehnung kann eine neue Eingabe oder Aufnahme gestartet werden.
 
-Nach der Positionsbestätigung fragt der Bot nach Menge und Einzelpreis. Beide Werte werden verifiziert, in temporären Feldern von \texttt{User\_Sessions} zwischengespeichert und anschließend in den Tabellen \texttt{Rechnung} und \texttt{Rechnungsposition} persistiert. Abschließend erstellt das Szenario mit der Google-Docs-Integration ein Rechnungsdokument auf Basis eines Templates, fügt alle dynamischen Felder ein, exportiert das Dokument als PDF und sendet es dem Nutzer direkt über WhatsApp zurück \citep{make_google_docs}. Damit ist der End-to-End-Prozess der Rechnungserstellung abgeschlossen.
+Nach der Positionsbestätigung fragt der Bot nach Menge und Einzelpreis. Beide Werte werden verifiziert, in temporären Feldern von \texttt{User\_Sessions} zwischengespeichert und anschließend in den Tabellen \texttt{Rechnung} und \texttt{Rechnungsposition} persistiert. Abschließend erstellt das Szenario mit der Google-Docs-Integration ein Rechnungsdokument auf Basis eines Templates, fügt alle dynamischen Felder ein, exportiert das Dokument als \gls{ac:pdf} und sendet es dem Nutzer direkt über WhatsApp zurück \citep{make_google_docs}. Damit ist der End-to-End-Prozess der Rechnungserstellung abgeschlossen.
 
 \subsubsection{Ablauf ``Dokument speichern''}
 Wird im Hauptmenü statt der Rechnungsfunktion die Option 
@@ -123,6 +144,13 @@ Das operative Datenmodell gliedert sich in vier zentrale Tabellen:
 \texttt{User\_Sessions}, \texttt{Customers}, \texttt{Rechnung} und 
 \texttt{Rechnungsposition}. Die Tabelle \texttt{User\_Sessions} dient als 
 technischer Sitzungs- und Zwischenspeicher für den Chatbot.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{airtable_user_sessions.png}
+\caption{User\_Sessions-Tabelle mit current\_step-Steuerung und Telefonnummern.}
+\label{fig:airtable_sessions}
+\end{figure}
 
 Sie enthält unter anderem die Felder \texttt{phone\_number}, 
 \texttt{current\_step}, \texttt{temp\_customer\_data} und \texttt{nextStep} 
@@ -182,8 +210,8 @@ Aktualisierung von Sitzungsdaten, Kunden, Rechnungen und
 Rechnungspositionen fokussiert ist, nutzt die Web-Anwendung denselben 
 Datenbestand hauptsächlich zur Anzeige, Filterung und Auswertung.
 
-Airtable stellt hierfür eine HTTP-basierte REST-API bereit, die sowohl in 
-Make als auch in serverseitigen Komponenten über API-Keys und 
+Airtable stellt hierfür eine \gls{ac:http}-basierte \gls{ac:rest}-\gls{ac:api} bereit, die sowohl in 
+Make als auch in serverseitigen Komponenten über \gls{ac:api}-Keys und 
 \texttt{filterByFormula}-Parameter verwendet wird, um gezielt Teilmengen der 
 Daten abzurufen \citep{airtable_overview}. Dadurch wird eine klare Trennung 
 zwischen Dialoglogik und fachlicher Persistenz erreicht, da sämtliche 
@@ -200,25 +228,25 @@ Parameter, beispielsweise zur Kundensuche, zur Abfrage von Rechnungslisten
 oder zur Auflistung von Dokumenten in einem bestimmten Drive-Ordner 
 \citep{supabase_edge_functions}.
 
-Die Business-Logik zur Kommunikation mit der Airtable-API und der 
-Google-Drive-API ist dabei in zwei Edge Functions gekapselt. Die Funktion 
+Die Business-Logik zur Kommunikation mit der Airtable-\gls{ac:api} und der 
+Google-Drive-\gls{ac:api} ist dabei in zwei Edge Functions gekapselt. Die Funktion 
 \texttt{airtable-customers} übernimmt kundenbezogene Datenzugriffe, während 
 \texttt{google-drive} für Datei- und Ordneroperationen zuständig ist.
 
 Supabase Edge Functions werden in einer serverlosen, global verteilten 
-Infrastruktur ausgeführt und eignen sich insbesondere für HTTP-basierte 
+Infrastruktur ausgeführt und eignen sich insbesondere für \gls{ac:http}-basierte 
 Integrationen mit Drittsystemen 
 \citep{supabase_edge_functions,logrocket_supabase_edge}. Innerhalb der 
-Funktionen werden notwendige API-Schlüssel und Zugriffstoken als Secrets 
+Funktionen werden notwendige \gls{ac:api}-Schlüssel und Zugriffstoken als Secrets 
 verwaltet, sodass sie weder im Browser noch im Frontend-Code sichtbar sind.
 
-Die Edge Functions nehmen HTTP-Anfragen des Frontends entgegen, führen 
+Die Edge Functions nehmen \gls{ac:http}-Anfragen des Frontends entgegen, führen 
 Authentifizierungs- und Autorisierungsprüfungen durch und rufen anschließend 
 die entsprechenden Airtable- oder Google-Drive-Endpunkte auf. Die Ergebnisse 
 werden in einem für das Frontend geeigneten JSON-Format zurückgegeben 
 \citep{supabase_edge_functions}. Dadurch wird die Angriffsfläche reduziert 
 und die Einhaltung von Sicherheitsanforderungen, etwa der Schutz von 
-API-Schlüsseln und der Zugriff ausschließlich durch authentifizierte Nutzer, 
+\gls{ac:api}-Schlüsseln und der Zugriff ausschließlich durch authentifizierte Nutzer, 
 erleichtert.
 
 
@@ -235,7 +263,16 @@ Tabellenform, die Anlage neuer Kunden über Formular-Dialoge, Direktlinks für
 E-Mail- und Telefonkontakt sowie ein interaktiver Ordnerbaum zur Navigation 
 in Google Drive zur Verfügung. Ergänzt wird dies durch Ein-Klick-Downloads 
 von Dateien und Dashboard-Ansichten mit aggregierten Kennzahlen 
-\citep{google_drive_api_guide}. Diese Funktionen unterstützen insbesondere 
+\citep{google_drive_api_guide}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{clienthub_ui.png}
+\caption{ClientHub Web-App: Kundenübersicht mit Such-/Filterfunktion.}
+\label{fig:clienthub_ui}
+\end{figure}
+
+Diese Funktionen unterstützen insbesondere 
 Recherche-, Verwaltungs- und Analyseaufgaben im Büro- und Desktop-Kontext 
 und ergänzen damit die dialogbasierte Interaktion des Chatbots.
 
@@ -256,7 +293,7 @@ Nach Abschluss des Chat-Dialogs, in dem sämtliche für die Rechnungserstellung
 erforderlichen Informationen erfasst wurden, erzeugt das System automatisiert
 ein formatiertes Rechnungsdokument auf Grundlage einer Google-Docs-Vorlage
 \citep{make_google_docs_integration}. Anschließend wird das Dokument
-programmgesteuert als PDF exportiert und dem Nutzer unmittelbar im
+programmgesteuert als \gls{ac:pdf} exportiert und dem Nutzer unmittelbar im
 WhatsApp-Chat bereitgestellt, sodass keine manuelle Nachbearbeitung in einem
 Textverarbeitungsprogramm erforderlich ist \citep{google_docs_api}.
 
@@ -284,13 +321,13 @@ zum Einsatz, sodass sowohl Einzelpositionen als auch aggregierte Werte
 dynamisch befüllt werden können \citep{google_docs_merge}.
 
 Das zugrunde liegende Platzhalterkonzept entspricht dem in der
-Google-Docs-API beschriebenen Mail-Merge-Ansatz, bei dem Textmarken in einem
+Google-Docs-\gls{ac:api} beschriebenen Mail-Merge-Ansatz, bei dem Textmarken in einem
 Dokument automatisiert durch Daten aus externen Systemen ersetzt werden.
 Auf diese Weise lassen sich aus einem einheitlichen Template eine Vielzahl
 individueller Rechnungsdokumente erzeugen \citep{google_docs_mailmerge}.
 
 
-\subsection{Generierung und Versand der PDF-Rechnung}
+\subsection{Generierung und Versand der \gls{ac:pdf}-Rechnung}
 
 Sobald der Nutzer im Chatbot alle Angaben zu Kunde, Rechnungsdatum,
 Rechnungsnummer, Rechnungspositionen, Zahlungsfrist und Zahlungsart
@@ -307,12 +344,12 @@ entsteht ein vollständig ausgefülltes Rechnungsdokument
 
 Im nächsten Schritt wird das erzeugte Dokument über die
 Google-Docs- beziehungsweise Google-Drive-Schnittstelle serverseitig in
-das PDF-Format konvertiert und als Datei bereitgestellt
+das \gls{ac:pdf}-Format konvertiert und als Datei bereitgestellt
 \citep{google_docs_api,google_docs_pdf_automation}. Die resultierende
-PDF-Rechnung wird in der aktuellen Implementierung nicht automatisch in
+\gls{ac:pdf}-Rechnung wird in der aktuellen Implementierung nicht automatisch in
 einer strukturierten Ordnerhierarchie in Google Drive abgelegt, sondern
 primär für den unmittelbaren Versand über den WhatsApp-Chat verwendet.
-Hierzu wird die PDF-Datei über das WhatsApp-Sendemodul an den Nutzer
+Hierzu wird die \gls{ac:pdf}-Datei über das WhatsApp-Sendemodul an den Nutzer
 übertragen, der das Dokument lokal speichern oder weiterleiten kann.
 Eine optionale, langfristige Ablage in Google Drive erfolgt erst in einem
 separaten Prozessschritt über den Menüpunkt \glqq Dokument speichern\grqq{}
@@ -335,7 +372,7 @@ Antworten in der Tabelle \texttt{User\_Sessions} (\texttt{Jahr},
 bereits festgelegt, in welchem Zeitraum das Dokument archiviert werden soll,
 was insbesondere für buchhalterische Auswertungen und steuerliche Nachweise
 vorteilhaft ist \citep{docparse_best_practices}. Erst danach wird der Nutzer
-aufgefordert, das betreffende Dokument (z.\,B. eine Rechnung im PDF-Format)
+aufgefordert, das betreffende Dokument (z.\,B. eine Rechnung im \gls{ac:pdf}-Format)
 zu übermitteln.
 
 Nach Eingang der Datei prüft das Szenario in Google Drive schrittweise, ob
@@ -363,16 +400,105 @@ kann \citep{google_drive_org_guide}.
 
 Die Ablagestrategie ist bewusst vom Prozess der automatischen
 Rechnungserzeugung getrennt. Wie in Abschnitt~\ref{sec:dokumentenerstellung-google-docs}
-beschrieben, wird die Rechnung zunächst als PDF generiert und direkt im
+beschrieben, wird die Rechnung zunächst als \gls{ac:pdf} generiert und direkt im
 WhatsApp-Chat bereitgestellt, ohne automatisch in einem Drive-Ordner
 archiviert zu werden \citep{google_docs_pdf_automation}. Möchte der Nutzer die
 Rechnung zusätzlich in der Jahres-/Quartals-/Monatsstruktur ablegen, ruft
-er erneut den Pfad \glqq Dokument speichern\grqq{} auf und lädt die PDF-Datei
+er erneut den Pfad \glqq Dokument speichern\grqq{} auf und lädt die \gls{ac:pdf}-Datei
 hoch; das System ordnet sie dann anhand der gewählten Zeitparameter dem
 passenden Ordner zu \citep{docparse_best_practices}.
 
 
 \section{Implementierung der ClientHub WebApp}
-\subsection{Frontend (React, UI‑Konzept)}
+
+\subsection{Frontend (React, UI-Konzept)}
+\label{subsec:clienthub-frontend}
+
+ClientHub ist eine React~18.3.1 Single-Page-Application (Vite/TypeScript) für Desktop-Nutzung am Arbeitsplatz. Sidebar-Navigation (280px): Dashboard, Kunden, Ordnerbaum, Connections.
+
+\textbf{Views:}
+\begin{itemize}
+\item \texttt{DashboardView}: StatsCards (Kunden/Dokumente).
+\item \texttt{CustomerTable}: gls{ac:crud}-Tabelle (Prototyp: Read/Create).
+\item \texttt{FolderBrowser}: Rekursiver Drive-Baum ($\leq$6 Ebenen).
+\item \texttt{ConnectionsView}: \gls{ac:oauth}-Setup.
+\end{itemize}
+
+\textbf{Stack:}
+\begin{table}[H]
+\centering
+\caption{ClientHub Frontend}
+\label{tab:clienthub-frontend}
+\begin{tabular}{ll}
+\hline
+\textbf{Bibliothek} & \textbf{Zweck} \\
+\hline
+TanStack Query 5.83.0 & Fetching/Caching/Sync \\
+react-hook-form 7.61 & Form-State \\
+zod 3.25.76 & Schema-Validierung \\
+shadcn/ui & Table/Dialog/Card \\
+Tailwind CSS & Design \\
+lucide-react & Icons \\
+\hline
+\end{tabular}
+\end{table}
+
+React Query: Auto-Refresh nach Mutations. zod: Pflichtfelder (Firmenname, E-Mail).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{clienthub_dashboard.jpg}
+\caption{ClientHub Dashboard mit Kunden- \& Drive-Übersicht.}
+\label{fig:clienthub-ui}
+\end{figure}
+
 \subsection{Edge Functions in Lovable Cloud}
-\subsection{API‑Anbindung an Airtable und Google Drive}
+\label{subsec:edge-functions}
+
+2 \gls{ac:deno}/\gls{ac:ts} Functions schützen \glspl{ac:api} (Airtable/Google Drive).
+
+\begin{table}[H]
+\centering
+\caption{Edge Functions}
+\label{tab:edge-functions}
+\begin{tabular}{lp{6cm}}
+\hline
+\textbf{Name} & \textbf{Funktionen} \\
+\hline
+\texttt{airtable-customers} & GET/POST (Base: appN3KaFLqeV4FURN) \\
+\texttt{google-drive} & \gls{ac:oauth}, Folders/Tree (v3) \\
+\hline
+\end{tabular}
+\end{table}
+
+Config: \texttt{verify\_jwt=false} (Prototyp). Secrets: Keys/\gls{ac:oauth}.
+
+\begin{verbatim}
+[functions.airtable-customers]
+verify_jwt = false
+\end{verbatim}
+
+Deployment: Git-Push (Preview: id-preview--7485e714...lovable.app).
+
+
+\subsection{\gls{ac:api}-Anbindung an Airtable und Google Drive}
+\label{subsec:api-anbindung}
+
+Frontend $\rightarrow$ Edge $\rightarrow$ \glspl{ac:api}
+ (\gls{ac:cors}/Secrets serverseitig).
+
+\textbf{Airtable:} Table \texttt{tbljfpEqd4bbEYUqB} (Firmenname, E-Mail, Adresse). Vollständige Liste (Prototyp, kein serverseitiges Filter).
+
+\textbf{Google Drive:} Authorization Code Flow:
+\begin{itemize}
+\item Frontend: Authorization URL $\rightarrow$ Code empfangen.
+\item Edge: Code + Secret $\rightarrow$ Token (\texttt{oauth2.googleapis.com/token}).
+\item Drive \gls{ac:api}: \texttt{drive/v3/files} (Ordner/Dateien).
+\end{itemize}
+
+Beispiel:
+\begin{verbatim}
+supabase.functions.invoke("airtable-customers", { method: "GET" });
+\end{verbatim}
+
+Konsistente Daten mit Chatbot (gleiche Airtable-Base). [cite:14][file:1]

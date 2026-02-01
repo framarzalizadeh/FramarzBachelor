@@ -8,96 +8,100 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: literature.bib
-Warning--entry type for "beckit_rechnungsverarbeitung_2022" isn't style-file defined
+Warning--entry type for "word_excel_kmu_rechnungen" isn't style-file defined
+--line 4 of file literature.bib
+Warning--entry type for "chatbots_finanzprozesse" isn't style-file defined
 --line 12 of file literature.bib
-Warning--entry type for "pleo_automatisierte_rechnungsverarbeitung_2024" isn't style-file defined
---line 20 of file literature.bib
-Warning--entry type for "flowwer_automatisierte_rechnungsverarbeitung_2025" isn't style-file defined
---line 28 of file literature.bib
-Warning--entry type for "seibert_nfa_2018" isn't style-file defined
---line 36 of file literature.bib
-Warning--entry type for "johann_nfa_2025" isn't style-file defined
---line 44 of file literature.bib
-Warning--entry type for "grundlagen_modular_softwareentwurf_2020" isn't style-file defined
---line 59 of file literature.bib
-Warning--entry type for "langlebige_architekturen_2020" isn't style-file defined
---line 67 of file literature.bib
-Warning--entry type for "spichale_apidesign_2020" isn't style-file defined
---line 75 of file literature.bib
+Warning--entry type for "dokumentengenerierung_cloud" isn't style-file defined
+--line 46 of file literature.bib
 Warning--entry type for "make_whatsapp_watch_events" isn't style-file defined
---line 83 of file literature.bib
-Warning--entry type for "make_airtable_search_records" isn't style-file defined
---line 92 of file literature.bib
-Warning--entry type for "make_array_aggregator" isn't style-file defined
---line 101 of file literature.bib
-Warning--entry type for "make_google_docs" isn't style-file defined
---line 109 of file literature.bib
-Warning--entry type for "make_google_drive" isn't style-file defined
---line 117 of file literature.bib
+--line 66 of file literature.bib
 Warning--entry type for "airtable_overview" isn't style-file defined
---line 126 of file literature.bib
-Warning--entry type for "airtable_formula_guide" isn't style-file defined
---line 135 of file literature.bib
-Warning--entry type for "supabase_edge_functions" isn't style-file defined
---line 144 of file literature.bib
-Warning--entry type for "logrocket_supabase_edge" isn't style-file defined
---line 153 of file literature.bib
-Warning--entry type for "google_drive_api_guide" isn't style-file defined
---line 162 of file literature.bib
+--line 76 of file literature.bib
 Warning--entry type for "google_docs_api" isn't style-file defined
---line 171 of file literature.bib
-Warning--entry type for "google_docs_merge" isn't style-file defined
---line 180 of file literature.bib
-Warning--entry type for "google_docs_mailmerge" isn't style-file defined
---line 189 of file literature.bib
-Warning--entry type for "make_google_docs_integration" isn't style-file defined
---line 198 of file literature.bib
-Warning--entry type for "google_docs_pdf_automation" isn't style-file defined
---line 207 of file literature.bib
-Warning--I didn't find a database entry for "make_airtable_app"
+--line 85 of file literature.bib
+Warning--entry type for "google_drive_api_guide" isn't style-file defined
+--line 95 of file literature.bib
+Warning--entry type for "beckit_rechnungsverarbeitung_2022" isn't style-file defined
+--line 105 of file literature.bib
+Warning--entry type for "pleo_automatisierte_rechnungsverarbeitung_2024" isn't style-file defined
+--line 113 of file literature.bib
+Warning--entry type for "seibert_nfa_2018" isn't style-file defined
+--line 122 of file literature.bib
+Warning--entry type for "johann_nfa_2025" isn't style-file defined
+--line 130 of file literature.bib
+Warning--entry type for "spichale_apidesign_2020" isn't style-file defined
+--line 145 of file literature.bib
+Warning--entry type for "bitkom_elektronische_rechnungsdaten_2022" isn't style-file defined
+--line 153 of file literature.bib
+Warning--entry type for "airtable_web_api_guide" isn't style-file defined
+--line 172 of file literature.bib
+Warning--entry type for "whatsapp_cloud_api_media_2025" isn't style-file defined
+--line 182 of file literature.bib
+Warning--entry type for "google_drive_files_export_2025" isn't style-file defined
+--line 192 of file literature.bib
+Warning--entry type for "make_airtable_app" isn't style-file defined
+--line 201 of file literature.bib
+Warning--entry type for "manual_invoice_time_2025" isn't style-file defined
+--line 210 of file literature.bib
+Warning--entry type for "manual_vs_automated_dms_2025" isn't style-file defined
+--line 218 of file literature.bib
+Warning--entry type for "make_array_aggregator" isn't style-file defined
+--line 226 of file literature.bib
+Warning--I didn't find a database entry for "make_airtable_search_records"
+Warning--I didn't find a database entry for "make_google_docs"
+Warning--I didn't find a database entry for "make_google_drive"
+Warning--I didn't find a database entry for "airtable_formula_guide"
+Warning--I didn't find a database entry for "supabase_edge_functions"
+Warning--I didn't find a database entry for "logrocket_supabase_edge"
+Warning--I didn't find a database entry for "make_google_docs_integration"
+Warning--I didn't find a database entry for "google_docs_mailmerge"
+Warning--I didn't find a database entry for "google_docs_merge"
+Warning--I didn't find a database entry for "google_docs_pdf_automation"
 Warning--I didn't find a database entry for "make_whatsapp_docs"
 Warning--I didn't find a database entry for "document_mgmt_best_practices"
 Warning--I didn't find a database entry for "docparse_best_practices"
 Warning--I didn't find a database entry for "google_drive_org_guide"
-You've used 24 entries,
+Warning--I didn't find a database entry for "file457"
+You've used 25 entries,
             3552 wiz_defined-function locations,
-            909 strings with 10264 characters,
-and the built_in function-call counts, 11823 in all, are:
-= -- 1451
-> -- 168
-< -- 73
-+ -- 129
-- -- 72
-* -- 1137
-:= -- 2003
-add.period$ -- 24
-call.type$ -- 24
-change.case$ -- 109
-chr.to.int$ -- 17
-cite$ -- 24
-duplicate$ -- 341
-empty$ -- 1007
-format.name$ -- 144
-if$ -- 2508
-int.to.chr$ -- 7
+            945 strings with 12475 characters,
+and the built_in function-call counts, 13271 in all, are:
+= -- 1630
+> -- 193
+< -- 119
++ -- 188
+- -- 94
+* -- 1285
+:= -- 2251
+add.period$ -- 27
+call.type$ -- 25
+change.case$ -- 116
+chr.to.int$ -- 22
+cite$ -- 25
+duplicate$ -- 370
+empty$ -- 1098
+format.name$ -- 184
+if$ -- 2785
+int.to.chr$ -- 3
 int.to.str$ -- 1
-missing$ -- 2
-newline$ -- 166
-num.names$ -- 96
-pop$ -- 114
+missing$ -- 8
+newline$ -- 177
+num.names$ -- 100
+pop$ -- 125
 preamble$ -- 1
-purify$ -- 96
+purify$ -- 105
 quote$ -- 0
-skip$ -- 290
+skip$ -- 353
 stack$ -- 0
-substring$ -- 1071
-swap$ -- 48
-text.length$ -- 24
+substring$ -- 1179
+swap$ -- 61
+text.length$ -- 31
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 259
+type$ -- 265
 warning$ -- 0
-while$ -- 144
+while$ -- 157
 width$ -- 0
-write$ -- 273
-(There were 28 warnings)
+write$ -- 293
+(There were 35 warnings)

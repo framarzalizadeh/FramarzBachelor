@@ -2,10 +2,17 @@
 % @author Thomas Lehmann
 %
 \chapter{Konzeption des Systems}
+Dieses Kapitel beschreibt die Konzeption des zu entwickelnden Systems. Zunächst 
+werden Anforderungen und zentrale Use Cases definiert. Anschließend wird die 
+Zielarchitektur und Systemübersicht erläutert, gefolgt vom Datenmodell und 
+den Datenflüssen. Darauf aufbauend folgt die detaillierte Beschreibung der 
+Prozessabläufe „Rechnung neu erstellen" und „Dokument ablegen". Abschließend 
+wird das Sicherheits- und Datenschutzkonzept vorgestellt.
+
 \section{Anforderungen und Use Cases}
 Die Situation und das Problem, das damit verbunden ist, sind wie folgt:
 
-Das geplante System richtet sich vor allem an kleine Dienstleistungsfirmen, Einzelunternehmer sowie kleine und mittlere Gewerbebetriebe. Diese müssen regelmäßig Rechnungen erstellen und verwalten, verfügen jedoch weder über die Ressourcen noch über den Bedarf für umfassende Buchhaltungs- oder ERP-Systeme. Häufig mangelt es diesen Personen an IT-Kenntnissen und sie haben wenig Zeit. Deshalb benötigen sie einfache, zuverlässige und größtenteils automatisierte Prozesse. Auch Steuerberaterinnen und Steuerberater sind auf vollständig und strukturiert archivierte Rechnungsunterlagen angewiesen. Die Erkenntnisse aus Studien und Praxisberichten zeigen, dass in kleinen Unternehmen manuelle Rechnungsprozesse besonders zeitaufwendig und fehleranfällig sind. Außerdem resultieren sie häufig in Medienbrüchen und einem Mangel an Transparenz \cite{beckit_rechnungsverarbeitung_2022,pleo_automatisierte_rechnungsverarbeitung_2024,flowwer_automatisierte_rechnungsverarbeitung_2025}.
+Das geplante System richtet sich vor allem an kleine Dienstleistungsfirmen, Einzelunternehmer sowie kleine und mittlere Gewerbebetriebe. Diese müssen regelmäßig Rechnungen erstellen und verwalten, verfügen jedoch weder über die Ressourcen noch über den Bedarf für umfassende Buchhaltungs- oder \glspl{ac:erp}-Systeme. Häufig mangelt es diesen Personen an IT-Kenntnissen und sie haben wenig Zeit. Deshalb benötigen sie einfache, zuverlässige und größtenteils automatisierte Prozesse. Auch Steuerberaterinnen und Steuerberater sind auf vollständig und strukturiert archivierte Rechnungsunterlagen angewiesen. Studien und Praxisanalysen zeigen, dass manuelle Rechnungsprozesse in kleinen Unternehmen mit einem erhöhten Zeitaufwand, einer höheren Fehleranfälligkeit sowie häufigen Medienbrüchen verbunden sind, was zu einem Mangel an Transparenz in den Abrechnungsprozessen führen kann \cite{bitkom_elektronische_rechnungsdaten_2022,beckit_rechnungsverarbeitung_2022,pleo_automatisierte_rechnungsverarbeitung_2024}.
 
 In der Praxis erfolgt die Erstellung von Rechnungen und Dokumenten in vielen dieser Unternehmen überwiegend manuell. Die Ablage geschieht häufig in unsystematischen Ordnerstrukturen. Dieser Ansatz ist zeitaufwendig und anfällig für Fehler, da Kundendaten und Rechnungspositionen wiederholt neu eingegeben werden müssen. Dadurch steigt das Risiko von Zahlendrehern, unvollständigen Daten oder fehlerhaften Summenberechnungen. Zudem erschwert eine unstrukturierte Ablage das spätere Wiederfinden einzelner Dokumente, insbesondere wenn Belege zu einem späteren Zeitpunkt für buchhalterische oder steuerliche Zwecke benötigt werden.
 
@@ -28,7 +35,7 @@ Nicht nur die funktionalen, sondern auch die nicht-funktionalen Anforderungen si
 
 Darüber hinaus ist es wichtig, dass das Erstellen neuer Rechnungen sowie das Ablegen von Dokumenten zügig erfolgt, damit erzeugte oder hochgeladene Dateien ohne spürbare Verzögerung zur Verfügung stehen. Das System muss außerdem zuverlässig und fehlertolerant arbeiten. Eingabefehler sollen durch geeignete Validierungen erkannt und abgefangen werden, während die Abläufe stabil und reproduzierbar ausgeführt werden.
 
-Da personenbezogene Daten und Abrechnungsinformationen verarbeitet werden, kommt der Datensicherheit eine besondere Bedeutung zu. Zugangsdaten sind sicher zu speichern, die Kommunikation ist zu verschlüsseln und der Zugriff auf autorisierte Nutzer zu beschränken. Weiterhin soll die Systemarchitektur modular und erweiterbar gestaltet sein, um zukünftige Anforderungen oder zusätzliche Funktionen mit vertretbarem Aufwand integrieren zu können. Insgesamt orientiert sich das System damit an anerkannten Qualitätsmerkmalen nicht-funktionaler Anforderungen, wie sie in der Literatur beschrieben sind \cite{seibert_nfa_2018,johann_nfa_2025}.
+Da personenbezogene Daten und Abrechnungsinformationen verarbeitet werden, kommt der Datensicherheit eine besondere Bedeutung zu. Zugangsdaten sind sicher zu speichern, die Kommunikation ist zu verschlüsseln und der Zugriff auf autorisierte Nutzer zu beschränken. Weiterhin soll die Systemarchitektur modular und erweiterbar gestaltet sein, um zukünftige Anforderungen oder zusätzliche Funktionen mit vertretbarem Aufwand integrieren zu können. Insgesamt orientiert sich das System damit an anerkannten Qualitätsmerkmalen nicht-funktionaler Anforderungen, wie sie im Qualitätsmodell der ISO/IEC 25010 sowie in der Fachliteratur beschrieben sind \cite{iso_25010_2023,seibert_nfa_2018,johann_nfa_2025}.
 
 
 Anwendungsfall „Rechnung neu erstellen“
@@ -45,6 +52,12 @@ Anwendungsfall „Dokument ablegen“
 Der Anwendungsfall „Dokument ablegen“ beginnt, sobald der Nutzer die entsprechende Aktion auswählt, um geschäftsrelevante Dokumente im System zu archivieren. Hierzu lädt der Nutzer eine Datei, beispielsweise einen Beleg oder eine Rechnung, hoch.
 
 Das System ordnet das Dokument dem entsprechenden Kunden zu und legt es strukturiert ab, sodass es später zuverlässig wiedergefunden werden kann. Nach dem Abschluss des Vorgangs steht das abgelegte Dokument dem Nutzer zur Einsicht und zum erneuten Abruf zur Verfügung.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{use_case_diagramm.png}
+\caption{Use Cases des Systems: Rechnungserstellung und Dokumentenablage.}
+\label{fig:use_cases}
+\end{figure}
 
 
 
@@ -53,24 +66,30 @@ Das System ordnet das Dokument dem entsprechenden Kunden zu und legt es struktur
 
 \section{Zielarchitektur und Systemübersicht}
 Die Zielarchitektur des Systems basiert auf mehreren klar abgegrenzten und lose gekoppelten Komponenten, die gemeinsam den End-to-End-Prozess der Rechnungs- und Dokumentenverarbeitung abbilden. Zu den zentralen Elementen zählen der WhatsApp-Chatbot zur Datenerfassung und Prozesssteuerung, Workflows auf der Automatisierungsplattform Make (make.com), eine Airtable-Datenbank als zentrale Datenquelle, Google Docs zur templatebasierten Dokumentenerstellung, Google Drive als Ablagesystem sowie die Web-Anwendung „ClientHub“ für Verwaltung und Zugriff.
-Die einzelnen Komponenten sind überwiegend über standardisierte Cloud-APIs miteinander verbunden. Dadurch können sie unabhängig voneinander betrieben und bei Bedarf flexibel erweitert werden.
+Die einzelnen Komponenten sind überwiegend über standardisierte Cloud-\glspl{ac:api} miteinander verbunden. Dadurch können sie unabhängig voneinander betrieben und bei Bedarf flexibel erweitert werden.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{systemarchitektur.png}
+\caption{Zielarchitektur: WhatsApp Chatbot → Make.com → Airtable → Google Docs/Drive → React ClientHub.}
+\label{fig:systemarchitektur}
+\end{figure}
 
 Das zentrale Element des Systems ist der Chatbot, der über WhatsApp erreichbar ist. Er begleitet die Nutzer dialoggesteuert durch den Prozess der Rechnungsgenerierung, indem er entsprechende Anweisungen gibt. Dies umfasst die Auswahl eines bestehenden Kunden oder die Erstellung eines neuen Kundendatensatzes, die Festlegung der Rechnungspositionen sowie die Bestimmung von Rechnungsnummer, Leistungszeitraum, Zahlungsfrist und Zahlungsart.
 Ein weiteres Feature des Chatbots ist die Funktion „Dokument speichern“. Diese erlaubt es den Nutzern, Dateien wie Belege oder bereits erstellte Rechnungen hochzuladen, die anschließend im Kundenportal zur Verfügung gestellt werden. In beiden Szenarien leitet der Chatbot die erfassten Informationen in strukturierter Form an die nachgelagerten Arbeitsabläufe weiter. Er selbst führt keine direkten Abfragen an Datenbank- oder Speicherdiensten durch.
 
 Eine Integrations- und Workflow-Plattform fungiert als Orchestrierungsschicht und implementiert die Logik der Automatisierung. Sie empfängt Nachrichten vom Chatbot, analysiert den aktuellen Dialogschritt und startet kontextabhängig unterschiedliche externe Dienste.
-Hierzu zählen insbesondere die Airtable-API zur Erstellung und Aktualisierung von Kunden-, Rechnungs- und Sitzungsdaten (z. B. des aktuellen Prozessschritts), die Google-Docs-API zum Öffnen und Befüllen eines vordefinierten Rechnungsmusters sowie die Google-Drive-API zur Erstellung von Ordnern und zum Hochladen von Dateien. Ergänzend wird eine KI-Schnittstelle genutzt, um frei formulierte Texte oder Sprachnachrichten in strukturierte, deutschsprachige Rechnungspositionen zu überführen.
+Hierzu zählen insbesondere die Airtable-\gls{ac:api} zur Erstellung und Aktualisierung von Kunden-, Rechnungs- und Sitzungsdaten (z. B. des aktuellen Prozessschritts) \cite{airtable_web_api_guide}, die Google-Docs-\gls{ac:api} zum Öffnen und Befüllen eines vordefinierten Rechnungsmusters sowie die Google-Drive-\gls{ac:api} zur Erstellung von Ordnern und zum Hochladen von Dateien. Ergänzend wird eine KI-Schnittstelle genutzt, um frei formulierte Texte oder Sprachnachrichten in strukturierte, deutschsprachige Rechnungspositionen zu überführen.
 Im Rahmen des Dialogs weist der Nutzer die Rechnungsnummer zu. Diese wird als Feld in Airtable gespeichert, um sicherzustellen, dass sie in allen nachfolgenden Prozessschritten konsistent verwendet wird.
 
 Google Drive fungiert als unabhängiges Speichersystem, das insbesondere im Anwendungsfall „Dokument ablegen“ genutzt wird. Der Nutzer startet diesen Vorgang, indem er über den Chatbot eine Datei hochlädt, die durch einen Workflow in eine kundenbezogene Ordnerstruktur überführt wird. Die Verzeichnisse sind nach Jahr, Quartal und Monat gegliedert; ist ein Ordner noch nicht vorhanden, wird er dynamisch erstellt.
 Der archivierte Dateilink wird in Airtable gespeichert, sodass er für nachgelagerte Automatisierungen sowie für die Anzeige im Kundenportal verfügbar ist. Auf diese Weise entsteht eine konsistente und nachvollziehbare Archivierung, die sowohl interne Anforderungen als auch die Zusammenarbeit mit Steuerberaterinnen und Steuerberatern unterstützt.
 
-Die Webanwendung „ClientHub“ ist eine browserbasierte React-Anwendung, die als eigenständiges Modul fungiert und ausschließlich serverseitige Edge-Funktionen nutzt, um auf externe Dienste zuzugreifen. Diese Edge-Funktionen bilden die Backend-Schicht der Architektur ab. Sie übernehmen die Interaktion mit der Airtable-API und der Google-Drive-API, bereiten die Daten für das Frontend auf und schützen gleichzeitig sensible Zugangsdaten vor einem direkten Zugriff aus dem Browser.
+Die Webanwendung „ClientHub“ ist eine browserbasierte React-Anwendung, die als eigenständiges Modul fungiert und ausschließlich serverseitige Edge-Funktionen nutzt, um auf externe Dienste zuzugreifen. Diese Edge-Funktionen bilden die Backend-Schicht der Architektur ab. Sie übernehmen die Interaktion mit der Airtable-\gls{ac:api} und der Google-Drive-\gls{ac:api}, bereiten die Daten für das Frontend auf und schützen gleichzeitig sensible Zugangsdaten vor einem direkten Zugriff aus dem Browser.
 Die Webanwendung stellt den Nutzern ein Dashboard mit aggregierten Metriken zur Verfügung. Darüber hinaus bietet sie eine Kundenliste mit Such- und Filteroptionen sowie eine Übersicht über die Ordnerstruktur des Kundenportals, über die archivierte Dokumente eingesehen und heruntergeladen werden können.
 
 Das Design folgt bewusst den architektonischen Grundsätzen der losen Kopplung, der Modularität und der klaren Schichtentrennung. Die Frontend-Logik, die Orchestrierung der Integrationsprozesse und die Datenhaltung sind voneinander entkoppelt. Dadurch können Änderungen in einer Komponente, wie etwa der Austausch des Chatkanals oder die Erweiterung der Datenstruktur, mit nur minimalen Anpassungen in den übrigen Systemteilen umgesetzt werden.
-Durch den konsequenten Einsatz von Cloud-Diensten und standardisierten APIs ist keine eigene Serverinfrastruktur erforderlich. Betrieb, Skalierung und Verfügbarkeit werden größtenteils von den jeweiligen Plattformanbietern übernommen. Die Architektur weist damit Eigenschaften auf, die sie besonders geeignet für kleine Unternehmen machen, die mit begrenzten Ressourcen arbeiten, einen geringen Wartungsaufwand benötigen und dennoch eine Lösung suchen, die flexibel mit wachsenden Anforderungen erweitert werden kann. Lose Kopplung, Modularität und eine klare Schichtentrennung gelten in der Softwarearchitektur als wesentliche Voraussetzungen für wartbare und erweiterbare Systeme. \cite{balzert_softwaretechnik_2011,grundlagen_modular_softwareentwurf_2020,langlebige_architekturen_2020}.
-Der konsequente Einsatz wohldefinierter APIs wird als zentraler Baustein integrationsfähiger, verteilter Systeme beschrieben \cite{spichale_apidesign_2020}.
+Durch den konsequenten Einsatz von Cloud-Diensten und standardisierten \glspl{ac:api} ist keine eigene Serverinfrastruktur erforderlich. Betrieb, Skalierung und Verfügbarkeit werden größtenteils von den jeweiligen Plattformanbietern übernommen. Die Architektur weist damit Eigenschaften auf, die sie besonders geeignet für kleine Unternehmen machen, die mit begrenzten Ressourcen arbeiten, einen geringen Wartungsaufwand benötigen und dennoch eine Lösung suchen, die flexibel mit wachsenden Anforderungen erweitert werden kann. Lose Kopplung, Modularität und eine klare Schichtentrennung gelten in der Softwarearchitektur als wesentliche Voraussetzungen für wartbare und erweiterbare Systeme. \cite{balzert_softwaretechnik_2011}.
+Der konsequente Einsatz wohldefinierter \glspl{ac:api} wird als zentraler Baustein integrationsfähiger, verteilter Systeme beschrieben \cite{spichale_apidesign_2020}.
 
 
 \section{Datenmodell und Datenflüsse}
@@ -78,6 +97,13 @@ Der konsequente Einsatz wohldefinierter APIs wird als zentraler Baustein integra
 Das zugrunde liegende Datenmodell und die zentralen Datenflüsse, die die dialogbasierte Rechnungserstellung sowie die Ablage geschäftsrelevanter Dokumente unterstützen, werden im folgenden Abschnitt erläutert. Die Daten werden in mehreren Airtable-Tabellen gespeichert, die gemeinsam den Chatbot-Dialog, die Rechnungserstellung und die Dokumentenablage in Google Drive abbilden. Die Tabellen dienen dabei nicht nur als persistenter Speicher fachlicher Informationen, sondern bilden zugleich die Grundlage für die Steuerung der Workflows in der Automatisierungsplattform, indem sie Zustandsinformationen und temporäre Eingaben strukturiert bereitstellen.
 
 Im Datenmodell steht die Tabelle „User\_Sessions“ im Mittelpunkt. Sie fungiert als zentrale Instanz zur Verwaltung von Nutzerzuständen und zur Zugriffskontrolle innerhalb des Chatbot-Workflows. In dieser Tabelle werden die Telefonnummern der Nutzer gespeichert, sodass eingehende WhatsApp-Nachrichten validiert und ausschließlich registrierte Rufnummern zum Systemzugang zugelassen werden. Darüber hinaus enthält „User\_Sessions“ Zustandsvariablen wie „Current Step“ und „Next Step“, die zur Steuerung des dialogbasierten Ablaufs verwendet werden. Diese Informationen sind erforderlich, da die eingesetzte Automatisierungsplattform lediglich ein einzelnes Watch-Event für eingehende Nachrichten bereitstellt und keine native Unterstützung für eine zustandsabhängige Dialogführung bietet.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{datenmodell_er.png}
+\caption{Airtable-Datenmodell mit Relationen (User\_Sessions, Customer, Rechnung, Rechnungsposition).}
+\label{fig:datenmodell}
+\end{figure}
+
 
 „User\_Sessions“ enthält ausschließlich dynamische, während des Gesprächsverlaufs veränderliche Felder. Diese dienen der temporären Speicherung von Nutzereingaben und ermöglichen eine iterative, dialogorientierte Datenerfassung. Ein zentrales Ziel dieser Struktur besteht darin, Korrekturen und Anpassungen durch die Nutzenden jederzeit zuzulassen. Gibt eine Person beispielsweise versehentlich ein falsches Rechnungsjahr an, kann dieser Wert direkt im Chat korrigiert werden. Der entsprechende Eintrag in „User\_Sessions“ wird aktualisiert, und der Workflow setzt mit den korrigierten Daten fort, ohne dass der gesamte Dialog erneut durchlaufen werden muss.
 
@@ -91,7 +117,8 @@ Die Tabelle „Rechnungsposition“ erfasst die einzelnen Positionen einer Rechn
 
 Der Datenfluss im Anwendungsfall „Rechnung neu erstellen“ beginnt mit dem Eingang einer WhatsApp-Nachricht, mit der der Nutzer den Erstellungsprozess startet. Zunächst wird eine neue Sitzung in „User\_Sessions“ angelegt oder eine bestehende Sitzung aktualisiert, indem die Telefonnummer gespeichert und die Zustandsvariablen initialisiert werden. Anschließend werden alle für die Rechnungserstellung erforderlichen Informationen dialogbasiert erhoben und in den dynamischen Feldern von „User\_Sessions“ zwischengespeichert, darunter Kundendaten, Leistungsbeschreibungen, Mengen, Einzelpreise, Rechnungsdatum, Leistungszeitraum und Zahlungsfrist. Sobald alle Kundendaten vollständig vorliegen und bestätigt wurden, überführt der Workflow die temporären Angaben in einen dauerhaften Datensatz in „Customer“, sofern ein neuer Kunde anzulegen ist. Bei bestehenden Kunden wird lediglich der entsprechende Datensatz referenziert.
 
-Im nächsten Schritt erzeugt der Workflow einen neuen Eintrag in der Tabelle „Rechnung“ und legt parallel für jede erfasste Rechnungsposition einen Datensatz in „Rechnungsposition“ an, der die zuvor zwischengespeicherten Leistungsdaten übernimmt. Nach Abschluss der Positionserfassung werden in „Rechnung“ die relevanten Summen berechnet, indem die Beträge der zugeordneten Positionen aggregiert und um die Umsatzsteuer ergänzt werden. Auf Basis dieser Daten wird in Google Docs ein Rechnungsdokument auf Grundlage eines vordefinierten Templates generiert, das die aus Airtable stammenden Felder einfügt und anschließend als PDF exportiert wird. Das fertige Dokument wird dem Nutzer über den Chat zur Verfügung gestellt und kann für weitere Prozesse, etwa die Ablage oder den Versand, verwendet werden.
+Im nächsten Schritt erzeugt der Workflow einen neuen Eintrag in der Tabelle „Rechnung“ und legt parallel für jede erfasste Rechnungsposition einen Datensatz in „Rechnungsposition“ an, der die zuvor zwischengespeicherten Leistungsdaten übernimmt. Nach Abschluss der Positionserfassung werden in „Rechnung“ die relevanten Summen berechnet, indem die Beträge der zugeordneten Positionen aggregiert und um die Umsatzsteuer ergänzt werden. Auf Basis dieser Daten wird in Google Docs ein Rechnungsdokument auf Grundlage eines vordefinierten Templates generiert, das die aus Airtable stammenden Felder einfügt und anschließend über die Google-Drive-\gls{ac:api} als \gls{ac:pdf} exportiert wird \cite{google_docs_api,google_drive_files_export_2025}.
+ Das fertige Dokument wird dem Nutzer über den Chat zur Verfügung gestellt und kann für weitere Prozesse, etwa die Ablage oder den Versand, verwendet werden.
 
 Der Datenfluss im Anwendungsfall „Dokument ablegen“ ist ebenfalls dialoggesteuert, fokussiert sich jedoch auf die strukturierte Archivierung von Dateien. Der Prozess wird durch das Hochladen eines Dokuments, beispielsweise eines Belegs oder einer externen Rechnung, über den WhatsApp-Chatbot initiiert. Im Dialog werden die zur Zuordnung notwendigen Informationen erfasst, insbesondere der betroffene Kunde sowie der zeitliche Kontext der Ablage (Jahr, Quartal, Monat), und temporär in einer Sitzung gehalten. Auf Basis dieser Parameter erstellt der Workflow die entsprechende Ordnerstruktur in Google Drive, sofern diese noch nicht existiert, und lädt das Dokument in den kundenbezogenen Unterordner hoch.
 
@@ -99,7 +126,7 @@ Der dabei erzeugte Dateilink steht dem System für nachgelagerte Schritte zur Ve
 
 \section{Prozessablauf vom Chatbot bis zur Ablage}
 \subsection{Ablauf „Rechnung neu erstellen“}
-In diesem Unterabschnitt wird der Ablauf des Anwendungsfalls „Rechnung neu erstellen“ beschrieben. Der Prozess beginnt mit der Interaktion der Nutzerinnen und Nutzer im WhatsApp-Chat. Anschließend werden die erforderlichen Rechnungsdaten schrittweise erfasst und gespeichert. Auf dieser Grundlage wird ein Rechnungsdokument erstellt, das den Nutzern am Ende des Prozesses als PDF direkt im Chat zur Verfügung gestellt wird.
+In diesem Unterabschnitt wird der Ablauf des Anwendungsfalls „Rechnung neu erstellen“ beschrieben. Der Prozess beginnt mit der Interaktion der Nutzerinnen und Nutzer im WhatsApp-Chat. Anschließend werden die erforderlichen Rechnungsdaten schrittweise erfasst und gespeichert. Auf dieser Grundlage wird ein Rechnungsdokument erstellt, das den Nutzern am Ende des Prozesses als \gls{ac:pdf} direkt im Chat zur Verfügung gestellt wird.
 
 Der Ablauf beginnt, sobald der Nutzer nach der initialen Verifizierung im WhatsApp-Chat den Befehl \glqq Start\grqq{} sendet und im angezeigten Hauptmenü die Option \glqq Rechnung erstellen\grqq{} auswählt. Anschließend wird in der Tabelle \texttt{User\_Sessions} ein Sitzungseintrag angelegt oder aktualisiert. Das Zustandsfeld \texttt{current\_step} wird dabei auf den entsprechenden Wert gesetzt, um den weiteren Dialogverlauf zu steuern.
 Auf Basis dieses Sitzungszustands führt der Chatbot den Nutzer schrittweise durch den Prozess. Nach jeder Eingabe wird gezielt die nächste passende Frage gestellt und der aktuelle Zustand entsprechend aktualisiert.
@@ -132,7 +159,7 @@ Auf Grundlage der erfassten Daten werden anschließend die relevanten Summen ber
 
 
 Auf Basis der in Airtable vorliegenden Daten wird abschließend ein Rechnungsdokument erstellt. Hierzu wird in Google Docs ein vordefiniertes Template geöffnet und mit den Werten aus den Tabellen \texttt{Rechnung}, \texttt{Rechnungsposition} und \texttt{Customer} befüllt. Dabei werden die im Dokument enthaltenen Platzhalter durch die entsprechenden Feldinhalte ersetzt.
-Das fertig befüllte Dokument wird anschließend als PDF exportiert. Zum Abschluss erhält der Nutzer im WhatsApp\hyp{}Chat die fertige Rechnung in Form einer PDF\hyp{}Datei.
+Das fertig befüllte Dokument wird anschließend als \gls{ac:pdf} bereitgestellt. Zum Abschluss erhält der Nutzer im WhatsApp\hyp{}Chat die fertige Rechnung in Form einer \gls{ac:pdf}\hyp{}Datei.
 Damit ist der gesamte Prozess von der initialen Interaktion im Chat bis zur Bereitstellung des formalen Rechnungsdokuments vollständig automatisiert abgeschlossen.
 
 \subsection{Ablauf „Dokument ablegen“}
@@ -155,7 +182,7 @@ Eingaben, die nicht der vorgegebenen Auswahl entsprechen, werden zurückgewiesen
 
 
 Sobald Jahr, Quartal und Monat ausgewählt wurden, liegen alle erforderlichen Metadaten für die spätere Ablagestruktur vor. Diese Informationen werden in der Tabelle \texttt{User\_Sessions} gespeichert. Gleichzeitig wird der Zustandsparameter \texttt{current\_step} auf den nächsten Verarbeitungsschritt gesetzt, der den Uploadvorgang einleitet.
-Anschließend fordert der Chatbot die Nutzerinnen und Nutzer dazu auf, das zu archivierende Dokument direkt im WhatsApp-Chat hochzuladen. Dabei kann es sich beispielsweise um eine externe Rechnung, einen Zahlungsbeleg oder ein anderes geschäftsrelevantes Dokument handeln.
+Anschließend fordert der Chatbot die Nutzerinnen und Nutzer dazu auf, das zu archivierende Dokument direkt im WhatsApp-Chat hochzuladen \cite{whatsapp_cloud_api_media_2025}. Dabei kann es sich beispielsweise um eine externe Rechnung, einen Zahlungsbeleg oder ein anderes geschäftsrelevantes Dokument handeln.
 
 
 Geht ein Dokument im Chat ein, wird die Datei vom Workflow entgegengenommen und der erfolgreiche Upload gegenüber der Nutzerin oder dem Nutzer bestätigt. Anschließend prüft das System, ob die erforderliche Ordnerstruktur in Google Drive bereits vorhanden ist.
