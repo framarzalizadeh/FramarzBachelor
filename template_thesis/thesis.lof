@@ -1,21 +1,21 @@
 \babel@toc {ngerman}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Generische Architektur eines dialogbasierten Chatbots.}}{9}{figure.caption.6}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Google Docs Vorlage mit Platzhaltern für automatisierte Rechnungserstellung.}}{11}{figure.caption.7}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Generische Architektur eines dialogbasierten Chatbots.}}{10}{figure.caption.6}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Google Docs Vorlage mit Platzhaltern für automatisierte Rechnungserstellung.}}{13}{figure.caption.7}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Make.com-Szenario: WhatsApp-Trigger → Airtable → Google Docs → Drive.}}{15}{figure.caption.8}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Airtable Base mit Tabellen „Kunden" und „Rechnungen" (mit Filteransicht).}}{17}{figure.caption.9}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Make.com-Szenario: WhatsApp-Trigger → Airtable → Google Docs → Drive.}}{17}{figure.caption.8}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Airtable Base mit Tabellen „Kunden" und „Rechnungen" (mit Filteransicht).}}{19}{figure.caption.9}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Use Cases des Systems: Rechnungserstellung und Dokumentenablage.}}{29}{figure.caption.14}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Zielarchitektur: WhatsApp Chatbot → Make.com → Airtable → Google Docs/Drive → React ClientHub.}}{30}{figure.caption.15}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Airtable-Datenmodell mit Relationen (User\_Sessions, Customer, Rechnung, Rechnungsposition).}}{33}{figure.caption.16}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Use Cases des Systems: Rechnungserstellung und Dokumentenablage.}}{31}{figure.caption.16}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Zielarchitektur: WhatsApp Chatbot → Make.com → Airtable → Google Docs/Drive → React ClientHub.}}{32}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Airtable-Datenmodell mit Relationen (User\_Sessions, Customers, Rechnungen, Rechnungspositionen).}}{35}{figure.caption.18}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Hauptszenario des Chatbots in Make.com: WhatsApp-Trigger $\rightarrow $ Router $\rightarrow $ Airtable/Google-Integration $\rightarrow $ Antwort.}}{42}{figure.caption.17}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Router-Modul mit current\_step-Steuerung: Verzweigung nach Dialogzustand.}}{43}{figure.caption.22}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces User\_Sessions-Tabelle mit current\_step-Steuerung und Telefonnummern.}}{46}{figure.caption.27}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces ClientHub Web-App: Kundenübersicht mit Such-/Filterfunktion.}}{49}{figure.caption.28}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces ClientHub Dashboard mit Kunden- \& Drive-Übersicht.}}{53}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Hauptszenario des Chatbots in Make.com: WhatsApp-Trigger $\rightarrow $ Router $\rightarrow $ Airtable/Google-Integration $\rightarrow $ Antwort.}}{46}{figure.caption.19}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Router-Modul mit current\_step-Steuerung: Verzweigung nach Dialogzustand.}}{47}{figure.caption.24}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces User\_Sessions-Tabelle mit current\_step-Steuerung und Telefonnummern.}}{50}{figure.caption.29}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces ClientHub Web-App: Kundenübersicht mit Such-/Filterfunktion.}}{53}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces ClientHub Dashboard mit Kunden- \& Drive-Übersicht.}}{57}{figure.caption.32}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -2,6 +2,7 @@
 % @author Thomas Lehmann
 %
 \chapter{Technologischer Hintergrund}
+\label{chap:technologie}
 Dieses Kapitel stellt die konkreten Technologien vor, die für die Umsetzung 
 des Prototyps verwendet wurden. Zunächst wird Make.com als zentrale 
 Integrations- und Automatisierungsplattform erläutert. Anschließend folgt 
@@ -18,18 +19,22 @@ miteinander zu verbinden. Die Umsetzung erfolgt ohne klassische
 Programmierung und basiert auf einem No-Code- beziehungsweise
 Low-Code-Ansatz. Workflows werden in einer grafischen Benutzeroberfläche modelliert, indem vordefinierte Funktionsbausteine konfiguriert und zu logischen Abläufen
 verknüpft werden. Dadurch können auch komplexe Integrationsprozesse ohne
-umfangreiche Programmierkenntnisse umgesetzt werden.Aus technischer Sicht handelt es sich bei Make.com um eine Integrationsplattform, die externe Systeme über deren Web-\glspl{ac:api} anbindet. Ereignisse und Datenflüsse werden dabei in einem zentralen
-Orchestrierungslayer zusammengeführt und automatisiert verarbeitet.\cite{make_whatsapp_watch_events}
+umfangreiche Programmierkenntnisse umgesetzt werden. Aus technischer Sicht handelt es sich bei Make.com um eine Integrationsplattform, die externe Systeme über deren Web-\glspl{ac:api} anbindet. Ereignisse und Datenflüsse werden dabei in einem zentralen
+Orchestrierungslayer zusammengeführt und automatisiert verarbeitet \cite{make_whatsapp_watch_events, make_array_aggregator}.
 
 Das zentrale Konstrukt in Make sind sogenannte Szenarien. Ein Szenario
 beschreibt einen vollständigen Automatisierungsablauf, der aus einem
 auslösenden Ereignis (Trigger), einer Abfolge von Verarbeitungsschritten
-sowie einer oder mehreren Aktionen besteht.Die einzelnen Bausteine eines Szenarios werden als Module bezeichnet.
+sowie einer oder mehreren Aktionen besteht. Die einzelnen Bausteine eines Szenarios werden als Module bezeichnet.
 Diese repräsentieren entweder konkrete Anwendungsintegrationen, etwa zu
 WhatsApp, Airtable oder Google Docs, oder generische Funktionen wie Filter,
 Iteratoren, Aggregatoren oder Router. Trigger-Module starten ein Szenario
 beispielsweise bei einer eingehenden Nachricht über einen Webhook. Aktionsmodule übernehmen anschließend die Verarbeitung der Daten, indem
 sie Informationen lesen, schreiben oder an andere Systeme übertragen.
+
+\autoref{fig:make_scenario} zeigt ein typisches Make.com-Szenario zur Verarbeitung eingehender WhatsApp-Nachrichten. 
+Dabei werden Daten in Airtable gespeichert, Rechnungen über Google Docs generiert und anschließend in Google Drive abgelegt.
+
 
 \begin{figure}[H]
 \centering
@@ -40,13 +45,13 @@ sie Informationen lesen, schreiben oder an andere Systeme übertragen.
 
 Mithilfe visueller Router und Filter können alternative Verarbeitungswege
 modelliert werden, die abhängig von Dateninhalten oder Zuständen
-unterschiedliche Pfade innerhalb des Szenarios durchlaufen.
+unterschiedliche Pfade innerhalb des Szenarios durchlaufen \cite{make_array_aggregator}.
 
 Die Plattform stellt darüber hinaus erweiterte Funktionen zur
 Ablaufsteuerung bereit. Mithilfe von Filtern können nur jene Datensätze
 weiterverarbeitet werden, die definierte Bedingungen erfüllen, etwa das
 Vorhandensein bestimmter Pflichtfelder. Iteratoren und Aggregatoren ermöglichen die Verarbeitung von Listenstrukturen. Dabei können Datensätze entweder einzeln durchlaufen
-oder zu zusammengefassten Ergebnissen aggregiert werden. Router-Module
+oder zu zusammengefassten Ergebnissen aggregiert werden \cite{make_array_aggregator}. Router-Module
 erlauben es, Workflows in mehrere Pfade zu verzweigen, die jeweils eigene
 Bedingungen und nachgelagerte Verarbeitungsschritte besitzen. Auf diese Weise lassen sich auch komplexe und verzweigte Prozesse
 modellieren, ohne dass eigener Kontrollfluss-Code implementiert werden
@@ -59,11 +64,7 @@ Vermittlungsschicht zwischen Chatbot, Datenhaltung sowie Dokumenten- und
 Speicherdiensten. Ereignisse aus der Kommunikationsschnittstelle werden
 über Trigger-Module empfangen, innerhalb von Szenarien verarbeitet und
 anschließend über Anwendungs-Module an Systeme wie Airtable, Google Docs
-oder Google Drive weitergeleitet.Die Plattform übernimmt dabei die Steuerung der Datenflüsse, führt Validierungen aus und stößt nachgelagerte Aktionen an, etwa das Erzeugen
-von Dokumenten oder das Aktualisieren von Datensätzen. Make.com erfüllt
-damit die Rolle einer zentralen Orchestrierungsebene innerhalb der
-Systemarchitektur. Insbesondere für kleinere Projekte und prototypische Anwendungen ergeben
-sich daraus mehrere Vorteile. Die initiale Implementierung kann ohne
+oder Google Drive weitergeleitet. Die Plattform übernimmt die zentrale Steuerung der Datenflüsse und führt während der Verarbeitung notwendige Validierungen aus. Anschließend werden nachgelagerte Aktionen ausgelöst, etwa die automatische Erzeugung von Dokumenten oder die Aktualisierung von Datensätzen in angebundenen Systemen. Make.com fungiert damit als Orchestrierungsschicht zwischen Chatbot, Datenhaltung und Dokumentenservices. Insbesondere für kleinere Projekte und prototypische Anwendungen ergeben sich daraus mehrere Vorteile: Die initiale Implementierung kann ohne
 eigene Serverinfrastruktur erfolgen, vorgefertigte Konnektoren reduzieren
 den Integrationsaufwand, und die Prozesslogik lässt sich durch die visuelle
 Modellierung nachvollziehbar dokumentieren.
@@ -80,33 +81,41 @@ entwickelte Integrationsschicht sinnvoller sein. Make.com stellt hingegen insbes
 Automatisierungsvorhaben mit begrenzten Ressourcen eine pragmatische und
 gut nachvollziehbare Lösung dar.
 
+Zusammenfassend steuern Make.com-Szenarien den Workflow vom WhatsApp-Trigger über Airtable bis zur Dokumentenerzeugung in Google Docs sowie zur Ablage in Google Drive.
+
+
 
 \section{Airtable als Datenhaltung}
+\label{sec:airtable}
 Airtable ist eine cloudbasierte Plattform, die tabellenorientierte
 Benutzeroberflächen mit den Eigenschaften einer datenbankgestützten
 Anwendung kombiniert. Aus Anwendersicht ähnelt Airtable einer klassischen
 Tabellenkalkulation, erweitert diese jedoch um strukturierte Feldtypen,
 Relationen zwischen Tabellen sowie eine standardisierte
-Programmierschnittstelle. Dadurch eignet sich die Plattform insbesondere für Anwendungsszenarien, in denen Daten sowohl über eine webbasierte Oberfläche gepflegt als auch automatisiert von externen Systemen gelesen und geschrieben werden sollen.\cite{airtable_overview}
+Programmierschnittstelle. Dadurch eignet sich die Plattform insbesondere für Anwendungsszenarien, in denen Daten sowohl über eine webbasierte Oberfläche gepflegt als auch automatisiert von externen Systemen gelesen und geschrieben werden sollen \cite{airtable_overview}.
 
 Zentrale Konzepte in Airtable sind sogenannte Bases, die jeweils eine
 in sich geschlossene Datenbankinstanz mit mehreren Tabellen
 repräsentieren. Eine Tabelle besteht aus Datensätzen und Feldern, wobei
 die Felder unterschiedliche Typen annehmen können, etwa Text, Zahl,
 Datum, Auswahlfelder oder Verknüpfungen zu anderen Tabellen. Über verknüpfte Felder lassen sich einfache Relationen zwischen Tabellen modellieren, beispielsweise zwischen Kunden und zugehörigen Rechnungen. 
+
+Eine beispielhafte Base-Struktur mit Kunden- und Rechnungstabellen ist in \autoref{fig:airtable_base} dargestellt.
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth]{airtable_kunden_rechnungen.png}
 \caption{Airtable Base mit Tabellen „Kunden" und „Rechnungen" (mit Filteransicht).}
 \label{fig:airtable_base}
 \end{figure}
-Darüber hinaus stehen verschiedene Sichten und Filter zur Verfügung, mit denen Teilmengen der Daten anhand frei definierbarer Kriterien angezeigt werden können. Formelfelder ermöglichen zudem die Berechnung dynamischer Werte. Sie können unter anderem zur Aggregation von Beträgen oder zur Erzeugung
+
+Darüber hinaus stehen verschiedene Sichten und Filter zur Verfügung, mit denen Teilmengen der Daten anhand frei definierbarer Kriterien angezeigt werden können. Formelfelder ermöglichen zudem die Berechnung dynamischer Werte \cite{airtable_formula_guide}. Sie können unter anderem zur Aggregation von Beträgen oder zur Erzeugung
 formatierter Anzeigeinhalte eingesetzt werden.
 
 Für den Einsatz als zentrale Datenhaltung in einem verteilten System ist
 insbesondere die von Airtable bereitgestellte \gls{ac:rest}-\gls{ac:api} von Bedeutung. Sie
 ermöglicht es, Datensätze programmatisch anzulegen, zu aktualisieren, zu
-löschen oder anhand definierter Filterkriterien abzufragen. Auf diese Weise kann Airtable als zentrale „Single Source of Truth“ für fachliche Informationen fungieren. Unterschiedliche Frontends und Automatisierungsprozesse greifen dabei über die \gls{ac:api} auf denselben
+löschen oder anhand definierter Filterkriterien abzufragen \cite{airtable_web_api_guide}. Auf diese Weise kann Airtable als zentrale \glqq Single Source of Truth\grqq{} für fachliche Informationen fungieren. Unterschiedliche Frontends und Automatisierungsprozesse greifen dabei über die \gls{ac:api} auf denselben
 konsistenten Datenbestand zu. Durch die Kombination aus grafischer Benutzeroberfläche und Programmierschnittstelle eignet sich Airtable sowohl für die manuelle
 Pflege und Kontrolle von Daten als auch für die Integration in
 automatisierte Workflows.
@@ -119,7 +128,10 @@ Entwicklungen erleichtert. Darüber hinaus unterstützt die grafische Benutzerob
 und bearbeitbar, wodurch einfache Auswertungen und Kontrollen direkt in
 der Anwendung durchgeführt werden können. Demgegenüber stehen typische Einschränkungen gehosteter Plattformen. Dazu zählen unter anderem Begrenzungen hinsichtlich des maximalen Datenvolumens, der Anzahl zulässiger \gls{ac:api}-Aufrufe sowie die fehlende Unterstützung komplexer Transaktionen. Für klein- bis mittelkomplexe Anwendungen mit moderatem Datenumfang stellt Airtable dennoch eine pragmatische Lösung dar. Es ermöglicht die Realisierung einer zentralen, cloudbasierten Datenhaltung, ohne dass eine eigene Datenbankinfrastruktur betrieben werden muss.
 
+Die verwendete Airtable-Base umfasst vier Tabellen: \texttt{User\_Sessions} (Dialogzustand), \texttt{Customers}, \texttt{Rechnungen} und \texttt{Rechnungspositionen}.
+
 \section{Google Docs und Google Drive}
+\label{sec:google-docs-drive}
 Google Docs und Google Drive sind zentrale Bestandteile der
 Google-Workspace-Plattform und bilden gemeinsam eine cloudbasierte
 Umgebung zur Erstellung, Bearbeitung und Ablage von Dokumenten. Google
@@ -141,15 +153,15 @@ Auf diese Weise können aus einer einzelnen Vorlage eine Vielzahl
 individueller Dokumente generiert werden. Typische Anwendungsfälle sind
 unter anderem die standardisierte Erstellung von Rechnungen, Angeboten
 oder Serienbriefen, ohne dass jedes Dokument manuell angepasst werden
-muss.\cite{google_docs_api}
+muss \cite{google_docs_api}.
 
 Google Drive ergänzt diese Funktionalität durch eine strukturierte,
 cloudbasierte Ablage der erzeugten Dokumente. Dateien können in
 hierarchischen Ordnerstrukturen organisiert, mit Metadaten versehen und
-über differenzierte Freigabemechanismen geteilt werden. Über die Google-Drive-\gls{ac:api} lassen sich Ordner und Dateien zudem programmgesteuert anlegen, verschieben, umbenennen dder herunterladen. Dadurch können Dokumentenerzeugung und Archivierung in einen
-durchgängigen digitalen Prozess integriert werden. Insbesondere für kleinere Organisationen stellt Google Drive damit eine leichtgewichtige Alternative zu klassischen Dokumentenmanagementsystemen dar. Sowohl die manuelle Nutzung über die Weboberfläche als auch automatisierte Workflows auf Basis standardisierter Schnittstellen werden dabei unterstützt.\cite{google_drive_api_guide}
+über differenzierte Freigabemechanismen geteilt werden. Über die Google-Drive-\gls{ac:api} lassen sich Ordner und Dateien zudem programmgesteuert anlegen, verschieben, umbenennen oder herunterladen. Dadurch können Dokumentenerzeugung und Archivierung in einen
+durchgängigen digitalen Prozess integriert werden. Insbesondere für kleinere Organisationen stellt Google Drive damit eine leichtgewichtige Alternative zu klassischen Dokumentenmanagementsystemen dar. Sowohl die manuelle Nutzung über die Weboberfläche als auch automatisierte Workflows auf Basis standardisierter Schnittstellen werden dabei unterstützt \cite{google_drive_api_guide}.
 
-
+Google Docs erzeugt die Rechnungen auf Basis von Vorlagen, während Google Drive die Dokumente in einer hierarchischen Ordnerstruktur (Jahr/Quartal/Monat/Kunde) ablegt \cite{google_drive_org_guide}.
 
 
 \section{Lovable Cloud / Supabase Edge Functions}
@@ -157,10 +169,10 @@ durchgängigen digitalen Prozess integriert werden. Insbesondere für kleinere O
 
 Für die Webanwendung \glqq ClientHub\grqq{} wurde Lovable Cloud als Hosting- und Deployment-Umgebung verwendet. 
 Serverseitige Logik wird dabei nicht über ein klassisches Backend mit dauerhaft laufendem Server umgesetzt, 
-sondern über \emph{Supabase Edge Functions}. Diese Functions sind serverlose \gls{ac:http}-Endpunkte, die bei Bedarf 
+sondern über \emph{Supabase Edge Functions}. Diese Edge Functions sind serverlose \gls{ac:http}-Endpunkte, die bei Bedarf 
 ausgeführt werden und sich besonders für leichte Integrations- und Proxy-Aufgaben eignen. Im Prototyp dienen 
 sie insbesondere dazu, externe \glspl{ac:api} sicher anzubinden, ohne dass \gls{ac:api}-Schlüssel oder \gls{ac:oauth}-Geheimnisse im 
-Frontend offengelegt werden müssen.
+Frontend offengelegt werden müssen \cite{supabase_edge_functions}.
 
 \subsection{Eingesetzte Edge Functions und Zweck}
 Im Rahmen des Prototyps wurden zwei Edge Functions umgesetzt, die als Vermittlungsschicht zwischen Frontend 
@@ -179,12 +191,12 @@ auf Google Drive wird ein \gls{ac:oauth}-2.0-Flow verwendet, der u.\,a.\ Google-
 Ordner- und Dateistrukturen erfolgt anschließend über die Google-Drive-\gls{ac:api} v3 (z.\,B.\ 
 \texttt{googleapis.com/drive/v3/files}).
 
-\subsection{Zentrale Logik in den Functions}
-Die Implementierung der Functions ist bewusst schlank gehalten und konzentriert sich auf das sichere 
+\subsection{Zentrale Logik in den Edge Functions}
+Die Implementierung der Edge Functions ist bewusst schlank gehalten und konzentriert sich auf das sichere 
 Weiterreichen von Requests sowie die Normalisierung von Response-Daten.
 
 \paragraph{Airtable: Kunden abrufen (Mapping)}
-Die Function \texttt{airtable-customers} ruft Datensätze über die Airtable-\gls{ac:api} ab und transformiert die 
+Die Edge Function \texttt{airtable-customers} ruft Datensätze über die Airtable-\gls{ac:api} ab und transformiert die 
 Antwort in eine frontendfreundliche Struktur, indem \texttt{record.id} und \texttt{record.fields} zusammengeführt werden:
 
 \begin{verbatim}
@@ -198,7 +210,7 @@ const customers = data.records.map((record) => ({
 \end{verbatim}
 
 \paragraph{Google Drive: \gls{ac:oauth} Token Exchange}
-Die Function \texttt{google-drive} führt den Token-Austausch im \gls{ac:oauth}-2.0-Prozess serverseitig aus, um 
+Die Edge Function \texttt{google-drive} führt den Token-Austausch im \gls{ac:oauth}-2.0-Prozess serverseitig aus, um 
 Client Secret und weitere vertrauliche Parameter zu schützen:
 
 \begin{verbatim}
@@ -216,8 +228,8 @@ Der Einsatz von Edge Functions bietet im Prototyp mehrere praktische Vorteile:
 
 \begin{itemize}
   \item \textbf{Sicherheit:} \gls{ac:api}-Keys und \gls{ac:oauth}-Geheimnisse verbleiben serverseitig und sind nicht im Browser sichtbar.
-  \item \textbf{\gls{ac:cors}-Entkopplung:} Direkte \gls{ac:api}-Calls aus dem Browser sind häufig durch \gls{ac:cors}-Restriktionen limitiert; die Function fungiert als kontrollierter Proxy.
-  \item \textbf{Serverless-Betrieb:} Es ist kein eigener Server und kein klassisches Deployment/Scaling notwendig, da die Functions on-demand ausgeführt werden.
+  \item \textbf{\gls{ac:cors}-Entkopplung:} Direkte \gls{ac:api}-Calls aus dem Browser sind häufig durch \gls{ac:cors}-Restriktionen limitiert; die Edge Functions fungieren als kontrollierter Proxy.
+  \item \textbf{Serverless-Betrieb:} Es ist kein eigener Server und kein klassisches Deployment/Scaling notwendig, da die Edge Functions ereignisbasiert und bedarfsgesteuert ausgeführt werden.
   \item \textbf{Geringe Latenz:} Ausführung am Edge kann zu geringeren Antwortzeiten führen, da Requests geographisch näher am Nutzer verarbeitet werden.
 \end{itemize}
 
@@ -250,7 +262,7 @@ schnell verfügbar und skalieren automatisch pro Request. Während klassische Se
 Kaltstart-Situationen spürbare Verzögerungen verursachen können, sind serverlose Funktionen in der Regel für 
 kurze, sporadische Integrationsaufgaben geeignet. Gleichzeitig bleiben Grenzen bestehen, z.\,B.\ durch 
 Provider-Limits, Laufzeitbeschränkungen oder die Komplexität umfangreicher Geschäftslogik.
-
+Edge Functions kapseln Airtable/Drive-Zugriffe sicher für ClientHub-Frontend.
 
 
 
@@ -346,3 +358,5 @@ anschließend automatisch veröffentlicht wird. Änderungen am Code führen ohne
 neuen Deployment. Die Webanwendung ist sowohl über eine Preview- als auch über eine veröffentlichte URL 
 erreichbar. Die enge Verzahnung mit den serverseitigen Edge Functions ermöglicht dabei einen durchgängigen 
 End-to-End-Betrieb der Anwendung.
+ClientHub verbindet damit das React-Frontend über Edge Functions mit Airtable und Google Drive und stellt eine einheitliche Verwaltungsoberfläche bereit.
+

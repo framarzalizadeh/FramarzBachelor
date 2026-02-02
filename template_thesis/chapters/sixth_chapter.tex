@@ -24,6 +24,7 @@ Das Testvorgehen war bewusst manuell, explorativ und end-to-end ausgerichtet. Di
 Ein Test galt als bestanden, wenn der jeweilige End-to-End-Prozess ohne Abbruch durchlief, das erwartete Ergebnis sichtbar erzeugt wurde und der Ablauf bei wiederholter Ausführung stabil blieb. Hierzu zählen insbesondere eine korrekt befüllte und generierte \gls{ac:pdf}-Rechnung, die Ablage von Dokumenten im vorgesehenen Ordner, die vollständige Speicherung der relevanten Daten in den Tabellen sowie die anschließende Anzeige in der Webanwendung. Kleinere Fehler oder Unstimmigkeiten wurden als Teil des iterativen Entwicklungsprozesses behandelt: Die Workflows wurden angepasst, erneut getestet und verbleibende Einschränkungen bei Bedarf als bewusste Limitationen des Prototyps dokumentiert.
 
 \section{Funktionale Tests}
+\label{sec:funktionale-tests}
 
 Die funktionalen Tests zielten darauf ab, die zentralen Use-Cases des Systems manuell und end-to-end zu überprüfen. Im Mittelpunkt standen die Kernprozesse Rechnungserstellung, Dokumentenablage und die Anzeige der gespeicherten Daten in der Webanwendung. Die Tests wurden jeweils über die vorgesehenen Benutzeroberflächen gestartet und bis zur Erzeugung der erwarteten Artefakte (\gls{ac:pdf}-Dokumente, Datensätze, Ordnerstrukturen) vollständig durchlaufen.
 
@@ -36,10 +37,12 @@ Neben den regulären Abläufen wurden auch Fehler- und Sonderfälle betrachtet. 
 Insgesamt lässt sich festhalten, dass die zentralen End-to-End-Prozesse funktional stabil und reproduzierbar arbeiten. Die Kernfunktionen zur Rechnungserstellung, zur strukturierten Ablage von Dokumenten und zur Anzeige der Daten im ClientHub sind umgesetzt und liefern die erwarteten Ergebnisse. Vollständig erfüllt sind damit insbesondere die Anforderungen an die grundlegende Funktionsfähigkeit und Datenkonsistenz der Hauptprozesse. Nur teilweise erfüllt sind hingegen eine umfassende Fehlerbehandlung aller Rand- und Sonderfälle sowie eine formale, testfallbasierte Dokumentation, die für einen prototypischen Entwicklungsstand jedoch nicht im Fokus stand.
 
 \section{Performance-Analyse}
+\label{sec:performance}
 
 Ziel der Performance-Analyse war nicht, formale Antwortzeiten im Millisekundenbereich zu bestimmen, sondern zu überprüfen, ob die End-to-End-Prozesse für einzelne Nutzer vollständig durchführbar sind und ob die dabei entstehenden Wartezeiten subjektiv noch nachvollziehbar und akzeptabel erscheinen. Im Vordergrund stand damit eine praxisnahe Einschätzung der tatsächlichen Wartezeit im Chat sowie beim Dokumenten-Upload, nicht die technische Optimierung einzelner Schnittstellen oder Komponenten. Die Analyse betrachtet daher exemplarische Abläufe und bewertet deren Verhalten qualitativ aus Nutzersicht.
 
-Untersucht wurden drei typische Szenarien. Im ersten Szenario wurde die Rechnungserstellung für einen neuen Kunden mit einer Rechnungsposition betrachtet: Vom Start der Funktion \glqq Rechnung erstellen\grqq{} im Chat bis zur Rückgabe der fertigen \gls{ac:pdf}-Rechnung lagen die beobachteten Durchlaufzeiten bei etwa drei bis vier Minuten. Ein zweites Szenario betrachtete die Rechnungserstellung für einen bereits bestehenden Kunden; hier verkürzte sich die Dauer auf etwa zwei bis drei Minuten, da der Schritt der Kundenerfassung entfiel. Im dritten Szenario wurde der Prozess \glqq Dokument speichern\grqq{} gemessen, bei dem der Nutzer Jahr, Quartal und Monat auswählt und anschließend eine Datei sendet. Die Zeit vom Start der Funktion bis zur Ablage der Datei im vorgesehenen Ordner lag hier bei etwa ein bis zwei Minuten. Für die Webanwendung \glqq ClientHub\grqq{} wurde keine formale Zeitmessung durchgeführt, da die Anzeige- und Klickvorgänge subjektiv sehr schnell ablaufen und keinen dominierenden Einfluss auf den Gesamtprozess haben.
+Untersucht wurden drei typische Szenarien. Im ersten Szenario wurde die Rechnungserstellung für einen neuen Kunden mit einer Rechnungsposition betrachtet: Vom Start der Funktion \glqq Rechnung erstellen\grqq{} im Chat bis zur Rückgabe der fertigen \gls{ac:pdf}-Rechnung lagen die beobachteten Durchlaufzeiten typischerweise im Bereich von
+drei bis vier Minuten. Ein zweites Szenario betrachtete die Rechnungserstellung für einen bereits bestehenden Kunden; hier verkürzte sich die Dauer auf etwa zwei bis drei Minuten, da der Schritt der Kundenerfassung entfiel. Im dritten Szenario wurde der Prozess \glqq Dokument speichern\grqq{} gemessen, bei dem der Nutzer Jahr, Quartal und Monat auswählt und anschließend eine Datei sendet. Die Zeit vom Start der Funktion bis zur Ablage der Datei im vorgesehenen Ordner lag hier bei etwa ein bis zwei Minuten. Für die Webanwendung \glqq ClientHub\grqq{} wurde keine formale Zeitmessung durchgeführt, da die Anzeige- und Klickvorgänge subjektiv sehr schnell ablaufen und keinen dominierenden Einfluss auf den Gesamtprozess haben.
 
 Die Messungen erfolgten bewusst einfach, indem die Dauer mit Hilfe einer Uhr beziehungsweise groben Zeitabschätzung aus Sicht des Nutzers erfasst wurde. Pro Szenario wurden mehrere Durchläufe durchgeführt, insbesondere nach Anpassungen der Automatisierungen, um die Reproduzierbarkeit der beobachteten Zeiten zu prüfen. Technische Timing-Werkzeuge wie Browser-Entwicklertools oder detaillierte Logauswertungen kamen nicht zum Einsatz, da der Schwerpunkt auf der wahrgenommenen Performance in einer typischen Nutzungssituation lag.
 
@@ -60,18 +63,22 @@ Im Hinblick auf Zeit- und Aufwandsersparnis ergibt sich ein gemischtes Bild. Die
 Hinsichtlich Fehleranfälligkeit und Transparenz bietet der automatisierte Ansatz ebenfalls Vorteile. Durch die zentrale Nutzung eines Templates werden Formatierungsfehler reduziert, und die schrittweise, strukturierte Datenerfassung senkt das Risiko vergessener Pflichtfelder. Gleichzeitig bleiben Fehler bei der Rechnungsnummer möglich, da diese weiterhin manuell vergeben wird und keine automatisierte Prüfung erfolgt. Positiv wirkt sich die zentrale Datenhaltung aus, die eine klare Verknüpfung zwischen Kunden, Rechnungen und Dokumenten ermöglicht und durch die einheitliche Ordnerstruktur die Nachvollziehbarkeit erhöht. Insgesamt zeigt der Vergleich, dass der Prototyp insbesondere bei Dokumentenerzeugung, Ablage und Datenstrukturierung einen klaren Mehrwert bietet, während die Rechnungserstellung zwar funktional nutzbar ist, aber durch lange Dialoge und verbleibende manuelle Schritte noch Optimierungspotenzial für einen produktiven Einsatz aufweist.
 
 \section{Usability-Bewertung}
+\label{sec:usability}
 
-Die Usability wurde subjektiv nach ISO 9241-11 bewertet \cite{file457}:
+Die Usability wurde subjektiv nach ISO 9241-11 bewertet \citep{iso_9241_11}:
+Die Bewertung erfolgte als heuristische Selbsteinschätzung des Entwicklers
+auf Basis der Kriterien Effektivität, Effizienz und Zufriedenheit,
+da keine formale Nutzerstudie durchgeführt wurde.
 
 \begin{center}
 \begin{tabular}{|l|c|p{8cm}|}
 \hline
 \textbf{Kriterium} & \textbf{Note} & \textbf{Begründung} \\
 \hline
-Effektivität   & 4/5 & Kern-Use-Cases vollständig (Abschn.~6.2) \\
-Effizienz      & 3/5 & Rechenzeit ca.~2--4 Minuten (Abschn.~6.3) \\
-Zuverlässigkeit& 3/5 & Einfache Fehler werden korrekt behandelt (Abschn.~6.2) \\
-Lernbarkeit    & 4/5 & Intuitive Nutzung durch Chat-Interaktion (vgl.~Abbildung ClientHub) \\
+Effektivität   & 4/5 & Kern-Use-Cases vollständig (Abschnitt~\ref{sec:funktionale-tests}) \\
+Effizienz      & 3/5 & Prozessdauer ca.~2--4 Minuten (Abschnitt~\ref{sec:performance}) \\
+Zuverlässigkeit& 3/5 & Einfache Fehler werden korrekt behandelt (Abschnitt~\ref{sec:funktionale-tests}) \\
+Lernbarkeit    & 4/5 & Intuitive Nutzung durch Chat-Interaktion (vgl.~Abbildung~\ref{fig:clienthub_ui}) \\
 Zufriedenheit  & 4/5 & Natürliche Dialoge und positive Nutzererfahrung \\
 \hline
 \textbf{Gesamt} & \textbf{3.6/5} & \textbf{Nutzbar mit Optimierungspotenzial} \\
@@ -84,12 +91,13 @@ Die Ergebnisse zeigen, dass der Prototyp insgesamt gut nutzbar ist, jedoch noch 
 Demgegenüber fallen Effizienz und Zuverlässigkeit etwas schwächer aus. Die vergleichsweise langen Durchlaufzeiten einzelner Prozesse sowie die noch nicht vollständig abgedeckte Fehlerbehandlung in Randfällen wirken sich negativ auf die Bewertung aus. Insgesamt bestätigt die Usability-Bewertung, dass der Prototyp für den praktischen Einsatz grundsätzlich geeignet ist, zugleich aber insbesondere hinsichtlich Prozessdauer, Dialogführung und Fehlerrobustheit weiter optimiert werden sollte.
 
 \section{Grenzen des Systems und Risiken}
+\label{sec:limits}
 
 Der entwickelte Prototyp weist mehrere technische und funktionale Grenzen auf, die insbesondere im Hinblick auf einen produktiven Einsatz berücksichtigt werden müssen. Diese Einschränkungen resultieren sowohl aus dem prototypischen Charakter der Umsetzung als auch aus bewussten Designentscheidungen im Rahmen der Arbeit.
 
-Eine zentrale Grenze betrifft die Effizienz der dialogbasierten Interaktion. Die schrittweise Erfassung von Kundendaten, bei der einzelne Informationen wie Name, Adresse, Postleitzahl und Ort nacheinander abgefragt werden, führt insbesondere bei der Neuanlage von Kunden zu vergleichsweise langen Prozesszeiten von etwa drei bis vier Minuten (vgl. Abschnitt~6.3). Für zeitlich stark eingebundene Selbstständige kann dieser Ablauf als zu lang empfunden werden und die Bereitschaft zur vollständigen Durchführung des Prozesses verringern.
+Eine zentrale Grenze betrifft die Effizienz der dialogbasierten Interaktion. Die schrittweise Erfassung von Kundendaten, bei der einzelne Informationen wie Name, Adresse, Postleitzahl und Ort nacheinander abgefragt werden, führt insbesondere bei der Neuanlage von Kunden zu vergleichsweise langen Prozesszeiten von etwa drei bis vier Minuten (vgl. Abschnitt~\ref{sec:performance}). Für zeitlich stark eingebundene Selbstständige kann dieser Ablauf als zu lang empfunden werden und die Bereitschaft zur vollständigen Durchführung des Prozesses verringern.
 
-Darüber hinaus ist die Fehlerbehandlung im aktuellen Prototyp nur eingeschränkt umgesetzt. Während einfache Eingabefehler im Chat abgefangen werden, werden komplexere Sonderfälle, wie ungültige oder doppelt vergebene Rechnungsnummern sowie abgebrochene Dialoge an ungünstigen Stellen, nicht in allen Varianten zuverlässig behandelt (vgl. Abschnitt~6.2). Dies kann in Einzelfällen zu inkonsistenten Zuständen oder unvollständigen Datensätzen führen.
+Darüber hinaus ist die Fehlerbehandlung im aktuellen Prototyp nur eingeschränkt umgesetzt. Während einfache Eingabefehler im Chat abgefangen werden, werden komplexere Sonderfälle, wie ungültige oder doppelt vergebene Rechnungsnummern sowie abgebrochene Dialoge an ungünstigen Stellen, nicht in allen Varianten zuverlässig behandelt (vgl. Abschnitt~\ref{sec:funktionale-tests}). Dies kann in Einzelfällen zu inkonsistenten Zuständen oder unvollständigen Datensätzen führen.
 
 Ein weiteres Risiko ergibt sich aus den eingesetzten Technologien und deren Abhängigkeiten. Der Prototyp basiert auf mehreren externen Cloud-Diensten, darunter die Integrationsplattform Make.com, die Datenhaltung in Airtable sowie verschiedene Google-\glspl{ac:api}. Dadurch entsteht ein hohes Maß an Vendor Lock-in. Ausfälle oder Änderungen dieser Dienste können unmittelbar zu einem Ausfall oder einer Einschränkung der Systemfunktionalität führen.
 
@@ -98,3 +106,11 @@ Auch die Skalierbarkeit des Systems ist begrenzt. Es wurden keine Last- oder Str
 Zusätzlich bestehen Risiken im Bereich Datenschutz und Compliance. Personenbezogene Daten wie Telefonnummern werden in der Datenhaltung gespeichert, ohne dass Löschfristen, Zugriffsbeschränkungen oder eine detaillierte Protokollierung implementiert wurden. Auch ein umfassendes Backup- oder Wiederherstellungskonzept für die in Airtable und im Cloud-Speicher abgelegten Daten ist nicht vorgesehen. Für einen produktiven Einsatz, insbesondere unter Berücksichtigung der \gls{ac:dsgvo}, wären hier weitergehende Maßnahmen erforderlich.
 
 Zusammenfassend lässt sich festhalten, dass der entwickelte Prototyp für die Einzelnutzung und zur Demonstration des grundsätzlichen Ansatzes geeignet ist. Ein produktiver Einsatz in einem Mehrnutzerkontext würde jedoch ein technisches und organisatorisches Hardening des Systems erfordern, insbesondere in Bezug auf Fehlerrobustheit, Skalierbarkeit, Datenschutz und Betriebssicherheit.
+Die Evaluation bestätigt die technische Machbarkeit des Konzepts. 
+Die identifizierten Optimierungspotenziale fließen in den Ausblick
+(Kapitel~\ref{chap:ausblick}).
+
+Trotz der genannten Einschränkungen zeigt die Evaluation,
+dass der entwickelte Prototyp die konzeptionellen Ziele erfüllt
+und die technische Umsetzbarkeit eines dialogbasierten Ansatzes
+für administrative Prozesse erfolgreich demonstriert.

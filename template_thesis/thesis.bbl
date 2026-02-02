@@ -1,4 +1,4 @@
-\begin{thebibliography}{25}
+\begin{thebibliography}{38}
 % this bibliography was produced with the style dinat.bst v2.5
 \makeatletter
 \newcommand{\dinatlabel}[1]%
@@ -6,6 +6,12 @@
 \makeatother
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax\def\url#1{\texttt{#1}}\fi
+
+\bibitem[iso_9241_11(2018)]{iso_9241_11}
+\dinatlabel{iso_9241_11 2018} :
+\newblock \emph{ISO 9241-11: Ergonomics of human-system interaction -- Part 11: Usability: Definitions and concepts}.
+\newblock 2018. --
+\newblock URL \url{https://www.iso.org/standard/63500.html}. -- Zugriffsdatum: 2026-02-01
 
 \bibitem[{Airtable}(2025{\natexlab{a}})]{airtable_overview}
 \dinatlabel{{Airtable} 2025{\natexlab{a}}} \textsc{{Airtable}}:
@@ -20,6 +26,13 @@
 \newblock 2025. --
 \newblock URL \url{https://support.airtable.com/docs/getting-started-with-airtables-web-api}. -- Zugriffsdatum: 2025-12-27. --
 \newblock Dokumentation zur Web-API von Airtable, inklusive Erstellen, Lesen, Aktualisieren und Löschen von Datensätzen
+
+\bibitem[{Airtable}(2026)]{airtable_formula_guide}
+\dinatlabel{{Airtable} 2026} \textsc{{Airtable}}:
+\newblock \emph{Formula Field Reference}.
+\newblock 2026. --
+\newblock URL \url{https://support.airtable.com/docs/formula-field-reference}. -- Zugriffsdatum: 2026-02-01. --
+\newblock Dokumentation der Airtable-Formeln wie FIND(), LOWER(), IF()
 
 \bibitem[Balzert(2011)]{balzert_softwaretechnik_2011}
 \dinatlabel{Balzert 2011} \textsc{Balzert}, Helmut:
@@ -59,6 +72,33 @@
 \newblock 2023. --
 \newblock URL \url{https://www.ebnerstolz.de/pdfs/03/6/1/6/0/5/STUDIE_KI_RECHNUNGSWESEN_JAHRESABSCHLUSS.pdf}. -- Zugriffsdatum: 2026-01-14. --
 \newblock Studie zu Einsatz und Effekten von KI-Lösungen im Rechnungswesen, inkl. Effizienzgewinnen und Fehlerreduktion
+
+\bibitem[{Europäische Union}(2016)]{dsgvo2016}
+\dinatlabel{{Europäische Union} 2016} \textsc{{Europäische Union}}:
+\newblock \emph{Verordnung (EU) 2016/679 des Europäischen Parlaments und des Rates}.
+\newblock 2016. --
+\newblock URL \url{https://eur-lex.europa.eu/eli/reg/2016/679/oj}. -- Zugriffsdatum: 2025-01-15. --
+\newblock Datenschutz-Grundverordnung (DSGVO)
+
+\bibitem[{Google}(2024{\natexlab{a}})]{google_docs_pdf_automation}
+\dinatlabel{{Google} 2024{\natexlab{a}}} \textsc{{Google}}:
+\newblock \emph{Exporting Google Docs as PDF using the Google Drive API}.
+\newblock 2024. --
+\newblock URL \url{https://developers.google.com/drive/api/guides/ref-export-formats}. -- Zugriffsdatum: 2025-01-30
+
+\bibitem[{Google}(2024{\natexlab{b}})]{google_docs_mailmerge}
+\dinatlabel{{Google} 2024{\natexlab{b}}} \textsc{{Google}}:
+\newblock \emph{Merge Data into Google Docs}.
+\newblock 2024. --
+\newblock URL \url{https://developers.google.com/docs/api/how-tos/merge}. -- Zugriffsdatum: 2026-02-01. --
+\newblock Offizielle Dokumentation zum Platzhalter-basierten Zusammenführen von Daten in Google Docs (Mail-Merge-Prinzip)
+
+\bibitem[{Google}(2024{\natexlab{c}})]{google_drive_org_guide}
+\dinatlabel{{Google} 2024{\natexlab{c}}} \textsc{{Google}}:
+\newblock \emph{Organize your files in Google Drive}.
+\newblock 2024. --
+\newblock URL \url{https://support.google.com/drive/answer/2424384}. -- Zugriffsdatum: 2026-02-01. --
+\newblock Best Practices zur Ordnerstruktur und Dateiorganisation in Google Drive
 
 \bibitem[{Google}(2025{\natexlab{a}})]{google_docs_api}
 \dinatlabel{{Google} 2025{\natexlab{a}}} \textsc{{Google}}:
@@ -108,12 +148,46 @@
 \newblock 2025. --
 \newblock URL \url{https://help.make.com/flow-control}. -- Zugriffsdatum: 2026-01-20
 
-\bibitem[{Make.com}(2025)]{make_whatsapp_watch_events}
-\dinatlabel{{Make.com} 2025} \textsc{{Make.com}}:
+\bibitem[{Make.com}(2024)]{make_google_docs_integration}
+\dinatlabel{{Make.com} 2024} \textsc{{Make.com}}:
+\newblock \emph{Google Docs Integration}.
+\newblock 2024. --
+\newblock URL \url{https://www.make.com/en/integrations/google-docs}. -- Zugriffsdatum: 2025-01-30
+
+\bibitem[{Make.com}(2025{\natexlab{a}})]{make_whatsapp_watch_events}
+\dinatlabel{{Make.com} 2025{\natexlab{a}}} \textsc{{Make.com}}:
 \newblock \emph{WhatsApp Business Cloud --- Modules Documentation}.
 \newblock 2025. --
 \newblock URL \url{https://apps.make.com/whatsapp-business-cloud-modules}. -- Zugriffsdatum: 2026-01-16. --
 \newblock Dokumentation der Make-Plattform am Beispiel der WhatsApp-Business-Cloud-Module, inkl. Triggern, Aktionen und Szenariokonzept
+
+\bibitem[{Make.com}(2025{\natexlab{b}})]{make_whatsapp_docs}
+\dinatlabel{{Make.com} 2025{\natexlab{b}}} \textsc{{Make.com}}:
+\newblock \emph{WhatsApp Cloud API - Send Document Messages}.
+\newblock \url{https://www.make.com/en/help/app/whatsapp-cloud-api}.
+\newblock 2025. --
+\newblock Make.com WhatsApp Integration (Modul: Send a message)
+
+\bibitem[{Make.com}(2026{\natexlab{a}})]{make_airtable_search_records}
+\dinatlabel{{Make.com} 2026{\natexlab{a}}} \textsc{{Make.com}}:
+\newblock \emph{Airtable modules (Make.com) — Search records}.
+\newblock 2026. --
+\newblock URL \url{https://apps.make.com/airtable-modules}. -- Zugriffsdatum: 2026-02-01. --
+\newblock Abschnitt "Search records"
+
+\bibitem[{Make.com}(2026{\natexlab{b}})]{make_google_docs}
+\dinatlabel{{Make.com} 2026{\natexlab{b}}} \textsc{{Make.com}}:
+\newblock \emph{Google Docs modules (Make.com)}.
+\newblock 2026. --
+\newblock URL \url{https://apps.make.com/google-docs}. -- Zugriffsdatum: 2026-02-01. --
+\newblock Dokumenterstellung und Template-Verarbeitung
+
+\bibitem[{Make.com}(2026{\natexlab{c}})]{make_google_drive}
+\dinatlabel{{Make.com} 2026{\natexlab{c}}} \textsc{{Make.com}}:
+\newblock \emph{Google Drive modules (Make.com)}.
+\newblock 2026. --
+\newblock URL \url{https://apps.make.com/google-drive}. -- Zugriffsdatum: 2026-02-01. --
+\newblock Dokumentenablage, Ordnererstellung und Datei-Upload
 
 \bibitem[Mell und Grance(2011)]{cloud_grundlagen}
 \dinatlabel{Mell und Grance 2011} \textsc{Mell}, Peter~; \textsc{Grance}, Timothy:
@@ -167,6 +241,19 @@
 \newblock \emph{API-Design: Grundlagen und Best Practices für moderne Schnittstellen}.
 \newblock 2020. --
 \newblock URL \url{https://www.assets.dpunkt.de/openbooks/Openbook_Spichale_API-Design_2A.pdf}. -- Zugriffsdatum: 2025-12-13
+
+\bibitem[{Supabase}(2026)]{supabase_edge_functions}
+\dinatlabel{{Supabase} 2026} \textsc{{Supabase}}:
+\newblock \emph{Edge Functions}.
+\newblock 2026. --
+\newblock URL \url{https://supabase.com/docs/guides/functions}. -- Zugriffsdatum: 2026-02-01. --
+\newblock Dokumentation zu serverseitigen Edge Functions auf Basis von Deno
+
+\bibitem[Voigt und von~dem Bussche(2017)]{gdpr_principles}
+\dinatlabel{Voigt und von~dem Bussche 2017} \textsc{Voigt}, Paul~; \textsc{Bussche}, Axel von~dem:
+\newblock The EU General Data Protection Regulation (GDPR): A Practical Guide.
+\newblock In: \emph{Springer International Publishing}
+\newblock (2017)
 
 \bibitem[{Zenwork}(2025)]{manual_invoice_time_2025}
 \dinatlabel{{Zenwork} 2025} \textsc{{Zenwork}}:

@@ -48,60 +48,66 @@ Warning--entry type for "manual_vs_automated_dms_2025" isn't style-file defined
 --line 218 of file literature.bib
 Warning--entry type for "make_array_aggregator" isn't style-file defined
 --line 226 of file literature.bib
-Warning--I didn't find a database entry for "make_airtable_search_records"
-Warning--I didn't find a database entry for "make_google_docs"
-Warning--I didn't find a database entry for "make_google_drive"
-Warning--I didn't find a database entry for "airtable_formula_guide"
-Warning--I didn't find a database entry for "supabase_edge_functions"
-Warning--I didn't find a database entry for "logrocket_supabase_edge"
-Warning--I didn't find a database entry for "make_google_docs_integration"
-Warning--I didn't find a database entry for "google_docs_mailmerge"
-Warning--I didn't find a database entry for "google_docs_merge"
-Warning--I didn't find a database entry for "google_docs_pdf_automation"
-Warning--I didn't find a database entry for "make_whatsapp_docs"
-Warning--I didn't find a database entry for "document_mgmt_best_practices"
-Warning--I didn't find a database entry for "docparse_best_practices"
-Warning--I didn't find a database entry for "google_drive_org_guide"
-Warning--I didn't find a database entry for "file457"
-You've used 25 entries,
+Warning--entry type for "make_airtable_search_records" isn't style-file defined
+--line 250 of file literature.bib
+Warning--entry type for "make_google_docs" isn't style-file defined
+--line 258 of file literature.bib
+Warning--entry type for "make_google_drive" isn't style-file defined
+--line 267 of file literature.bib
+Warning--entry type for "airtable_formula_guide" isn't style-file defined
+--line 276 of file literature.bib
+Warning--entry type for "supabase_edge_functions" isn't style-file defined
+--line 285 of file literature.bib
+Warning--entry type for "google_docs_mailmerge" isn't style-file defined
+--line 294 of file literature.bib
+Warning--entry type for "make_google_docs_integration" isn't style-file defined
+--line 303 of file literature.bib
+Warning--entry type for "google_docs_pdf_automation" isn't style-file defined
+--line 312 of file literature.bib
+Warning--entry type for "google_drive_org_guide" isn't style-file defined
+--line 329 of file literature.bib
+Warning--entry type for "iso_9241_11" isn't style-file defined
+--line 338 of file literature.bib
+Warning--to sort, need author or key in iso_9241_11
+You've used 38 entries,
             3552 wiz_defined-function locations,
-            945 strings with 12475 characters,
-and the built_in function-call counts, 13271 in all, are:
-= -- 1630
-> -- 193
-< -- 119
-+ -- 188
-- -- 94
-* -- 1285
-:= -- 2251
-add.period$ -- 27
-call.type$ -- 25
-change.case$ -- 116
-chr.to.int$ -- 22
-cite$ -- 25
-duplicate$ -- 370
-empty$ -- 1098
-format.name$ -- 184
-if$ -- 2785
-int.to.chr$ -- 3
+            989 strings with 14253 characters,
+and the built_in function-call counts, 19712 in all, are:
+= -- 2434
+> -- 280
+< -- 154
++ -- 256
+- -- 133
+* -- 1911
+:= -- 3324
+add.period$ -- 41
+call.type$ -- 38
+change.case$ -- 177
+chr.to.int$ -- 30
+cite$ -- 41
+duplicate$ -- 561
+empty$ -- 1646
+format.name$ -- 263
+if$ -- 4164
+int.to.chr$ -- 8
 int.to.str$ -- 1
-missing$ -- 8
-newline$ -- 177
-num.names$ -- 100
-pop$ -- 125
+missing$ -- 11
+newline$ -- 264
+num.names$ -- 148
+pop$ -- 190
 preamble$ -- 1
-purify$ -- 105
+purify$ -- 157
 quote$ -- 0
-skip$ -- 353
+skip$ -- 506
 stack$ -- 0
-substring$ -- 1179
-swap$ -- 61
-text.length$ -- 31
+substring$ -- 1758
+swap$ -- 89
+text.length$ -- 44
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 265
-warning$ -- 0
-while$ -- 157
+type$ -- 408
+warning$ -- 1
+while$ -- 232
 width$ -- 0
-write$ -- 293
-(There were 35 warnings)
+write$ -- 441
+(There were 31 warnings)
