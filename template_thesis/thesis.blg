@@ -8,70 +8,70 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: literature.bib
-Warning--entry type for "word_excel_kmu_rechnungen" isn't style-file defined
+Warning--entry type for "bitkom_kmu_digitalisierung_2023" isn't style-file defined
 --line 4 of file literature.bib
 Warning--entry type for "chatbots_finanzprozesse" isn't style-file defined
---line 12 of file literature.bib
+--line 13 of file literature.bib
 Warning--entry type for "dokumentengenerierung_cloud" isn't style-file defined
---line 46 of file literature.bib
+--line 47 of file literature.bib
 Warning--entry type for "make_whatsapp_watch_events" isn't style-file defined
---line 66 of file literature.bib
+--line 67 of file literature.bib
 Warning--entry type for "airtable_overview" isn't style-file defined
---line 76 of file literature.bib
+--line 77 of file literature.bib
 Warning--entry type for "google_docs_api" isn't style-file defined
---line 85 of file literature.bib
+--line 86 of file literature.bib
 Warning--entry type for "google_drive_api_guide" isn't style-file defined
---line 95 of file literature.bib
+--line 96 of file literature.bib
 Warning--entry type for "beckit_rechnungsverarbeitung_2022" isn't style-file defined
---line 105 of file literature.bib
+--line 106 of file literature.bib
 Warning--entry type for "pleo_automatisierte_rechnungsverarbeitung_2024" isn't style-file defined
---line 113 of file literature.bib
+--line 114 of file literature.bib
 Warning--entry type for "seibert_nfa_2018" isn't style-file defined
---line 122 of file literature.bib
+--line 123 of file literature.bib
 Warning--entry type for "johann_nfa_2025" isn't style-file defined
---line 130 of file literature.bib
+--line 131 of file literature.bib
 Warning--entry type for "spichale_apidesign_2020" isn't style-file defined
---line 145 of file literature.bib
+--line 146 of file literature.bib
 Warning--entry type for "bitkom_elektronische_rechnungsdaten_2022" isn't style-file defined
---line 153 of file literature.bib
+--line 154 of file literature.bib
 Warning--entry type for "airtable_web_api_guide" isn't style-file defined
---line 172 of file literature.bib
+--line 173 of file literature.bib
 Warning--entry type for "whatsapp_cloud_api_media_2025" isn't style-file defined
---line 182 of file literature.bib
+--line 183 of file literature.bib
 Warning--entry type for "google_drive_files_export_2025" isn't style-file defined
---line 192 of file literature.bib
+--line 193 of file literature.bib
 Warning--entry type for "make_airtable_app" isn't style-file defined
---line 201 of file literature.bib
+--line 202 of file literature.bib
 Warning--entry type for "manual_invoice_time_2025" isn't style-file defined
---line 210 of file literature.bib
-Warning--entry type for "manual_vs_automated_dms_2025" isn't style-file defined
---line 218 of file literature.bib
+--line 211 of file literature.bib
+Warning--entry type for "ifm_kmu_digitalisierung_prozesse" isn't style-file defined
+--line 219 of file literature.bib
 Warning--entry type for "make_array_aggregator" isn't style-file defined
---line 226 of file literature.bib
+--line 228 of file literature.bib
 Warning--entry type for "make_airtable_search_records" isn't style-file defined
---line 250 of file literature.bib
+--line 252 of file literature.bib
 Warning--entry type for "make_google_docs" isn't style-file defined
---line 258 of file literature.bib
+--line 260 of file literature.bib
 Warning--entry type for "make_google_drive" isn't style-file defined
---line 267 of file literature.bib
+--line 269 of file literature.bib
 Warning--entry type for "airtable_formula_guide" isn't style-file defined
---line 276 of file literature.bib
+--line 278 of file literature.bib
 Warning--entry type for "supabase_edge_functions" isn't style-file defined
---line 285 of file literature.bib
+--line 287 of file literature.bib
 Warning--entry type for "google_docs_mailmerge" isn't style-file defined
---line 294 of file literature.bib
+--line 296 of file literature.bib
 Warning--entry type for "make_google_docs_integration" isn't style-file defined
---line 303 of file literature.bib
+--line 305 of file literature.bib
 Warning--entry type for "google_docs_pdf_automation" isn't style-file defined
---line 312 of file literature.bib
+--line 314 of file literature.bib
 Warning--entry type for "google_drive_org_guide" isn't style-file defined
---line 329 of file literature.bib
+--line 331 of file literature.bib
 Warning--entry type for "iso_9241_11" isn't style-file defined
---line 338 of file literature.bib
+--line 340 of file literature.bib
 Warning--to sort, need author or key in iso_9241_11
 You've used 38 entries,
             3552 wiz_defined-function locations,
-            989 strings with 14253 characters,
+            990 strings with 14320 characters,
 and the built_in function-call counts, 19712 in all, are:
 = -- 2434
 > -- 280

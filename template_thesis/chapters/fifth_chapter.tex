@@ -12,11 +12,11 @@ Edge Functions und \gls{ac:api}-Anbindungen detailliert beschrieben.
 
 \section{Implementierung des Chatbots (make.com‑Szenarien)}
 
-Das in Kapitel~4 konzipierte Chatbot-System wurde mithilfe der 
+Das in \autoref{chap:konzeption} konzipierte Chatbot-System wurde mithilfe der 
 Automatisierungsplattform \textbf{Make.com} umgesetzt. Die Dialoglogik 
 basiert auf mehreren Szenarien, die über Webhooks Ereignisse auslösen, 
-Nachrichten verarbeiten und Daten zwischen WhatsApp, Airtable, Google Docs 
-und Google Drive austauschen.
+eingehende Nachrichten verarbeiten und Daten zwischen WhatsApp, Airtable, 
+Google Docs und Google Drive austauschen.
 
 Die Grundlage der Kommunikation bildet die \textbf{WhatsApp Business Cloud \gls{ac:api}}. 
 Eingehende Nachrichten werden über ein \emph{Watch Events}-Modul in Make als 
@@ -241,13 +241,14 @@ Integrationen mit Drittsystemen
 Funktionen werden notwendige \gls{ac:api}-Schlüssel und Zugriffstoken als Secrets 
 verwaltet, sodass sie weder im Browser noch im Frontend-Code sichtbar sind.
 
-Die Edge Functions nehmen \gls{ac:http}-Anfragen des Frontends entgegen, führen 
-Authentifizierungs- und Autorisierungsprüfungen durch und rufen anschließend 
-die entsprechenden Airtable- oder Google-Drive-Endpunkte auf. Die Ergebnisse 
-werden in einem für das Frontend geeigneten JSON-Format zurückgegeben 
-\citep{supabase_edge_functions}. Dadurch wird die Angriffsfläche reduziert 
-und die Einhaltung von Sicherheitsanforderungen, etwa der Schutz von 
-\gls{ac:api}-Schlüsseln und der Zugriff ausschließlich durch authentifizierte Nutzer, 
+Die Edge Functions nehmen \gls{ac:http}-Anfragen
+des Frontends entgegen, führen
+Authentifizier-ungs- und Autorisierungsprüfungen durch und rufen anschließend
+die entsprechenden Airtable- oder Google-Drive-Endpunkte auf. Die Ergebnisse
+werden in einem für das Frontend geeigneten JSON-Format zurückgegeben
+\citep{supabase_edge_functions}. Dadurch wird die Angriffsfläche reduziert
+und die Einhaltung von Sicherheitsanforderungen, etwa der Schutz von
+\gls{ac:api}-Schlüsseln und der Zugriff ausschließlich durch authentifizierte Nutzer,
 erleichtert.
 
 
@@ -290,13 +291,8 @@ dadurch sowohl die Datenqualität als auch die Flexibilität der Nutzung.
 \section{Automatische Dokumentenerstellung in Google Docs}
 \label{sec:dokumentenerstellung-google-docs}
 
-Nach Abschluss des Chat-Dialogs, in dem sämtliche für die Rechnungserstellung
-erforderlichen Informationen erfasst wurden, erzeugt das System automatisiert
-ein formatiertes Rechnungsdokument auf Grundlage einer Google-Docs-Vorlage
-\citep{make_google_docs} Anschließend wird das Dokument
-programmgesteuert als \gls{ac:pdf} exportiert und dem Nutzer unmittelbar im
-WhatsApp-Chat bereitgestellt, sodass keine manuelle Nachbearbeitung in einem
-Textverarbeitungsprogramm erforderlich ist \citep{google_docs_api}.
+Nach Abschluss des Chat-Dialogs, in dem sämtliche für die Rechnungserstellung erforderlichen Informationen erfasst wurden, erzeugt das System automatisiert ein formatiertes Rechnungsdokument auf Grundlage einer Google-Docs-Vorlage \citep{make_google_docs}. Anschließend wird das Dokument programmgesteuert als \gls{ac:pdf} exportiert und dem Nutzer unmittelbar im WhatsApp-Chat bereitgestellt, sodass keine manuelle Nachbearbeitung in einem Textverarbeitungsprogramm erforderlich ist \citep{google_docs_api}.
+
 
 
 \subsection{Rechnungsvorlage und Platzhalter}
@@ -313,13 +309,15 @@ geschweiften Klammern integriert, beispielsweise
 aus den Airtable-Tabellen \texttt{Customers} und \texttt{Rechnungen} ersetzt
 werden.
 
+\begin{sloppypar}
 Für die Abbildung der Rechnungspositionen werden analoge Platzhalter wie
-\texttt{\{\{items\_beschreibung\}\}}, \texttt{\{\{items\_menge\}\}},
-\texttt{\{\{items\_preis\}\}} und \texttt{\{\{items\_total\}\}} verwendet.
+\texttt{\{\{\{items\_beschreibung\}\}\}}, \texttt{\{\{\{items\_menge\}\}\}},
+\texttt{\{\{\{items\_preis\}\}\}} und \texttt{\{\{\{items\_total\}\}\}} verwendet.
 Zusätzlich kommen Felder für Zwischensummen und Gesamtbeträge
-(\texttt{\{\{company\_subtotal\}\}}, \texttt{\{\{company\_total\}\}})
+(\texttt{\{\{\{company\_subtotal\}\}\}}, \texttt{\{\{\{company\_total\}\}\}})
 zum Einsatz, sodass sowohl Einzelpositionen als auch aggregierte Werte
 dynamisch befüllt werden können \citep{google_docs_mailmerge}.
+\end{sloppypar}
 
 Das zugrunde liegende Platzhalterkonzept entspricht dem in der
 Google-Docs-\gls{ac:api} beschriebenen Mail-Merge-Ansatz, bei dem Textmarken in einem
@@ -343,27 +341,14 @@ Platzhalter mit den übergebenen Daten ersetzt werden. Auf diese Weise
 entsteht ein vollständig ausgefülltes Rechnungsdokument
 \citep{make_google_docs_integration}.
 
-Im nächsten Schritt wird das erzeugte Dokument über die
-Google-Docs- beziehungsweise Google-Drive-Schnittstelle serverseitig in
-das \gls{ac:pdf}-Format konvertiert und als Datei bereitgestellt
-\citep{google_docs_api,google_docs_pdf_automation}. Die resultierende
-\gls{ac:pdf}-Rechnung wird in der aktuellen Implementierung nicht automatisch in
-einer strukturierten Ordnerhierarchie in Google Drive abgelegt, sondern
-primär für den unmittelbaren Versand über den WhatsApp-Chat verwendet.
-Hierzu wird die \gls{ac:pdf}-Datei über das WhatsApp-Sendemodul an den Nutzer
-übertragen, der das Dokument lokal speichern oder weiterleiten kann.
-Eine optionale, langfristige Ablage in Google Drive erfolgt erst in einem
-separaten Prozessschritt über den Menüpunkt \glqq Dokument speichern\grqq{}
-im Chatbot \citep{make_whatsapp_docs,google_drive_api_guide}.
+Im nächsten Schritt wird das erzeugte Dokument über die Google-Docs- beziehungsweise Google-Drive-Schnittstelle serverseitig in das \gls{ac:pdf}-Format konvertiert und als Datei bereitgestellt \citep{google_docs_api,google_docs_pdf_automation}. Die resultierende \gls{ac:pdf}-Rechnung wird in der aktuellen Implementierung nicht automatisch in einer strukturierten Ordnerhierarchie in Google Drive abgelegt, sondern primär für den unmittelbaren Versand über den WhatsApp-Chat verwendet. Hierzu wird die \gls{ac:pdf}-Datei über das WhatsApp-Sendemodul an den Nutzer übertragen, der das Dokument lokal speichern oder weiterleiten kann. Eine optionale, langfristige Ablage in Google Drive erfolgt erst in einem separaten Prozessschritt über den Menüpunkt \glqq Dokument speichern\grqq{} im Chatbot \citep{make_whatsapp_docs,google_drive_api_guide}.
+
 
 
 \section{Ablagestrategie in Google Drive (Jahr/Quartal/Monat)}
 
-Die Ablage von Dokumenten in Google Drive erfolgt nach einer klaren,
-zeitbasierten Ordnerstruktur, um Belege auch bei wachsendem Datenvolumen
-schnell auffindbar und revisionssicher verwalten zu können. Alle vom Nutzer hochgeladenen
-Dokumente werden im Pfad \glqq Dokument speichern\grqq{} des Chatbots
-systematisch nach Jahr, Quartal und Monat einsortiert.
+Die Ablage von Dokumenten in Google Drive erfolgt nach einer klaren, zeitbasierten Ordnerstruktur, um Belege auch bei wachsendem Datenvolumen schnell auffindbar und revisionssicher zu verwalten. Alle vom Nutzer hochgeladenen Dokumente werden im Pfad \glqq Dokument speichern\grqq{} des Chatbots systematisch nach Jahr, Quartal und Monat einsortiert.
+
 
 Wählt der Nutzer im Hauptmenü den Pfad \glqq Dokument speichern\grqq{},
 fragt der Chatbot nacheinander Jahr, Quartal und Monat ab und speichert die
@@ -375,23 +360,14 @@ vorteilhaft ist. Erst danach wird der Nutzer
 aufgefordert, das betreffende Dokument (z.\,B. eine Rechnung im \gls{ac:pdf}-Format)
 zu übermitteln.
 
-Nach Eingang der Datei prüft das Szenario in Google Drive schrittweise, ob
-die benötigte Ordnerhierarchie bereits existiert, und legt fehlende Ebenen
-automatisch an. Zunächst wird ein kundenbezogener Stammordner identifiziert,
-der in der Regel die Telefonnummer des Nutzers als Ordnungsmerkmal verwendet;
-existiert dieser Ordner nicht, wird er erstellt und als Wurzel für alle
-weiteren Unterordner verwendet \citep{google_drive_org_guide}. Anschließend
-wird innerhalb dieses Stammordners geprüft, ob ein Unterordner für das
-gewählte Jahr vorhanden ist; falls nicht, wird der entsprechende
-Jahresordner angelegt, bevor die Verarbeitung mit den nächsten Ebenen
-fortgesetzt wird. Nach demselben Muster werden nacheinander die Unterordner
-für Quartal und Monat geprüft und bei Bedarf erstellt
-\citep{google_drive_org_guide}.
+Nach Eingang der Datei prüft das Szenario schrittweise die Google-Drive-Ordnerhierarchie (Telefonnummer → Jahr → Quartal → Monat) und legt fehlende Ebenen automatisch an \citep{google_drive_org_guide}. Der kundenbezogene Stammordner (Telefonnummer) wird identifiziert bzw. erstellt, gefolgt von den zeitbasierten Unterordnern für Jahr, Quartal und Monat nach demselben iterativen Muster.
 
-Auf diese Weise entsteht eine konsistente Pfadstruktur der Form
-\texttt{/Kunden/\textless Telefonnummer\textgreater/\textless Jahr\textgreater/
-\textless Quartal\textgreater/\textless Monat\textgreater}, ohne dass
-bereits bestehende Ordner dupliziert werden.
+
+Auf diese Weise entsteht eine konsistente Pfadstruktur der Form:
+\begin{center}
+\texttt{/Kunden/\textless Telefonnummer\textgreater/\textless Jahr\textgreater/\textless Quartal\textgreater/\textless Monat\textgreater}
+\end{center}
+ohne dass bereits bestehende Ordner dupliziert werden.
 Ist der Zielordner vollständig bestimmt, wird die vom Nutzer gesendete Datei
 in genau diesen Ordner hochgeladen und der resultierende Drive-Link in
 Airtable gespeichert, sodass die Web-Anwendung die Dokumente später
@@ -414,7 +390,7 @@ passenden Ordner zu.
 \subsection{Frontend (React, UI-Konzept)}
 \label{subsec:clienthub-frontend}
 
-ClientHub ist eine React~18.3.1 Single-Page-Application (Vite/TypeScript) für Desktop-Nutzung am Arbeitsplatz. Sidebar-Navigation (280px): Dashboard, Kunden, Ordnerbaum, Connections.
+ClientHub ist eine React~18.3.1 Single-Page-Application (Vite/TypeScript), die für Desktop-Nutzung am Arbeitsplatz konzipiert ist. Die Sidebar-Navigation (280\,px) umfasst die Bereiche Dashboard, Kunden, Ordnerbaum und Connections.
 
 \textbf{Views:}
 \begin{itemize}
@@ -461,7 +437,7 @@ Zwei Edge Functions auf Basis von \gls{ac:deno} und \gls{ac:ts} kapseln sicherhe
 \centering
 \caption{Edge Functions}
 \label{tab:edge-functions}
-\begin{tabular}{lp{6cm}}
+\begin{tabular}{ll}
 \hline
 \textbf{Name} & \textbf{Funktionen} \\
 \hline
@@ -470,7 +446,6 @@ Zwei Edge Functions auf Basis von \gls{ac:deno} und \gls{ac:ts} kapseln sicherhe
 \hline
 \end{tabular}
 \end{table}
-
 Config: \texttt{verify\_jwt=false} (Prototyp). Secrets: Keys/\gls{ac:oauth}.
 
 \begin{verbatim}

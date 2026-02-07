@@ -53,6 +53,12 @@
 \newblock 2022. --
 \newblock URL \url{https://beck-it.com/news/die-manuelle-und-automatisierte-rechnungsverarbeitung-im-vergleich/}. -- Zugriffsdatum: 2025-12-27
 
+\bibitem[{Bitkom e.V.}(2023)]{bitkom_kmu_digitalisierung_2023}
+\dinatlabel{{Bitkom e.V.} 2023} \textsc{{Bitkom e.V.}}:
+\newblock \emph{Digitalisierung im Mittelstand – Status quo und Herausforderungen}.
+\newblock 2023. --
+\newblock URL \url{https://www.bitkom.org/Presse/Presseinformation/Digitalisierung-im-Mittelstand}. -- Zugriffsdatum: 2026-01-21
+
 \bibitem[{Bitkom e.V.} und {Forum elektronische Rechnung Deutschland (FeRD)}(2022)]{bitkom_elektronische_rechnungsdaten_2022}
 \dinatlabel{{Bitkom e.V.} und {Forum elektronische Rechnung Deutschland (FeRD)} 2022} \textsc{{Bitkom e.V.}}~; \textsc{{Forum elektronische Rechnung Deutschland (FeRD)}}:
 \newblock \emph{Elektronische Beleg- und Rechnungsdaten im Jahr 2022}.
@@ -120,6 +126,12 @@
 \newblock 2025. --
 \newblock URL \url{https://developers.google.com/workspace/drive/api/reference/rest/v3/files/export}. -- Zugriffsdatum: 2025-12-27. --
 \newblock Beschreibung der Methode \texttt{files.export} der Google Drive API, mit der Google-Docs-Dokumente unter anderem als PDF exportiert werden k{\"o}nnen
+
+\bibitem[{Institut für Mittelstandsforschung Bonn}(2022)]{ifm_kmu_digitalisierung_prozesse}
+\dinatlabel{{Institut für Mittelstandsforschung Bonn} 2022} \textsc{{Institut für Mittelstandsforschung Bonn}}:
+\newblock \emph{Digitalisierung von Geschäftsprozessen im Mittelstand}.
+\newblock 2022. --
+\newblock URL \url{https://www.ifm-bonn.org/statistiken/digitalisierung}. -- Zugriffsdatum: 2026-01-21
 
 \bibitem[{ISO/IEC}(2023)]{iso_25010_2023}
 \dinatlabel{{ISO/IEC} 2023} \textsc{{ISO/IEC}}:
@@ -204,18 +216,6 @@
 \newblock 2025. --
 \newblock URL \url{https://developers.facebook.com/docs/whatsapp/cloud-api/}. -- Zugriffsdatum: 2025-12-27. --
 \newblock Dokumentation der WhatsApp Business Platform Cloud API, inklusive Senden und Empfangen von Nachrichten sowie Upload und Abruf von Mediendateien
-
-\bibitem[{microtech GmbH}(2016)]{word_excel_kmu_rechnungen}
-\dinatlabel{{microtech GmbH} 2016} \textsc{{microtech GmbH}}:
-\newblock \emph{Rechnungsprogramm oder Word und Excel?}
-\newblock 2016. --
-\newblock URL \url{https://www.microtech.de/blog/rechnungsprogramm-oder-word-excel/}. -- Zugriffsdatum: 2026-01-14
-
-\bibitem[{My eOffice}(2024)]{manual_vs_automated_dms_2025}
-\dinatlabel{{My eOffice} 2024} \textsc{{My eOffice}}:
-\newblock \emph{Document Management System vs Traditional Filing}.
-\newblock 2024. --
-\newblock URL \url{https://myeoffice.in/2024/07/04/document-management-system-vs-traditional-filing/}. -- Zugriffsdatum: 2026-01-20
 
 \bibitem[Newman(2014)]{webanwendungen_spa}
 \dinatlabel{Newman 2014} \textsc{Newman}, Michael~S.:

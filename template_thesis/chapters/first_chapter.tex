@@ -3,8 +3,7 @@
 %
 \chapter{Einleitung}
 \label{chap:einleitung}
-Die manuelle Rechnungs- und Dokumentenverarbeitung stellt für kleine 
-Dienstleistungsunternehmen eine erhebliche Belastung dar \cite{chatbots_finanzprozesse}. Diese Arbeit entwickelt 
+Die manuelle Rechnungs- und Dokumentenverarbeitung ist insbesondere für kleine Dienstleistungsunternehmen mit erhöhtem Zeitaufwand und einer erhöhten Fehleranfälligkeit verbunden \cite{chatbots_finanzprozesse}. Diese Arbeit entwickelt 
 einen Chatbot-basierten Ansatz zur Digitalisierung, der Medienbrüche reduziert 
 und administrative Prozesse automatisiert. Zunächst wird die Problemstellung 
 skizziert, bevor Motivation, Ziele und Forschungsfragen erläutert werden.
@@ -12,11 +11,11 @@ skizziert, bevor Motivation, Ziele und Forschungsfragen erläutert werden.
 \section{Problemstellung}
 \label{sec:problemstellung}
 
-Kleine Dienstleistungsunternehmen und selbstständige Erwerbstätige verfügen häufig über keine spezialisierte Buchhaltungs- oder \gls{ac:erp}-Software, sondern erstellen ihre Rechnungen mit einfachen Office-Werkzeugen wie Textverarbeitungs- oder Tabellenkalkulationsprogrammen \cite{word_excel_kmu_rechnungen}. Kundendaten, Leistungsbeschreibungen und Beträge werden dabei manuell in Vorlagen übertragen, Rechnungen als \gls{ac:pdf} exportiert und anschließend per E-Mail oder Messenger an die Kundschaft versendet. Die Ablage der erzeugten Rechnungen und weiterer administrativer Dokumente erfolgt oftmals in unsystematischen Ordnerstrukturen auf lokalen Rechnern oder in allgemeinen Cloud-Speichern.
+Kleine Dienstleistungsunternehmen und selbstständige Erwerbstätige verfügen häufig über keine spezialisierte Buchhaltungs- oder \gls{ac:erp}-Software, sondern erstellen ihre Rechnungen mit einfachen Office-Werkzeugen wie Textverarbeitungs- oder Tabellenkalkulationsprogrammen \cite{bitkom_kmu_digitalisierung_2023}. Kundendaten, Leistungsbeschreibungen sowie Beträge werden dabei manuell in Vorlagen übertragen. Die Rechnungen werden anschließend als \gls{ac:pdf} exportiert und per E-Mail oder Messenger an die Kundschaft versendet. Die Ablage der erzeugten Rechnungen und weiterer administrativer Dokumente erfolgt oftmals in unsystematischen Ordnerstrukturen auf lokalen Rechnern oder in allgemeinen Cloud-Speichern.
 
-Diese Vorgehensweise führt zu mehreren Problemen. Zum einen ist die wiederkehrende manuelle Erstellung und Ablage von Rechnungen zeitaufwendig und fehleranfällig, etwa durch Tippfehler, vergessene oder unvollständige Pflichtangaben oder uneinheitliche Formatierungen. Zum anderen entstehen Medienbrüche zwischen Kommunikationskanälen, Office-Dokumenten und Ablagesystemen, da Informationen aus E-Mails, Chats oder Notizen in verschiedenen Systemen erneut eingegeben und gepflegt werden müssen. Dies erschwert die spätere Nachvollziehbarkeit von Belegen, die strukturierte Vorbereitung von Unterlagen für Steuerberatung und Finanzverwaltung sowie den schnellen Zugriff auf vergangene Rechnungen und relevante Dokumente \cite{chatbots_finanzprozesse, manual_invoice_time_2025}.
+Diese Vorgehensweise führt zu mehreren Problemen. Zum einen ist die wiederkehrende manuelle Erstellung und Ablage von Rechnungen zeitaufwendig und fehleranfällig, etwa durch Tippfehler, fehlende oder unvollständige Pflichtangaben sowie uneinheitliche Formatierungen. Zum anderen entstehen Medienbrüche zwischen Kommunikationskanälen, Office-Dokumenten und Ablagesystemen, da Informationen aus E-Mails, Chats oder Notizen in unterschiedlichen Systemen erneut eingegeben und gepflegt werden müssen. Dies erschwert die spätere Nachvollziehbarkeit von Belegen, die strukturierte Vorbereitung von Unterlagen für Steuerberatung und Finanzverwaltung sowie den schnellen Zugriff auf vergangene Rechnungen und relevante Dokumente \cite{chatbots_finanzprozesse,manual_invoice_time_2025}.
 
-Gleichzeitig stehen einfache cloudbasierte Werkzeuge zur Verfügung, mit denen sich Datenhaltung, Dokumentenerzeugung und Kommunikation grundsätzlich integrieren ließen. Viele kleine Unternehmen nutzen solche Dienste jedoch isoliert und ohne durchgängige Automatisierung, etwa indem sie zwar Cloud-Speicher oder Online-Textverarbeitung einsetzen, die Prozesse dazwischen aber weiterhin manuell ausführen. Es fehlt eine niedrigschwellige Lösung, die an den alltäglichen Arbeitsgewohnheiten der Zielgruppe ansetzt, Medienbrüche reduziert und sowohl die Erstellung als auch die strukturierte Ablage von Rechnungen und administrativen Dokumenten unterstützt, ohne den Einsatz komplexer und kostenintensiver Buchhaltungssysteme zu erfordern \cite{manual_vs_automated_dms_2025}.
+Gleichzeitig stehen einfache cloudbasierte Werkzeuge zur Verfügung, mit denen sich Datenhaltung, Dokumentenerzeugung und Kommunikation grundsätzlich integrieren ließen. Viele kleine Unternehmen nutzen solche Dienste jedoch isoliert und ohne durchgängige Automatisierung, etwa indem sie zwar Cloud-Speicher oder Online-Textverarbeitung einsetzen, die dazwischenliegenden Prozesse aber weiterhin manuell ausführen. Es fehlt eine niedrigschwellige Lösung, die an den alltäglichen Arbeitsgewohnheiten der Zielgruppe ansetzt, Medienbrüche reduziert und sowohl die Erstellung als auch die strukturierte Ablage von Rechnungen und administrativen Dokumenten unterstützt, ohne den Einsatz komplexer und kostenintensiver Buchhaltungssysteme zu erfordern \cite{ifm_kmu_digitalisierung_prozesse}.
 
 \section{Motivation und Zielsetzung}
 \label{sec:motivation-zielsetzung}
@@ -33,27 +32,28 @@ Die Umsetzung soll zeigen, inwieweit sich mit verhältnismäßig einfachen, clou
 \section{Forschungsfragen}
 \label{sec:forschungsfragen}
 
-Aus der in \autoref{sec:problemstellung} beschriebenen Ausgangslage und der in \autoref{sec:motivation-zielsetzung} formulierten Zielsetzung ergeben sich folgende Forschungsfragen, die in dieser Arbeit untersucht werden:
+Aus der in \autoref{sec:problemstellung} beschriebenen Ausgangslage sowie der in \autoref{sec:motivation-zielsetzung} formulierten Zielsetzung ergeben sich die folgenden Forschungsfragen, die im Rahmen dieser Arbeit untersucht werden:
 
 \begin{enumerate}
-\item Wie lässt sich ein prototypisches System zur Erstellung und Ablage von Rechnungen und administrativen Dokumenten für kleine Dienstleistungsunternehmen und Selbstständige auf Basis gängiger cloudbasierter Werkzeuge konzipieren?
-\item Inwieweit kann ein Chatbot, der an einen bestehenden Kommunikationskanal angebunden ist, die dialogbasierte Erfassung von Rechnungs- und Dokumentendaten so unterstützen, dass Medienbrüche reduziert und wiederkehrende manuelle Arbeitsschritte verringert werden?
-\item Wie kann eine ergänzende Web-Anwendung gestaltet werden, die den Zugriff auf Kunden, Rechnungen und Dokumente strukturiert ermöglicht und die im Chat erfassten Daten für die weitere Verwaltung nutzbar macht?
-\item Inwieweit zeigen sich beim praktischen Einsatz des prototypisch umgesetzten Systems Grenzen, Herausforderungen und Verbesserungspotenziale im Hinblick auf Nutzbarkeit, Prozessdurchlaufzeiten und technische Robustheit?
+\item Wie lässt sich ein prototypisches System zur Erstellung und strukturierten Ablage von Rechnungen und administrativen Dokumenten für kleine Dienstleistungsunternehmen und Selbstständige auf Basis gängiger cloudbasierter Werkzeuge konzipieren?
+\item Inwieweit kann ein Chatbot, der an einen bestehenden Kommunikationskanal angebunden ist, die dialogbasierte Erfassung von Rechnungs- und Dokumentendaten unterstützen, sodass Medienbrüche reduziert und wiederkehrende manuelle Arbeitsschritte verringert werden?
+\item Wie kann eine ergänzende Web-Anwendung gestaltet werden, die einen strukturierten Zugriff auf Kunden, Rechnungen und Dokumente ermöglicht und die im Chat erfassten Daten für die weitere Verwaltung nutzbar macht?
+\item Inwieweit zeigen sich beim praktischen Einsatz des prototypisch umgesetzten Systems Grenzen, Herausforderungen und Verbesserungspotenziale in Bezug auf Nutzbarkeit, Prozessdurchlaufzeiten und technische Robustheit?
 \end{enumerate}
 
 
 \section{Vorgehensweise und Aufbau der Arbeit}
 \label{sec:vorgehensweise-aufbau}
 
-Die vorliegende Arbeit gliedert sich in mehrere aufeinander aufbauende Schritte, die von der Einordnung des Themas über die Konzeption bis hin zur prototypischen Umsetzung und Evaluation des Systems reichen. Ziel ist es, die in den vorherigen Abschnitten formulierten Forschungsfragen systematisch zu bearbeiten und die getroffenen Entscheidungen nachvollziehbar zu begründen.
+Die vorliegende Arbeit gliedert sich in mehrere aufeinander aufbauende Schritte, die von der Einordnung des Themas über die Konzeption bis hin zur prototypischen Umsetzung und Evaluation des Systems reichen. Ziel ist es, die in den vorherigen Abschnitten formulierten Forschungsfragen systematisch zu bearbeiten und die dabei getroffenen Entscheidungen nachvollziehbar zu begründen.
 
 Zunächst werden in \autoref{chap:grundlagen} die fachlichen und technischen Grundlagen vorgestellt, die für das Verständnis der Arbeit erforderlich sind. Dazu gehören insbesondere zentrale Konzepte der Rechnungs- und Dokumentenverarbeitung in kleinen Unternehmen sowie relevante Aspekte cloudbasierter Dienste und Integrationsplattformen. Auf dieser Basis werden zudem die in der Arbeit eingesetzten Technologien eingeordnet und begrifflich abgegrenzt.
 
 Im anschließenden Kapitel wird die Konzeption des zu entwickelnden Systems beschrieben. Dabei werden die fachlichen Anforderungen präzisiert, zentrale Use-Cases herausgearbeitet und eine Zielarchitektur entworfen, die den Einsatz eines Chatbots, einer cloudbasierten Datenhaltung und einer ergänzenden Web-Anwendung miteinander verbindet. Die Konzeption umfasst sowohl die Gestaltung der Dialoge im Chat als auch die Struktur der zugrunde liegenden Daten und Dokumente.
 
-Darauf aufbauend folgt die Implementierung des Prototyps. In diesem Kapitel wird erläutert, wie die zuvor konzipierte Architektur mit konkreten Werkzeugen und Diensten umgesetzt wurde. Es werden die technische Integration der Komponenten, die wichtigsten Implementierungsentscheidungen sowie ausgewählte Aspekte der Realisierung im Detail beschrieben.
+Darauf aufbauend folgt die Implementierung des Prototyps. In diesem Kapitel wird erläutert, wie die zuvor konzipierte Architektur mit konkreten Werkzeugen und Diensten umgesetzt wird. Beschrieben werden die technische Integration der einzelnen Komponenten, die wichtigsten Implementierungsentscheidungen sowie ausgewählte Aspekte der praktischen Realisierung.
 
-Im anschließenden Evaluationskapitel wird das entwickelte System anhand ausgewählter Szenarien untersucht. Betrachtet werden insbesondere die funktionale Vollständigkeit der Kernprozesse, die wahrgenommene Performance aus Nutzersicht sowie Stärken und Grenzen des Ansatzes im praktischen Einsatz. Zudem werden Herausforderungen und mögliche Erweiterungen diskutiert.
+Im anschließenden Evaluationskapitel wird das entwickelte System anhand ausgewählter Szenarien untersucht. Dabei werden insbesondere die funktionale Vollständigkeit der Kernprozesse, die wahrgenommene Performance aus Nutzersicht sowie die Stärken und Grenzen des Ansatzes im praktischen Einsatz betrachtet. Zudem werden identifizierte Herausforderungen und mögliche Erweiterungen diskutiert.
 
-Abschließend fasst das Schlusskapitel die wesentlichen Ergebnisse der Arbeit zusammen, beantwortet die eingangs formulierten Forschungsfragen und gibt einen Ausblick auf weiterführende Arbeiten und potenzielle Weiterentwicklungen des prototypischen Systems.
+Abschließend fasst das Schlusskapitel die wesentlichen Ergebnisse der Arbeit zusammen, beantwortet die eingangs formulierten Forschungsfragen und gibt einen Ausblick auf weiterführende Arbeiten sowie potenzielle Weiterentwicklungen des prototypischen Systems.
+

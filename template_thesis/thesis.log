@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.12)  1 FEB 2026 22:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.12)  7 FEB 2026 00:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -69,8 +69,8 @@ Package typearea Info: These are the values describing the layout:
 (typearea)             \paperwidth      = 597.50793pt
 (typearea)              \textwidth      = 408.2971pt
 (typearea)              DIV departure   = -3%
-(typearea)              \evensidemargin = 44.38632pt
-(typearea)              \oddsidemargin  = 0.28453pt
+(typearea)              \evensidemargin = 29.44861pt
+(typearea)              \oddsidemargin  = 29.44861pt
 (typearea)             \paperheight     = 845.04694pt
 (typearea)              \textheight     = 595.80026pt
 (typearea)              \topmargin      = -25.16531pt
@@ -939,178 +939,204 @@ File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
 File: listings.cfg 2024/09/23 1.10c listings configuration
 ))
 Package: listings 2024/09/23 1.10c (Carsten Heinz)
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2025/02/11 v3.2a Micro-typographical refinements (RS)
+\MT@toks=\toks58
+\MT@tempbox=\box92
+\MT@count=\count395
+LaTeX Info: Redefining \noprotrusionifhmode on input line 1087.
+LaTeX Info: Redefining \leftprotrusion on input line 1088.
+\MT@prot@toks=\toks59
+LaTeX Info: Redefining \rightprotrusion on input line 1107.
+LaTeX Info: Redefining \textls on input line 1449.
+\MT@outer@kern=\dimen333
+LaTeX Info: Redefining \microtypecontext on input line 2053.
+LaTeX Info: Redefining \textmicrotypecontext on input line 2070.
+\MT@listname@count=\count396
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/microtype-pdftex.def
+File: microtype-pdftex.def 2025/02/11 v3.2a Definitions specific to pdftex (RS)
+LaTeX Info: Redefining \lsstyle on input line 944.
+LaTeX Info: Redefining \lslig on input line 944.
+\MT@outer@space=\skip91
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2025/02/11 v3.2a microtype main configuration file (RS)
+)
+LaTeX Info: Redefining \microtypesetup on input line 3065.
+)
 \glswrite=\write4
 \glo@main@file=\write5
 \openout5 = `thesis.glo'.
 
-Package glossaries Info: Writing glossary file thesis.glo on input line 26.
+Package glossaries Info: Writing glossary file thesis.glo on input line 29.
 \glo@acronym@file=\write6
 \openout6 = `thesis.acn'.
 
-Package glossaries Info: Writing glossary file thesis.acn on input line 26.
+Package glossaries Info: Writing glossary file thesis.acn on input line 29.
 \glo@symbols@file=\write7
 \openout7 = `thesis.slo'.
 
-Package glossaries Info: Writing glossary file thesis.slo on input line 26.
+Package glossaries Info: Writing glossary file thesis.slo on input line 29.
  (./thesisglossaries.tex) (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count395
-\l__pdf_internal_box=\box92
+\l__color_backend_stack_int=\count397
+\l__pdf_internal_box=\box93
 ) (./thesis.aux)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-\c@mv@tabular=\count396
-\c@mv@boldtabular=\count397
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 32.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+\c@mv@tabular=\count398
+\c@mv@boldtabular=\count399
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 35.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <10.95> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 32.
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 35.
 
 
 LaTeX Font Warning: Font shape `T1/pcr/m/scsl' undefined
-(Font)              using `T1/pcr/m/sc' instead on input line 32.
+(Font)              using `T1/pcr/m/sc' instead on input line 35.
 
 LaTeX Font Info:    Font shape `T1/pcr/b/it' in size <10.95> not available
-(Font)              Font shape `T1/pcr/b/sl' tried instead on input line 32.
+(Font)              Font shape `T1/pcr/b/sl' tried instead on input line 35.
 
 LaTeX Font Warning: Font shape `T1/pcr/b/scsl' undefined
-(Font)              using `T1/pcr/b/sc' instead on input line 32.
+(Font)              using `T1/pcr/b/sc' instead on input line 35.
 
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 32.
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 35.
 LaTeX Font Info:    Font shape `T1/pcr/bx/it' in size <10.95> not available
-(Font)              Font shape `T1/pcr/b/it' tried instead on input line 32.
+(Font)              Font shape `T1/pcr/b/it' tried instead on input line 35.
 LaTeX Font Info:    Font shape `T1/pcr/b/it' in size <10.95> not available
-(Font)              Font shape `T1/pcr/b/sl' tried instead on input line 32.
+(Font)              Font shape `T1/pcr/b/sl' tried instead on input line 35.
 LaTeX Font Info:    Font shape `T1/pcr/bx/sl' in size <10.95> not available
-(Font)              Font shape `T1/pcr/b/sl' tried instead on input line 32.
+(Font)              Font shape `T1/pcr/b/sl' tried instead on input line 35.
 
 LaTeX Font Warning: Font shape `T1/pcr/bx/scsl' undefined
-(Font)              using `T1/pcr/bx/sc' instead on input line 32.
+(Font)              using `T1/pcr/bx/sc' instead on input line 35.
 
 LaTeX Font Info:    Font shape `T1/pcr/bx/sc' in size <10.95> not available
-(Font)              Font shape `T1/pcr/b/sc' tried instead on input line 32.
+(Font)              Font shape `T1/pcr/b/sc' tried instead on input line 35.
 
 LaTeX Font Warning: Font shape `T1/pcr/sbx/sc' undefined
-(Font)              using `T1/pcr/sb/sc' instead on input line 32.
+(Font)              using `T1/pcr/sb/sc' instead on input line 35.
 
 
 LaTeX Font Warning: Font shape `T1/pcr/sb/n' undefined
-(Font)              using `T1/pcr/m/n' instead on input line 32.
+(Font)              using `T1/pcr/m/n' instead on input line 35.
 
 
 LaTeX Font Warning: Font shape `T1/pcr/sb/it' undefined
-(Font)              using `T1/pcr/sb/n' instead on input line 32.
+(Font)              using `T1/pcr/sb/n' instead on input line 35.
 
 
 LaTeX Font Warning: Font shape `T1/pcr/sb/sl' undefined
-(Font)              using `T1/pcr/sb/it' instead on input line 32.
+(Font)              using `T1/pcr/sb/it' instead on input line 35.
 
 
 LaTeX Font Warning: Font shape `T1/pcr/sb/scit' undefined
-(Font)              using `T1/pcr/sb/sc' instead on input line 32.
+(Font)              using `T1/pcr/sb/sc' instead on input line 35.
 
 
 LaTeX Font Warning: Font shape `T1/pcr/sb/sc' undefined
-(Font)              using `T1/pcr/sb/n' instead on input line 32.
+(Font)              using `T1/pcr/sb/n' instead on input line 35.
 
 
 LaTeX Font Warning: Font shape `T1/pcr/sbc/sc' undefined
-(Font)              using `T1/pcr/c/sc' instead on input line 32.
+(Font)              using `T1/pcr/c/sc' instead on input line 35.
 
 
 LaTeX Font Warning: Font shape `T1/pcr/c/n' undefined
-(Font)              using `T1/pcr/m/n' instead on input line 32.
+(Font)              using `T1/pcr/m/n' instead on input line 35.
 
 
 LaTeX Font Warning: Font shape `T1/pcr/c/it' undefined
-(Font)              using `T1/pcr/c/n' instead on input line 32.
+(Font)              using `T1/pcr/c/n' instead on input line 35.
 
 
 LaTeX Font Warning: Font shape `T1/pcr/c/sl' undefined
-(Font)              using `T1/pcr/c/it' instead on input line 32.
+(Font)              using `T1/pcr/c/it' instead on input line 35.
 
 
 LaTeX Font Warning: Font shape `T1/pcr/c/scit' undefined
-(Font)              using `T1/pcr/c/sc' instead on input line 32.
+(Font)              using `T1/pcr/c/sc' instead on input line 35.
 
 
 LaTeX Font Warning: Font shape `T1/pcr/c/sc' undefined
-(Font)              using `T1/pcr/c/n' instead on input line 32.
+(Font)              using `T1/pcr/c/n' instead on input line 35.
 
 
 LaTeX Font Warning: Font shape `T1/pcr/lc/sc' undefined
-(Font)              using `T1/pcr/l/sc' instead on input line 32.
+(Font)              using `T1/pcr/l/sc' instead on input line 35.
 
 
 LaTeX Font Warning: Font shape `T1/pcr/l/n' undefined
-(Font)              using `T1/pcr/m/n' instead on input line 32.
+(Font)              using `T1/pcr/m/n' instead on input line 35.
 
 
 LaTeX Font Warning: Font shape `T1/pcr/l/it' undefined
-(Font)              using `T1/pcr/l/n' instead on input line 32.
+(Font)              using `T1/pcr/l/n' instead on input line 35.
 
 
 LaTeX Font Warning: Font shape `T1/pcr/l/sl' undefined
-(Font)              using `T1/pcr/l/it' instead on input line 32.
+(Font)              using `T1/pcr/l/it' instead on input line 35.
 
 
 LaTeX Font Warning: Font shape `T1/pcr/l/scit' undefined
-(Font)              using `T1/pcr/l/sc' instead on input line 32.
+(Font)              using `T1/pcr/l/sc' instead on input line 35.
 
 
 LaTeX Font Warning: Font shape `T1/pcr/l/sc' undefined
-(Font)              using `T1/pcr/l/n' instead on input line 32.
+(Font)              using `T1/pcr/l/n' instead on input line 35.
 
 
 LaTeX Font Warning: Font shape `T1/pcr/m/ui' undefined
-(Font)              using `T1/pcr/m/n' instead on input line 32.
+(Font)              using `T1/pcr/m/n' instead on input line 35.
 
 
 LaTeX Font Warning: Font shape `T1/pcr/bx/ui' undefined
-(Font)              using `T1/pcr/bx/n' instead on input line 32.
+(Font)              using `T1/pcr/bx/n' instead on input line 35.
 
 
 LaTeX Font Warning: Font shape `T1/pcr/m/In' undefined
-(Font)              using `T1/pcr/m/n' instead on input line 32.
+(Font)              using `T1/pcr/m/n' instead on input line 35.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/translations/translations-basic-dictionary-german.trsl
 File: translations-basic-dictionary-german.trsl (german translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `german'. on input line 32.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `german'. on input line 35.
  (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count398
-\scratchdimen=\dimen333
-\scratchbox=\box93
-\nofMPsegments=\count399
-\nofMParguments=\count400
-\everyMPshowfont=\toks58
-\MPscratchCnt=\count401
-\MPscratchDim=\dimen334
-\MPnumerator=\count402
-\makeMPintoPDFobject=\count403
-\everyMPtoPDFconversion=\toks59
+\scratchcounter=\count400
+\scratchdimen=\dimen334
+\scratchbox=\box94
+\nofMPsegments=\count401
+\nofMParguments=\count402
+\everyMPshowfont=\toks60
+\MPscratchCnt=\count403
+\MPscratchDim=\dimen335
+\MPnumerator=\count404
+\makeMPintoPDFobject=\count405
+\everyMPtoPDFconversion=\toks61
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -1135,21 +1161,21 @@ Package caption Info: End \AtBeginDocument code.
 * paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: twoside 
-* h-part:(L,W,R)=(71.70166pt, 418.25368pt, 107.55254pt)
+* modes: 
+* h-part:(L,W,R)=(89.62709pt, 418.25368pt, 89.6271pt)
 * v-part:(T,H,B)=(101.40665pt, 591.5302pt, 152.11pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
 * \textwidth=418.25368pt
 * \textheight=591.5302pt
-* \oddsidemargin=-0.56833pt
-* \evensidemargin=35.28255pt
+* \oddsidemargin=17.3571pt
+* \evensidemargin=17.3571pt
 * \topmargin=-8.26335pt
 * \headheight=17.0pt
 * \headsep=20.40001pt
 * \topskip=11.0pt
 * \footskip=47.6pt
-* \marginparwidth=87.49223pt
+* \marginparwidth=58.32816pt
 * \marginparsep=12.8401pt
 * \columnsep=10.0pt
 * \skip\footins=10.0pt plus 4.0pt minus 2.0pt
@@ -1157,12 +1183,12 @@ Package caption Info: End \AtBeginDocument code.
 * \voffset=0.0pt
 * \mag=1000
 * \@twocolumnfalse
-* \@twosidetrue
-* \@mparswitchtrue
+* \@twosidefalse
+* \@mparswitchfalse
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 32.
+Package hyperref Info: Link coloring ON on input line 35.
 (./thesis.out) (./thesis.out)
 \@outlinefile=\write8
 \openout8 = `thesis.out'.
@@ -1174,12 +1200,12 @@ Class scrreprt Info: loading recommended package `bookmark'.
 (scrreprt)           `bookmarkpackage=false' before \begin{document} and
 (scrreprt)           you can avoid this message adding:
 (scrreprt)             \usepackage{bookmark}
-(scrreprt)           before \begin{document} on input line 32.
+(scrreprt)           before \begin{document} on input line 35.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
  (/usr/local/texlive/2025/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
 File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO)
-\BKM@id=\count404
+\BKM@id=\count406
 )) (/usr/local/texlive/2025/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
  (/usr/local/texlive/2025/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
@@ -1189,14 +1215,37 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ))
-\c@lstlisting=\count405
-Package tocbasic Info: setting babel extension for `lol' on input line 32.
-\scr@dte@lstlisting@maxnumwidth=\skip91
- (./configuration/configuration.tex) (../style/coverpageCD2017.tex
+\c@lstlisting=\count407
+Package tocbasic Info: setting babel extension for `lol' on input line 35.
+\scr@dte@lstlisting@maxnumwidth=\skip92
+LaTeX Info: Redefining \microtypecontext on input line 35.
+Package microtype Info: Applying patch `item' on input line 35.
+Package microtype Info: Applying patch `toc' on input line 35.
+Package microtype Info: Applying patch `eqnum' on input line 35.
+Package microtype Info: Applying patch `footnote' on input line 35.
+Package microtype Info: Applying patch `verbatim' on input line 35.
+LaTeX Info: Redefining \microtypesetup on input line 35.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `alltext-nott'.
+LaTeX Info: Redefining \showhyphens on input line 35.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
+) (./configuration/configuration.tex) (../style/coverpageCD2017.tex
 LaTeX Font Info:    Trying to load font information for T1+phv on input line 9.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `phv' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
 <../style/HAW_Marke_schwarz.pdf, id=7, 387.4475pt x 142.5325pt>
 File: ../style/HAW_Marke_schwarz.pdf Graphic file (type pdf)
 <use ../style/HAW_Marke_schwarz.pdf>
@@ -1213,6 +1262,10 @@ LaTeX Font Warning: Font shape `T1/opensans/m/n' undefined
 LaTeX Font Warning: Font shape `T1/opensans/b/n' undefined
 (Font)              using `T1/opensans/m/n' instead on input line 40.
 
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `opensans' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
 
 LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <28> not available
 (Font)              size <29.86> substituted on input line 53.
@@ -1229,96 +1282,86 @@ LaTeX Font Warning: Font shape `T1/cmr/bx/n' in size <28> not available
 
 
 
- <../style/HAW_Marke_schwarz.pdf>]
+ <../style/HAW_Marke_schwarz.pdf>] (../style/titlepage.tex)
 
 [2
 
 
-] (../style/titlepage.tex)
-
-[3{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc}]
-
-[4
-
-
-] (../style/abstractpage.tex
-Overfull \hbox (21.3834pt too wide) in paragraph at lines 21--22
-[]\T1/cmr/m/n/10.95 Rechnungsautomatisierung, Do-ku-men-ten-ma-na-ge-ment, Chatbot-Systeme, Cloud-Speicherung,
- []
-
+{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc}] (../style/abstractpage.tex
 LaTeX Font Info:    Trying to load font information for U+msa on input line 28.
-(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 28.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 
-[5
+[3
+
+
 
 ])
 
-[6] (./thesis.toc
+[4]
+Package tocbasic Info: character protrusion at toc deactivated on input line 58.
+ (./thesis.toc
 
-[7
+[5
 
 
 
 ]
 
-[8])
+[6])
 \tf@toc=\write9
 \openout9 = `thesis.toc'.
 
 
 
-[9]
-
-[10
-
-
-] (./thesis.lof)
+[7]
+Package tocbasic Info: character protrusion at lof deactivated on input line 62.
+ (./thesis.lof)
 \tf@lof=\write10
 \openout10 = `thesis.lof'.
 
 
 
-[11
+[8
+
+
 
 {/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-
-[12
-
-
-] (./thesis.lot)
+Package tocbasic Info: character protrusion at lot deactivated on input line 66.
+ (./thesis.lot)
 \tf@lot=\write11
 \openout11 = `thesis.lot'.
 
 
 
-[13
-
-]
-
-[14
+[9
 
 
-] (./thesis.acr)
 
-[15
+] (./thesis.acr
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmss' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+)
+
+[10
 
 
-]
-
-[16
 
 
 ] (./thesis.sls)
 
-[17]
-
-[18
+[11
 
 
 ] (./chapters/first_chapter.tex
@@ -1327,13 +1370,15 @@ chapter 1.
 
 [1
 
+
+
 ]
 
 [2]
 
-[3]) (./chapters/second_chapter.tex
+[3]
 
-[4]
+[4]) (./chapters/second_chapter.tex
 
 [5]
 chapter 2.
@@ -1342,21 +1387,15 @@ chapter 2.
 [6
 
 ]
-Underfull \vbox (badness 3861) has occurred while \output is active []
-
-
 
 [7]
 
 [8]
-<chatbot_architektur.png, id=373, 3212.0pt x 1316.92pt>
+<chatbot_architektur.png, id=351, 3212.0pt x 1316.92pt>
 File: chatbot_architektur.png Graphic file (type png)
 <use chatbot_architektur.png>
-Package pdftex.def Info: chatbot_architektur.png  used on input line 41.
+Package pdftex.def Info: chatbot_architektur.png  used on input line 51.
 (pdftex.def)             Requested size: 384.7926pt x 157.76234pt.
-
-Underfull \vbox (badness 7133) has occurred while \output is active []
-
 
 
 [9]
@@ -1364,14 +1403,11 @@ Underfull \vbox (badness 7133) has occurred while \output is active []
 [10 <./chatbot_architektur.png>]
 
 [11]
-<rechnung_vorlage.png, id=394, 796.9775pt x 497.86pt>
+<rechnung_vorlage.png, id=372, 796.9775pt x 497.86pt>
 File: rechnung_vorlage.png Graphic file (type png)
 <use rechnung_vorlage.png>
-Package pdftex.def Info: rechnung_vorlage.png  used on input line 81.
+Package pdftex.def Info: rechnung_vorlage.png  used on input line 91.
 (pdftex.def)             Requested size: 355.51817pt x 222.08257pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 
 
 [12]
@@ -1387,49 +1423,45 @@ chapter 3.
 [16
 
 ]
-Overfull \hbox (26.5322pt too wide) in paragraph at lines 35--37
-[][][]\T1/cmr/m/n/10.95 Abbildung 3.1[][][] zeigt ein ty-pi-sches Make.com-Szenario zur Ver-ar-bei-tung ein-ge-hen-der WhatsApp-
- []
-
-<make_whatsapp_airtable.png, id=436, 865.2325pt x 203.76125pt>
-File: make_whatsapp_airtable.png Graphic file (type png)
-<use make_whatsapp_airtable.png>
-Package pdftex.def Info: make_whatsapp_airtable.png  used on input line 41.
-(pdftex.def)             Requested size: 376.42575pt x 88.64786pt.
+<Make_szeanrio.png, id=414, 1233.60875pt x 594.22pt>
+File: Make_szeanrio.png Graphic file (type png)
+<use Make_szeanrio.png>
+Package pdftex.def Info: Make_szeanrio.png  used on input line 33.
+(pdftex.def)             Requested size: 376.42575pt x 181.32297pt.
 
 
-[17 <./make_whatsapp_airtable.png>]
+[17 <./Make_szeanrio.png>]
 
 [18]
-<airtable_kunden_rechnungen.png, id=451, 1273.75874pt x 189.70876pt>
+<airtable_kunden_rechnungen.png, id=428, 1273.75874pt x 189.70876pt>
 File: airtable_kunden_rechnungen.png Graphic file (type png)
 <use airtable_kunden_rechnungen.png>
-Package pdftex.def Info: airtable_kunden_rechnungen.png  used on input line 107.
+Package pdftex.def Info: airtable_kunden_rechnungen.png  used on input line 91.
 (pdftex.def)             Requested size: 376.42575pt x 56.06201pt.
 
 
 [19 <./airtable_kunden_rechnungen.png>]
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `pcr' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
 
 [20]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\glspl' on input line 186.
-
-
-Overfull \hbox (16.33344pt too wide) in paragraph at lines 187--193
-\T1/cmr/m/n/10.95 der u.a. Google-Endpoints wie \T1/pcr/l/it/10.95 ac-counts.google.com \T1/cmr/m/n/10.95 bzw. \T1/pcr/l/it/10.95 oauth2.googleapis.com
- []
-
-
-
 [21]
-Overfull \hbox (67.92574pt too wide) in paragraph at lines 224--224
-[]\T1/pcr/l/it/10.95 const tokenResponse = await fetch('https://oauth2.googleapis.com/token', {[] 
- []
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\glspl' on input line 157.
 
 
 
 [22]
+Overfull \hbox (67.92574pt too wide) in paragraph at lines 197--197
+[]\T1/pcr/l/it/10.95 const tokenResponse = await fetch('https://oauth2.googleapis.com/token', {[] 
+ []
+
+
 
 [23]
 
@@ -1438,257 +1470,245 @@ Overfull \hbox (67.92574pt too wide) in paragraph at lines 224--224
 [25]
 
 [26]
-Overfull \hbox (37.20747pt too wide) in paragraph at lines 356--362
-\T1/cmr/m/n/10.95 Das Fron-tend wird über Lo-va-ble Cloud be-reit-ge-stellt. Der Build er-folgt als Vite-Produktionsbuild,
- []
 
-) (./chapters/fourth_chapter.tex
+[27]) (./chapters/fourth_chapter.tex
 
-[27]
+[28]
 chapter 4.
 
 
-[28
+[29
 
 ]
 
-[29]
-
 [30]
-<use_case_diagramm.png, id=570, 2922.92pt x 1445.4pt>
+
+[31]
+<use_case_diagramm.png, id=556, 2922.92pt x 1445.4pt>
 File: use_case_diagramm.png Graphic file (type png)
 <use use_case_diagramm.png>
-Package pdftex.def Info: use_case_diagramm.png  used on input line 65.
+Package pdftex.def Info: use_case_diagramm.png  used on input line 62.
 (pdftex.def)             Requested size: 334.60422pt x 165.4566pt.
-<systemarchitektur.png, id=572, 2826.56pt x 1541.76pt>
+
+
+[32]
+<systemarchitektur.png, id=565, 2826.56pt x 1541.76pt>
 File: systemarchitektur.png Graphic file (type png)
 <use systemarchitektur.png>
-Package pdftex.def Info: systemarchitektur.png  used on input line 80.
+Package pdftex.def Info: systemarchitektur.png  used on input line 77.
 (pdftex.def)             Requested size: 376.42575pt x 205.30557pt.
 
 
-[31 <./use_case_diagramm.png>]
+[33 <./use_case_diagramm.png>]
 
-[32 <./systemarchitektur.png>]
+[34 <./systemarchitektur.png>]
 
-[33]
-<datenmodell_er.png, id=604, 2762.32pt x 1541.76pt>
+[35]
+<datenmodell_er.png, id=595, 2762.32pt x 1541.76pt>
 File: datenmodell_er.png Graphic file (type png)
 <use datenmodell_er.png>
-Package pdftex.def Info: datenmodell_er.png  used on input line 111.
+Package pdftex.def Info: datenmodell_er.png  used on input line 112.
 (pdftex.def)             Requested size: 376.42575pt x 210.08122pt.
 
 
-[34]
-Overfull \hbox (29.43443pt too wide) in paragraph at lines 119--120
-\T1/cmr/m/n/10.95 Fel-der wie Vor-na-me, Nach-na-me, Adres-se, Post-leit-zahl und Umsatzsteuer-Identifikationsnummer
- []
-
-
-
-[35 <./datenmodell_er.png>]
-
 [36]
 
-[37]
+[37 <./datenmodell_er.png>]
 
 [38]
 
 [39]
+<prozess_rechnung_erstellen.png, id=624, 337.26pt x 587.19376pt>
+File: prozess_rechnung_erstellen.png Graphic file (type png)
+<use prozess_rechnung_erstellen.png>
+Package pdftex.def Info: prozess_rechnung_erstellen.png  used on input line 157.
+(pdftex.def)             Requested size: 355.51817pt x 618.9908pt.
+
 
 [40]
+Overfull \vbox (64.6606pt too high) has occurred while \output is active []
 
-[41]
+
+
+[41 <./prozess_rechnung_erstellen.png>]
 
 [42]
 
-[43]) (./chapters/fifth_chapter.tex
+[43]
+<prozess_dokument_ablegen.png, id=645, 539.01375pt x 631.35875pt>
+File: prozess_dokument_ablegen.png Graphic file (type png)
+<use prozess_dokument_ablegen.png>
+Package pdftex.def Info: prozess_dokument_ablegen.png  used on input line 200.
+(pdftex.def)             Requested size: 355.51817pt x 416.42831pt.
 
-[44]
+
+[44 <./prozess_dokument_ablegen.png>]
+
+[45]
+
+[46]
+
+[47]) (./chapters/fifth_chapter.tex
+
+[48]
 chapter 5.
-<make_chatbot_szenario.png, id=675, 1238.6275pt x 418.56375pt>
+<make_chatbot_szenario.png, id=681, 1238.6275pt x 418.56375pt>
 File: make_chatbot_szenario.png Graphic file (type png)
 <use make_chatbot_szenario.png>
 Package pdftex.def Info: make_chatbot_szenario.png  used on input line 29.
 (pdftex.def)             Requested size: 418.25368pt x 141.33899pt.
 
-Underfull \vbox (badness 3679) has occurred while \output is active []
 
-
-
-[45
+[49
 
 ]
 
-[46 <./make_chatbot_szenario.png>]
-<make_router_current_step.png, id=694, 787.94376pt x 652.4375pt>
+[50 <./make_chatbot_szenario.png>]
+<make_router_current_step.png, id=701, 787.94376pt x 652.4375pt>
 File: make_router_current_step.png Graphic file (type png)
 <use make_router_current_step.png>
 Package pdftex.def Info: make_router_current_step.png  used on input line 71.
 (pdftex.def)             Requested size: 376.42575pt x 311.68309pt.
 
 
-[47 <./make_router_current_step.png>]
+[51 <./make_router_current_step.png>]
 
-[48]
-<airtable_user_sessions.png, id=713, 602.25pt x 39.14626pt>
+[52]
+<airtable_user_sessions.png, id=720, 602.25pt x 39.14626pt>
 File: airtable_user_sessions.png Graphic file (type png)
 <use airtable_user_sessions.png>
 Package pdftex.def Info: airtable_user_sessions.png  used on input line 151.
 (pdftex.def)             Requested size: 376.42575pt x 24.46872pt.
 
-Underfull \hbox (badness 1132) in paragraph at lines 152--152
-[][][]|\T1/cmr/m/n/10.95 User_-Sessions-Tabelle mit cur-rent_-step-Steuerung und Te-le-fon-num-
- []
 
+[53]
 
-
-[49]
-
-[50 <./airtable_user_sessions.png>]
-
-[51]
-Overfull \hbox (33.09041pt too wide) in paragraph at lines 244--252
-[]\T1/cmr/m/n/10.95 Die Ed-ge Func-ti-ons neh-men [][][]HTTP[][]-Anfragen des Fron-tends ent-ge-gen, füh-ren Authentifizierungs-
- []
-
-<clienthub_ui.png, id=752, 1192.455pt x 457.71pt>
-File: clienthub_ui.png Graphic file (type png)
-<use clienthub_ui.png>
-Package pdftex.def Info: clienthub_ui.png  used on input line 271.
-(pdftex.def)             Requested size: 376.42575pt x 144.48671pt.
-
-Underfull \vbox (badness 1694) has occurred while \output is active []
-
-
-
-[52]
-
-[53 <./clienthub_ui.png>]
-Overfull \hbox (31.9534pt too wide) in paragraph at lines 316--323
-\T1/cmr/m/n/10.95 ver-wen-det. Zu-sätz-lich kom-men Fel-der für Zwi-schen-sum-men und Ge-samt-be-trä-ge (\T1/pcr/l/it/10.95 {{company_-
- []
-
-
-
-[54]
-Overfull \hbox (85.82474pt too wide) in paragraph at lines 391--400
-[]\T1/cmr/m/n/10.95 Auf die-se Wei-se ent-steht ei-ne kon-sis-ten-te Pfad-struk-tur der Form \T1/pcr/l/it/10.95 /Kun-den/<Telefonnummer>/<Jahr>/
- []
-
-
+[54 <./airtable_user_sessions.png>]
 
 [55]
+<clienthub_ui.png, id=758, 1192.455pt x 457.71pt>
+File: clienthub_ui.png Graphic file (type png)
+<use clienthub_ui.png>
+Package pdftex.def Info: clienthub_ui.png  used on input line 272.
+(pdftex.def)             Requested size: 376.42575pt x 144.48671pt.
+
 
 [56]
-<clienthub_dashboard.jpg, id=808, 2188.175pt x 1084.05pt>
+
+[57 <./clienthub_ui.png>]
+
+[58]
+
+[59]
+
+[60]
+<clienthub_dashboard.jpg, id=813, 2188.175pt x 1084.05pt>
 File: clienthub_dashboard.jpg Graphic file (type jpg)
 <use clienthub_dashboard.jpg>
-Package pdftex.def Info: clienthub_dashboard.jpg  used on input line 450.
+Package pdftex.def Info: clienthub_dashboard.jpg  used on input line 426.
 (pdftex.def)             Requested size: 397.3397pt x 196.84087pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 468--469
-[]|\T1/cmr/m/n/10.95 GET/POST (Ba-se: ap-
- []
 
-
-Underfull \vbox (badness 1648) has occurred while \output is active []
-
-
-
-[57 <./clienthub_dashboard.jpg>]
+[61 <./clienthub_dashboard.jpg>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\gls' on input line 484.
+(hyperref)                removing `\gls' on input line 459.
 
 
-Overfull \hbox (21.93579pt too wide) in paragraph at lines 502--502
+Overfull \hbox (21.93579pt too wide) in paragraph at lines 477--477
 []\T1/pcr/l/it/10.95 supabase.functions.invoke("airtable-customers", { method: "GET" });[] 
  []
 
 ) (./chapters/sixth_chapter.tex
 
-[58]
+[62]
 chapter 6.
 
 
-[59
+[63
 
 ]
 
-[60]
-
-[61]
-
-[62]
-
-[63]
-
 [64]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 
 [65]
-Underfull \hbox (badness 10000) in paragraph at lines 81--82
-[]|\T1/cmr/m/n/10.95 Intuitive Nut-zung durch Chat-Interaktion
- []
-
+<performance_vergleich.png, id=851, 1606.0pt x 1000.73875pt>
+File: performance_vergleich.png Graphic file (type png)
+<use performance_vergleich.png>
+Package pdftex.def Info: performance_vergleich.png  used on input line 53.
+(pdftex.def)             Requested size: 334.60422pt x 208.4969pt.
 
 
 [66]
 
-[67]) (./chapters/seventh_chapter.tex
+[67 <./performance_vergleich.png>]
 
 [68]
-chapter 7.
 
-Overfull \hbox (13.28436pt too wide) in paragraph at lines 9--10
-\T1/cmr/m/n/10.95 Ziel die-ser Ar-beit war es, einen nied-rig-schwel-li-gen An-satz zur teil-au-to-ma-ti-sier-ten Rechnungs-
+[69]
+Underfull \hbox (badness 10000) in paragraph at lines 90--91
+[]|\T1/cmr/m/n/10.95 (+20) Intuitive Nut-zung durch Chat-Interaktion
  []
 
 
 
-[69
-
-]
-
 [70]
 
-[71]
+[71]) (./chapters/seventh_chapter.tex
 
 [72]
-
-[73]) (./thesis.bbl
-
-[74]
-chapter without number
+chapter 7.
 
 
-[75
+[73
 
 ]
+
+[74]
+
+[75]
 
 [76]
 
-[77]
+[77]) (./thesis.bbl
 
-[78]) (./appendix/example_appendix.tex
+[78]
+chapter without number
 
-[79]
+
+[79
+
+]
+
+[80]
+
+[81]
+
+[82]) (./appendix/example_appendix.tex
+
+[83]
 chapter A.
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--23
+Underfull \hbox (badness 1189) in paragraph at lines 34--35
+[]|\T1/cmr/m/n/10.95 (+20) Unterstützung bei Kon-zep-ti-on, Text-struk-tu-rie-rung und
+ []
+
+
+Overfull \hbox (5.28488pt too wide) in paragraph at lines 8--40
 [][]
  []
 
 ) (./thesis.gls) (../style/statement_inf.tex
 
-[80
+[84
 
 ]
 
-[81
+[85]
+pdfTeX warning (font expansion): font should be expanded before its first use
+
+
+[86
 
 ]) (./thesis.aux)
  ***********
@@ -1707,18 +1727,18 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 45443 strings out of 473190
- 961735 string characters out of 5715799
- 1514939 words of memory out of 5000000
- 67732 multiletter control sequences out of 15000+600000
- 589112 words of font info for 86 fonts, out of 8000000 for 9000
+ 47601 strings out of 473190
+ 999395 string characters out of 5715799
+ 1578602 words of memory out of 5000000
+ 69635 multiletter control sequences out of 15000+600000
+ 598888 words of font info for 205 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 118i,20n,145p,11005b,1361s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 118i,20n,145p,11005b,1381s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx2986.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsl1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on thesis.pdf (99 pages, 17132340 bytes).
+Output written on thesis.pdf (97 pages, 17440538 bytes).
 PDF statistics:
- 1413 PDF objects out of 1440 (max. 8388607)
- 1233 compressed objects within 13 object streams
- 265 named destinations out of 1000 (max. 500000)
- 678 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1423 PDF objects out of 1440 (max. 8388607)
+ 1240 compressed objects within 13 object streams
+ 266 named destinations out of 1000 (max. 500000)
+ 48821 words of extra memory for PDF output out of 51595 (max. 10000000)
 

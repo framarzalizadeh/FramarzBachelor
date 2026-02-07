@@ -3,24 +3,17 @@
 %
 \chapter{Technologischer Hintergrund}
 \label{chap:technologie}
-Dieses Kapitel stellt die konkreten Technologien vor, die für die Umsetzung 
-des Prototyps verwendet wurden. Zunächst wird Make.com als zentrale 
-Integrations- und Automatisierungsplattform erläutert. Anschließend folgt 
-Airtable als Datenhaltung, gefolgt von Google Docs und Drive für 
-Dokumentenerstellung und Ablage. Abschließend werden Lovable Cloud 
-(Supabase Edge Functions) sowie der Frontend-Stack beschrieben.
+Dieses Kapitel stellt die konkreten Technologien vor, die für die Umsetzung des Prototyps verwendet wurden. Zunächst wird Make.com als zentrale Integrations- und Automatisierungsplattform erläutert. Anschließend folgt Airtable als Datenhaltung, gefolgt von Google Docs und Google Drive zur Dokumentenerstellung und -ablage. Abschließend werden Lovable Cloud (Supabase Edge Functions) sowie der Frontend-Stack beschrieben.
+
+
 
 \section{Make.com als Integrations- und Automatisierungsplattform}
 \label{sec:make}
 
-Make.com ist eine cloudbasierte Integrations- und Automatisierungsplattform,
-die es ermöglicht, unterschiedliche Anwendungen, Dienste und Systeme
-miteinander zu verbinden. Die Umsetzung erfolgt ohne klassische
-Programmierung und basiert auf einem No-Code- beziehungsweise
-Low-Code-Ansatz. Workflows werden in einer grafischen Benutzeroberfläche modelliert, indem vordefinierte Funktionsbausteine konfiguriert und zu logischen Abläufen
-verknüpft werden. Dadurch können auch komplexe Integrationsprozesse ohne
-umfangreiche Programmierkenntnisse umgesetzt werden. Aus technischer Sicht handelt es sich bei Make.com um eine Integrationsplattform, die externe Systeme über deren Web-\glspl{ac:api} anbindet. Ereignisse und Datenflüsse werden dabei in einem zentralen
-Orchestrierungslayer zusammengeführt und automatisiert verarbeitet \cite{make_whatsapp_watch_events, make_array_aggregator}.
+Make.com ist eine cloudbasierte Integrations- und Automatisierungsplattform, die es ermöglicht, unterschiedliche Anwendungen, Dienste und Systeme miteinander zu verbinden. Die Umsetzung erfolgt ohne klassische Programmierung und basiert auf einem No-Code- beziehungsweise Low-Code-Ansatz. Workflows werden in einer grafischen Benutzeroberfläche modelliert, indem vordefinierte Funktionsbausteine konfiguriert und zu logischen Abläufen verknüpft werden. Dadurch können auch komplexe Integrationsprozesse ohne umfangreiche Programmierkenntnisse umgesetzt werden.
+
+Aus technischer Sicht handelt es sich bei Make.com um eine Integrationsplattform, die externe Systeme über deren Web-\glspl{ac:api} anbindet. Ereignisse und Datenflüsse werden dabei in einem zentralen Orchestrierungslayer zusammengeführt und automatisiert verarbeitet \cite{make_whatsapp_watch_events,make_array_aggregator}.
+
 
 Das zentrale Konstrukt in Make sind sogenannte Szenarien. Ein Szenario
 beschreibt einen vollständigen Automatisierungsablauf, der aus einem
@@ -32,14 +25,13 @@ Iteratoren, Aggregatoren oder Router. Trigger-Module starten ein Szenario
 beispielsweise bei einer eingehenden Nachricht über einen Webhook. Aktionsmodule übernehmen anschließend die Verarbeitung der Daten, indem
 sie Informationen lesen, schreiben oder an andere Systeme übertragen.
 
-\autoref{fig:make_scenario} zeigt ein typisches Make.com-Szenario zur Verarbeitung eingehender WhatsApp-Nachrichten. 
-Dabei werden Daten in Airtable gespeichert, Rechnungen über Google Docs generiert und anschließend in Google Drive abgelegt.
-
+\autoref{fig:make_scenario} zeigt ein exemplarisches Make.com-Szenario, das den zentralen Automatisierungsworkflow des Systems abbildet. 
+Eingehende Nachrichten werden verarbeitet, strukturierte Daten in Airtable persistiert und darauf aufbauend Dokumente erzeugt und revisionssicher in Google Drive abgelegt.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.9\textwidth]{make_whatsapp_airtable.png}
-\caption{Make.com-Szenario: WhatsApp-Trigger → Airtable → Google Docs → Drive.}
+\includegraphics[width=0.9\textwidth]{Make_szeanrio.png}
+\caption{Make.com-Szenario zur automatisierten Verarbeitung von WhatsApp-Nachrichten mit nachgelagerter Dokumentenerstellung und Ablage.}
 \label{fig:make_scenario}
 \end{figure}
 
@@ -69,17 +61,9 @@ eigene Serverinfrastruktur erfolgen, vorgefertigte Konnektoren reduzieren
 den Integrationsaufwand, und die Prozesslogik lässt sich durch die visuelle
 Modellierung nachvollziehbar dokumentieren.
 
-Gleichzeitig sind mit dem Einsatz einer Integrationsplattform wie Make.com
-auch Einschränkungen verbunden. Sehr umfangreiche Szenarien können an
-Übersichtlichkeit verlieren, da sämtliche Verarbeitungswege innerhalb
-eines visuellen Diagramms abgebildet werden müssen. Zudem ist die
-Abbildung komplexer Geschäftslogik nur eingeschränkt möglich. Darüber hinaus entsteht eine Abhängigkeit vom jeweiligen Anbieter, etwa
-hinsichtlich Verfügbarkeit, Preisgestaltung und Funktionsumfang der
-Plattform. Für hochskalierende oder besonders sicherheitskritische
-Anwendungen kann daher eine klassisch implementierte, individuell
-entwickelte Integrationsschicht sinnvoller sein. Make.com stellt hingegen insbesondere für klein- bis mittelkomplexe
-Automatisierungsvorhaben mit begrenzten Ressourcen eine pragmatische und
-gut nachvollziehbare Lösung dar.
+Gleichzeitig sind mit dem Einsatz einer Integrationsplattform wie Make.com auch Einschränkungen verbunden. Sehr umfangreiche Szenarien können an Übersichtlichkeit verlieren, da sämtliche Verarbeitungswege innerhalb eines visuellen Diagramms abgebildet werden müssen. Zudem ist die Abbildung komplexer Geschäftslogik nur eingeschränkt möglich. Darüber hinaus entsteht eine Abhängigkeit vom jeweiligen Anbieter, etwa hinsichtlich Verfügbarkeit, Preisgestaltung und Funktionsumfang der Plattform. Für hochskalierende oder besonders sicherheitskritische Anwendungen kann daher eine klassisch implementierte, individuell entwickelte Integrationsschicht sinnvoller sein.
+
+Make.com stellt hingegen insbesondere für klein- bis mittelkomplexe Automatisierungsvorhaben mit begrenzten Ressourcen eine pragmatische und gut nachvollziehbare Lösung dar.
 
 Zusammenfassend steuern Make.com-Szenarien den Workflow vom WhatsApp-Trigger über Airtable bis zur Dokumentenerzeugung in Google Docs sowie zur Ablage in Google Drive.
 
@@ -100,25 +84,20 @@ repräsentieren. Eine Tabelle besteht aus Datensätzen und Feldern, wobei
 die Felder unterschiedliche Typen annehmen können, etwa Text, Zahl,
 Datum, Auswahlfelder oder Verknüpfungen zu anderen Tabellen. Über verknüpfte Felder lassen sich einfache Relationen zwischen Tabellen modellieren, beispielsweise zwischen Kunden und zugehörigen Rechnungen. 
 
-Eine beispielhafte Base-Struktur mit Kunden- und Rechnungstabellen ist in \autoref{fig:airtable_base} dargestellt.
+Eine beispielhafte Tabellenstruktur der verwendeten Airtable-Base ist in \autoref{fig:airtable_base} dargestellt.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth]{airtable_kunden_rechnungen.png}
-\caption{Airtable Base mit Tabellen „Kunden" und „Rechnungen" (mit Filteransicht).}
+\caption{Airtable-Base mit tabellarischer Struktur zur Verwaltung von Dialogzuständen und Rechnungsdaten (Beispielansicht).}
 \label{fig:airtable_base}
 \end{figure}
 
 Darüber hinaus stehen verschiedene Sichten und Filter zur Verfügung, mit denen Teilmengen der Daten anhand frei definierbarer Kriterien angezeigt werden können. Formelfelder ermöglichen zudem die Berechnung dynamischer Werte \cite{airtable_formula_guide}. Sie können unter anderem zur Aggregation von Beträgen oder zur Erzeugung
 formatierter Anzeigeinhalte eingesetzt werden.
 
-Für den Einsatz als zentrale Datenhaltung in einem verteilten System ist
-insbesondere die von Airtable bereitgestellte \gls{ac:rest}-\gls{ac:api} von Bedeutung. Sie
-ermöglicht es, Datensätze programmatisch anzulegen, zu aktualisieren, zu
-löschen oder anhand definierter Filterkriterien abzufragen \cite{airtable_web_api_guide}. Auf diese Weise kann Airtable als zentrale \glqq Single Source of Truth\grqq{} für fachliche Informationen fungieren. Unterschiedliche Frontends und Automatisierungsprozesse greifen dabei über die \gls{ac:api} auf denselben
-konsistenten Datenbestand zu. Durch die Kombination aus grafischer Benutzeroberfläche und Programmierschnittstelle eignet sich Airtable sowohl für die manuelle
-Pflege und Kontrolle von Daten als auch für die Integration in
-automatisierte Workflows.
+Für den Einsatz als zentrale Datenhaltung in einem verteilten System ist insbesondere die von Airtable bereitgestellte \gls{ac:rest}-\gls{ac:api} von Bedeutung. Sie ermöglicht es, Datensätze programmatisch anzulegen, zu aktualisieren, zu löschen oder anhand definierter Filterkriterien abzufragen \cite{airtable_web_api_guide}. Auf diese Weise kann Airtable als zentrale \glqq Single Source of Truth\grqq{} für fachliche Informationen fungieren. Unterschiedliche Frontends und Automatisierungsprozesse greifen dabei über die \gls{ac:api} auf denselben konsistenten Datenbestand zu. Durch die Kombination aus grafischer Benutzeroberfläche und Programmierschnittstelle eignet sich Airtable sowohl für die manuelle Pflege und Kontrolle von Daten als auch für die Integration in automatisierte Workflows.
+
 
 Im Kontext kleiner, cloudbasierter Anwendungen bietet Airtable mehrere
 Vorteile gegenüber klassischen Datenbanksystemen. Die Tabellenstruktur
@@ -129,6 +108,8 @@ und bearbeitbar, wodurch einfache Auswertungen und Kontrollen direkt in
 der Anwendung durchgeführt werden können. Demgegenüber stehen typische Einschränkungen gehosteter Plattformen. Dazu zählen unter anderem Begrenzungen hinsichtlich des maximalen Datenvolumens, der Anzahl zulässiger \gls{ac:api}-Aufrufe sowie die fehlende Unterstützung komplexer Transaktionen. Für klein- bis mittelkomplexe Anwendungen mit moderatem Datenumfang stellt Airtable dennoch eine pragmatische Lösung dar. Es ermöglicht die Realisierung einer zentralen, cloudbasierten Datenhaltung, ohne dass eine eigene Datenbankinfrastruktur betrieben werden muss.
 
 Die verwendete Airtable-Base umfasst vier Tabellen: \texttt{User\_Sessions} (Dialogzustand), \texttt{Customers}, \texttt{Rechnungen} und \texttt{Rechnungspositionen}.
+
+
 
 \section{Google Docs und Google Drive}
 \label{sec:google-docs-drive}
@@ -143,17 +124,7 @@ vollständig browserbasiert und erlauben einen orts- und
 geräteunabhängigen Zugriff auf Dokumente, ohne dass eine lokale
 Office-Software installiert werden muss.
 
-Für automatisierte Systeme ist insbesondere die Programmierschnittstelle
-von Google Docs von Bedeutung. Sie ermöglicht es, Dokumente nicht nur
-manuell, sondern auch programmatisch zu erzeugen und zu verändern. In der Praxis werden hierzu häufig Dokumentvorlagen verwendet, die das
-Layout sowie feste Textbestandteile definieren. Variable Inhalte werden
-über Platzhalter integriert, die bei der Dokumentenerstellung durch
-konkrete Werte aus einem Datensystem ersetzt werden.
-Auf diese Weise können aus einer einzelnen Vorlage eine Vielzahl
-individueller Dokumente generiert werden. Typische Anwendungsfälle sind
-unter anderem die standardisierte Erstellung von Rechnungen, Angeboten
-oder Serienbriefen, ohne dass jedes Dokument manuell angepasst werden
-muss \cite{google_docs_api}.
+Für automatisierte Systeme ist insbesondere die Programmierschnittstelle von Google Docs von Bedeutung. Sie ermöglicht es, Dokumente nicht nur manuell, sondern auch programmatisch zu erzeugen und zu verändern. In der Praxis werden hierzu häufig Dokumentvorlagen verwendet, die das Layout sowie feste Textbestandteile definieren. Variable Inhalte werden über Platzhalter integriert, die bei der Dokumentenerstellung durch konkrete Werte aus einem Datensystem ersetzt werden. Auf diese Weise können aus einer einzelnen Vorlage eine Vielzahl individueller Dokumente generiert werden. Typische Anwendungsfälle sind unter anderem die standardisierte Erstellung von Rechnungen, Angeboten oder Serienbriefen, ohne dass jedes Dokument manuell angepasst werden muss \cite{google_docs_api}.
 
 Google Drive ergänzt diese Funktionalität durch eine strukturierte,
 cloudbasierte Ablage der erzeugten Dokumente. Dateien können in
@@ -185,11 +156,13 @@ und externen Diensten fungieren:
 
 \subsection{Aufgerufene \glspl{ac:api}}
 Die Edge Functions kapseln den Zugriff auf mehrere externe Schnittstellen. Für die Datenhaltung wird die 
-Airtable \gls{ac:rest}-\gls{ac:api} genutzt (z.\,B.\ \texttt{api.airtable.com/v0/}). Für die Authentifizierung und den Zugriff 
-auf Google Drive wird ein \gls{ac:oauth}-2.0-Flow verwendet, der u.\,a.\ Google-Endpoints wie 
-\texttt{accounts.google.com} bzw.\ \texttt{oauth2.googleapis.com} einbindet. Der eigentliche Zugriff auf 
-Ordner- und Dateistrukturen erfolgt anschließend über die Google-Drive-\gls{ac:api} v3 (z.\,B.\ 
-\texttt{googleapis.com/drive/v3/files}).
+Airtable \gls{ac:rest}-\gls{ac:api} genutzt (z.\,B.\ \url{https://api.airtable.com/v0/}). 
+Für die Authentifizierung und den Zugriff auf Google Drive wird ein \gls{ac:oauth}-2.0-Flow verwendet, 
+der u.\,a.\ Google-Endpoints wie \url{https://accounts.google.com} bzw.\ 
+\url{https://oauth2.googleapis.com} einbindet. Der eigentliche Zugriff auf Ordner- und Dateistrukturen 
+erfolgt anschließend über die Google-Drive-\gls{ac:api} v3 (z.\,B.\ 
+\url{https://googleapis.com/drive/v3/files}).
+
 
 \subsection{Zentrale Logik in den Edge Functions}
 Die Implementierung der Edge Functions ist bewusst schlank gehalten und konzentriert sich auf das sichere 
@@ -262,7 +235,8 @@ schnell verfügbar und skalieren automatisch pro Request. Während klassische Se
 Kaltstart-Situationen spürbare Verzögerungen verursachen können, sind serverlose Funktionen in der Regel für 
 kurze, sporadische Integrationsaufgaben geeignet. Gleichzeitig bleiben Grenzen bestehen, z.\,B.\ durch 
 Provider-Limits, Laufzeitbeschränkungen oder die Komplexität umfangreicher Geschäftslogik.
-Edge Functions kapseln Airtable/Drive-Zugriffe sicher für ClientHub-Frontend.
+Edge Functions kapseln die Zugriffe auf Airtable und Google Drive sicher für das ClientHub-Frontend.
+
 
 
 
@@ -353,10 +327,6 @@ Endgeräte optimiert. Diese Einschränkung wurde bewusst in Kauf genommen, da de
 Einsatz in einer Desktop-orientierten Arbeitsumgebung konzipiert ist.
 
 \subsection{Deployment des Frontends}
-Das Frontend wird über Lovable Cloud bereitgestellt. Der Build erfolgt als Vite-Produktionsbuild, der 
-anschließend automatisch veröffentlicht wird. Änderungen am Code führen ohne manuelle Eingriffe zu einem 
-neuen Deployment. Die Webanwendung ist sowohl über eine Preview- als auch über eine veröffentlichte URL 
-erreichbar. Die enge Verzahnung mit den serverseitigen Edge Functions ermöglicht dabei einen durchgängigen 
-End-to-End-Betrieb der Anwendung.
-ClientHub verbindet damit das React-Frontend über Edge Functions mit Airtable und Google Drive und stellt eine einheitliche Verwaltungsoberfläche bereit.
+Das Frontend wird über Lovable Cloud bereitgestellt. Der Build erfolgt als Vite-Produ\-ktions\-build, der anschließend automatisch veröffentlicht wird. Änderungen am Code führen ohne manuelle Eingriffe zu einem neuen Deployment. Die Webanwendung ist sowohl über eine Preview-URL als auch über eine veröffentlichte URL erreichbar. Die enge Verzahnung mit den serverseitigen Edge Functions ermöglicht dabei einen durchgängigen End-to-End"-Betrieb der Anwendung. ClientHub verbindet damit das React-Frontend über Edge Functions mit Airtable und Google Drive und stellt eine einheitliche, cloudbasierte Verwaltungsoberfläche für Kunden-, Rechnungs- und Dokumentendaten bereit.
+
 
